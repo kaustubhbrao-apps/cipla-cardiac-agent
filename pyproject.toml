@@ -1,0 +1,12 @@
+# Vercel's Python runtime needs an explicit entrypoint. There is exactly one
+# server-side function — /api/ask — because it is the only code that holds the
+# model API key. Everything else on this site is static and runs in the browser.
+[project]
+name = "cipla-cardiac-agent"
+version = "1.0.0"
+description = "Grounded question-answering over the Cipla Ascend cardiac analysis"
+requires-python = ">=3.12"   # Vercel's python runtime requires 3.12+
+dependencies = []          # standard library only; pandas runs locally in build/
+
+[tool.vercel]
+entrypoint = "api.ask:handler"
