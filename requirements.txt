@@ -1,0 +1,2 @@
+# api/ask.py uses only the standard library — no pandas on the server.
+# The scientific stack runs locally in build/, never in the deployment.

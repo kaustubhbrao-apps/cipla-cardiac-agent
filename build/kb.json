@@ -1,0 +1,452 @@
+[
+ {
+  "entry_id": "csi-2024",
+  "kind": "team",
+  "title": "CSI 2024 Dyslipidaemia Guidelines",
+  "tags": "csi guideline dyslipidaemia lipid ldl statin ezetimibe a1 a4 a5",
+  "body": "The Cardiological Society of India's 2024 guidance sets LDL-C targets by risk: <100 mg/dL low/moderate, <70 high, <55 for established ASCVD, <40 for recurrent events. For ACS and very-high-risk patients it directs a high-intensity statin PLUS ezetimibe upfront rather than statin monotherapy first. Escalation at 4 weeks runs to bempedoic acid, then PCSK9 inhibitors. This is what turns statin combinations from a second-line add-on into first-line therapy, and it is the single biggest driver behind A1 and A4.",
+  "source": "Indian Heart Journal 2024;76(S1):S6-S19; csi.org.in",
+  "retracted": false
+ },
+ {
+  "entry_id": "ihci",
+  "kind": "team",
+  "title": "IHCI hypertension treatment protocol",
+  "tags": "ihci hypertension protocol step telmisartan amlodipine chlorthalidone a7 a8 a9",
+  "body": "The India Hypertension Control Initiative standard protocol runs: Step 1 amlodipine 5mg (or telmisartan 40mg for diabetics); Step 2 escalate or add a second agent to form a dual; Step 3 amlodipine + telmisartan 80mg + chlorthalidone 12.5mg as a triple. Delivered through Health & Wellness Centres with 30-day refills. This protocol is why A7 exists as a growing tier, and it is the reason a telmisartan-backbone triple is guideline-backed rather than a commercial invention \u2014 which matters directly for CDSCO ban risk.",
+  "source": "ihci.in standard treatment protocol; WHO India HEARTS",
+  "retracted": false
+ },
+ {
+  "entry_id": "esc-spc",
+  "kind": "team",
+  "title": "ESC 2024 and the single-pill combination shift",
+  "tags": "esc single pill combination spc monotherapy adherence a7 a8 a9",
+  "body": "ESC 2024 carries a Class I recommendation to initiate most hypertensive patients on a two-drug single-pill combination rather than monotherapy, reserving monotherapy for low-risk grade 1, the very elderly and the frail. Indian trial data (TOPSPIN, 32+ sites) shows roughly 70% BP control on dual single-pill combinations against under 45% for monotherapy escalation. This is why A9 first-line monotherapy is a hold-not-invest call: guidelines are moving patients out of it, not into it.",
+  "source": "ESC 2024 Hypertension Guidelines, escardio.org; TOPSPIN trial, IJMR",
+  "retracted": false
+ },
+ {
+  "entry_id": "cdsco",
+  "kind": "team",
+  "title": "CDSCO fixed-dose combination bans",
+  "tags": "cdsco fdc ban regulatory risk irrational combination",
+  "body": "CDSCO banned 156 irrational FDCs in August 2024 and a further 16 in June 2026. Both waves targeted combinations without a clinical rationale, not combinations as a category. Guideline-backed combinations were not affected. This is the core of our regulatory answer: every combination in our plan is guideline-endorsed \u2014 the telmisartan triple is the IHCI Step-3 protocol, and statin + ezetimibe is CSI 2024's upfront recommendation for ACS. We are not betting on a combination that exists only because it sells.",
+  "source": "CDSCO FDC ban notices, Aug 2024 and Jun 2026; PIB",
+  "retracted": false
+ },
+ {
+  "entry_id": "nlem",
+  "kind": "team",
+  "title": "NLEM 2022 price control and why FDCs protect margin",
+  "tags": "nlem nppa dpco price cap ceiling margin realisation",
+  "body": "NLEM 2022 / DPCO ceilings cap plain atorvastatin, rosuvastatin, amlodipine, telmisartan, losartan, aspirin 75/150 and clopidogrel 75 \u2014 precisely the molecules that make up Cipla's existing cardiac base. Strategic FDCs generally sit outside the strict ceilings. So moving weight from plain molecules and step-up duals onto guideline-backed triples protects realisation as well as share. The price-cap squeeze is an argument FOR the shift, not against it.",
+  "source": "NPPA nppaindia.gov.in; NLEM 2022 gazette; DPCO 2013",
+  "retracted": false
+ },
+ {
+  "entry_id": "cipla-position",
+  "kind": "team",
+  "title": "Cipla's position",
+  "tags": "cipla revenue ebitda financials respiratory chronic scale company",
+  "body": "FY25 revenue \u20b927,548 Cr, EBITDA margin 25.9%, 26 brands above \u20b9100 Cr. Third largest pharma company in India, second in chronic. Chronic therapies are 61.5% of the branded book. Cipla is #1 in respiratory at roughly 25% share \u2014 but cardiac contributes only 10-12% of domestic revenue against Torrent's 30%+. In our dataset Cipla is rank 19 of 279 at 1.68% cardiac share. The company is a chronic-therapy leader with one underweight chronic leg.",
+  "source": "Cipla FY25 Annual Report and investor disclosures",
+  "retracted": false
+ },
+ {
+  "entry_id": "cipla-field",
+  "kind": "team",
+  "title": "Cipla's distribution, and how many cardiologists there actually are",
+  "tags": "field force reps distribution stockist pharmacy cardiologist cardiologists how many reach capability specialist universe",
+  "body": "Roughly 31,000 employees, 5,500+ stockists, 150,000+ retail pharmacies across 15,000+ pin codes \u2014 one of the deepest distribution networks in Indian pharma, and genuinely strong in Tier 2-6. But the field force was built for pulmonologists and GPs, and a pharmacy does not write a cardiology script. On the size of the target: India has roughly 5,000 practising cardiologists. An earlier draft of our own deck said 50,000 \u2014 that figure is closer to the cardiac-PRESCRIBING physician universe, and the distinction rewrites the cost of any specialist force built on it. Distribution is Cipla's asset; specialist reach is the gap, and the gap is smaller and cheaper to close than we first thought.",
+  "source": "Cipla FY25 Annual Report; Indian cardiology society registries",
+  "retracted": false
+ },
+ {
+  "entry_id": "cipla-adjacent",
+  "kind": "team",
+  "title": "SGLT2i, ARNI and heart failure \u2014 outside this dataset",
+  "tags": "sglt2i sglt2 arni anticoagulant apixaban rivaroxaban warfarin beta blocker diuretic empagliflozin dapagliflozin cipdapla arnicor heart failure oboravo",
+  "body": "IMPORTANT SCOPE NOTE: the case dataset covers Anti-Hypertensives, Lipid Regulators and Anti-Angina only. SGLT2i, ARNI, anticoagulants, beta-blockers and standalone diuretics are NOT in it, so no share or growth figure can be quoted for them from this analysis. From outside the dataset: Cipla already has Cipdapla (dapagliflozin), Arnicor (sacubitril/valsartan, after the Entresto patent revocation in Sep 2025) and the Boehringer-partnered Oboravo franchise. These matter as a heart-failure adjacency and as evidence Cipla can execute specialist launches \u2014 but they sit outside the prioritisation we ran.",
+  "source": "Cipla product portfolio, ciplamed.com; Indian Patent Office Entresto revocation",
+  "retracted": false
+ },
+ {
+  "entry_id": "torrent",
+  "kind": "team",
+  "title": "Torrent \u2014 the cardiac leader",
+  "tags": "torrent cilacar jb chem competitor leader cardiac king",
+  "body": "13.2% of the cardiac market in our dataset, number one, strengthened by the JB Chem acquisition which brought Cilacar and Nicardia. Cardiac-first DNA, high prescriber stickiness, strong Tier 2/3 presence. Important nuance for A7: Torrent holds 38.2% of the cilnidipine FAMILY, but that share sits in plain and dual formulations. Inside the A7 triples Torrent holds only 12.9%. The family-level number measures a different market from the one we would enter.",
+  "source": "Torrent Pharma investor disclosures; computed from the case dataset",
+  "retracted": false
+ },
+ {
+  "entry_id": "glenmark",
+  "kind": "team",
+  "title": "Glenmark \u2014 the Telma playbook",
+  "tags": "glenmark telma telmisartan brand razel competitor",
+  "body": "Telma is one of India's largest pharma brands at \u20b91,036 Cr+, built from a 2003 first-mover position in telmisartan and detailed on ONTARGET trial evidence, then extended into a 16-brand umbrella (Telma H, AM, AMH, CT). It is the reference case for what Cipla is attempting: own a molecule backbone, then extend outward combination by combination. Cipla has the same backbone through Cresar but only 0.74% of a \u20b91,437 Cr molecule.",
+  "source": "Glenmark investor presentations; MedicinMan Telma case study",
+  "retracted": false
+ },
+ {
+  "entry_id": "usv",
+  "kind": "team",
+  "title": "USV \u2014 Ecosprin and the A1 moat",
+  "tags": "usv ecosprin aspirin antiplatelet a1 competitor moat",
+  "body": "USV holds 19.2% of the addressable A1 pool (31.6% before locked molecules are stripped). That position is concentrated in Ecosprin and its extensions \u2014 Ecosprin AV, Ecosprin Gold. Critically, most of it sits in one molecule USV owns 87.5% of, which our sizing already excludes. So the headline share overstates the barrier: Ecosprin is a brand moat, not a category moat, and the remaining \u20b92,166 Cr is contestable.",
+  "source": "Computed from the case dataset; CRISIL/USV filings",
+  "retracted": false
+ },
+ {
+  "entry_id": "mankind",
+  "kind": "team",
+  "title": "Mankind \u2014 the A7 leader and the volume model",
+  "tags": "mankind telmikind tier2 pricing competitor a7 leader",
+  "body": "Leads A7 at 10.3% and is taking share fastest (+7.1 momentum on 12.8% volume). Built on Tier 2/3 first, 20-40% lower pricing backed by roughly 75% in-house manufacturing, and one of India's largest field forces at 16,000-18,500 reps. Telmikind is the flagship. Mankind is the competitor to watch in A7 \u2014 not because it is entrenched at 10.3%, but because it is compounding.",
+  "source": "Mankind investor disclosures; computed from the case dataset",
+  "retracted": false
+ },
+ {
+  "entry_id": "cso-challenger",
+  "kind": "team",
+  "title": "Cipla strategy leadership on winning as a challenger",
+  "tags": "challenger whitespace mindshare share of voice doctors universe five lakh strategy head guidance how to win entering therapy area",
+  "body": "PRIMARY GUIDANCE from Cipla's strategy leadership, mentoring session 26 Aug 2026 \u2014 this is what the people judging us said matters. Entering a large therapy area is not itself the bet; finding the right whitespace and executing against it is. Because India is a branded-generics market, doctor mindshare and share of voice are the currency. The instruction is explicit: identify the RELEVANT doctors rather than trying to cover the universe, which is roughly 5 lakh doctors in India. Beyond that, what separates a bet that pays off is access to a differentiated product, a strong patient proposition, and the ability to identify unmet needs in patient education and counselling. Hospital channels matter depending on therapy. The bet works when product, doctors, patient value and focused execution line up together.",
+  "source": "Cipla strategy leadership, Ascend S4 mentoring session, 26 Aug 2026",
+  "retracted": false
+ },
+ {
+  "entry_id": "cso-build-vs-buy",
+  "kind": "team",
+  "title": "Build vs buy \u2014 leadership favours partnership and licensing as accelerators",
+  "tags": "build buy m&a acquisition licensing partnership mnc organic capability speed torrent jb chem why not acquire",
+  "body": "PRIMARY GUIDANCE, same session. Partnerships, licensing and M&A are seen as legitimate and important ways to accelerate capability building, not fallbacks. Cipla's standing as a preferred MNC partner gives it access to products and capabilities through licensing. The stated test is how quickly and effectively the required capability can be acquired \u2014 there is NO automatic preference for building organically. This matters for us: our plan builds a specialist force from scratch, and we should be able to say why building beats licensing HERE specifically, rather than assuming organic is the default. The honest answer is that the molecules already exist and are already registered to many companies, so there is nothing to in-license \u2014 the missing asset is prescriber relationships, which cannot be bought except by acquiring a company that has them.",
+  "source": "Cipla strategy leadership, Ascend S4 mentoring session, 26 Aug 2026",
+  "retracted": false
+ },
+ {
+  "entry_id": "cso-fdc-regulatory",
+  "kind": "team",
+  "title": "FDC regulatory risk \u2014 guideline backing alone is not the answer",
+  "tags": "fdc regulatory dcgi approval ban risk medical rationale evidence drug interaction clinical trial cdsco sustainable multi-year",
+  "body": "PRIMARY GUIDANCE, same session, and it raises our bar. Regulatory uncertainty must be built into the product decision from the beginning, not handled afterwards. The specific considerations named were: regulatory strategy, DCGI approval, medical rationale for the combination, evidence on drug-drug interactions, and clinical-trial evidence. The explicit risk flagged was launching WITHOUT appropriate DCGI approval and then facing a ban. Our current answer \u2014 that the telmisartan triple is IHCI Step-3 and therefore guideline-backed \u2014 is necessary but not sufficient. We should state DCGI approval status directly. Supporting fact from the dataset: the cilnidipine-chlorthalidone-telmisartan triple is already marketed by 54 companies and the metoprolol triple by 21, which implies existing approvals rather than a fresh filing \u2014 but say that as an inference, and confirm it rather than assert it.",
+  "source": "Cipla strategy leadership, Ascend S4 mentoring session, 26 Aug 2026",
+  "retracted": false
+ },
+ {
+  "entry_id": "cso-internal-case",
+  "kind": "team",
+  "title": "What actually wins the internal investment case",
+  "tags": "internal competition respiratory us generics budget business case differentiation dosing convenience patient consumer doctor customer why fund cardiac",
+  "body": "PRIMARY GUIDANCE, same session \u2014 and it says our current argument is the wrong one. The case for investment rests on the QUALITY of the opportunity, not the current size of the business. What was named specifically: differentiation through pricing, through dosing and convenience, and through positioning. In a branded-generic market a differentiated product can create value even when the molecule is not unique. A crucial distinction was drawn between the DOCTOR as customer and prescriber, and the PATIENT as consumer. The cardiac case gets stronger when it offers a differentiated proposition, better convenience or dosing, a meaningful patient benefit, and a long-term franchise. Our deck argues mostly on pool size and growth rate. Our strongest unused card is convenience: one pill instead of three, which is an adherence argument and therefore a patient benefit, not just a commercial one.",
+  "source": "Cipla strategy leadership, Ascend S4 mentoring session, 26 Aug 2026",
+  "retracted": false
+ },
+ {
+  "entry_id": "cso-field-force",
+  "kind": "team",
+  "title": "Field force \u2014 redeployment is harder than our plan assumes",
+  "tags": "field force reallocation redeploy new team dedicated 70 reps retraining friction one india gtm organizational geographic segmentation gorakhpur vellore",
+  "body": "PRIMARY GUIDANCE, same session, and it corrects a load-bearing assumption. Simply shifting representatives from one therapy to another is not straightforward: the organisation has to ask whether the target doctors and patient segmentation are genuinely different. In practice Cipla has created NEW dedicated teams rather than redeploying \u2014 a precedent of 70+ representatives was cited, including specific deployment towards cardio. That is real validation that our ~110-rep figure is the right order of magnitude, but it means the force should be costed as a NEW team rather than as weight reallocated off A8. A 12-month roadmap must account for therapy expertise, retraining time, doctor and segment overlap, and whether a dedicated team beats redeployment. Leadership also stressed hospital-level and GEOGRAPHIC segmentation \u2014 naming migrant-population markets such as Gorakhpur and Vellore \u2014 and said GTM cannot be designed purely at an all-India level. That directly supports our state-level launch sequencing.",
+  "source": "Cipla strategy leadership, Ascend S4 mentoring session, 26 Aug 2026",
+  "retracted": false
+ },
+ {
+  "entry_id": "cso-stockist",
+  "kind": "team",
+  "title": "The stockist network is an enabler, not an advantage",
+  "tags": "stockist network distribution reach tier 2 3 channel margin inventory pull prescription adoption advantage 5500",
+  "body": "PRIMARY GUIDANCE, same session, and it softens a claim we lean on. Asked directly about channel-margin or inventory friction in scaling high-value dual and triple combinations, leadership identified no specific stockist constraint \u2014 but redirected to the point that matters: reach by itself does not guarantee adoption. For chronic therapy the opportunity is tied to sustained prescriptions and patient consumption rather than one-time demand, so scaling depends on prescription strength, product differentiation, pricing, relevant doctor coverage, hospital access, and patient adherence. The 5,500+ stockist network provides reach; the commercial proposition has to pull product through it. Our deck treats the network as a competitive advantage for Tier 2-3 \u2014 the honest framing is that it removes a barrier competitors would face, but it does not generate demand.",
+  "source": "Cipla strategy leadership, Ascend S4 mentoring session, 26 Aug 2026",
+  "retracted": false
+ },
+ {
+  "entry_id": "cipla-book-volume",
+  "kind": "team",
+  "title": "Cipla's own cardiac book grows on price, not patients",
+  "tags": "cipla portfolio book overall volume mix price decomposition losing patients shrinking brands",
+  "body": "Computed from the case dataset, MAT Feb'24 to Feb'26. Cipla's cardiac business is Rs 389 Cr across 57 molecules, 68 brands and 137 SKUs \u2014 1.68% of a Rs 23,244 Cr market, rank 19 of 279. Decomposed the same way the deck decomposes the market: Cipla's value growth of +4.0% a year is made of VOLUME -4.0%, mix +5.6% and price +2.4%. The market over the same window grew volume +3.7%, mix +8.0%, price +0.5%. So Cipla is losing patients at 4% a year while the market gains them at 3.7% \u2014 a 7.7-point swing in the only growth component the deck argues persists over 3-5 years. Brand level, among the 18 Cipla cardiac brands above Rs 4 Cr: Rs 236.8 Cr is shrinking in units against Rs 103.4 Cr growing, i.e. 70% of the book is losing patients. Worst: CRESAR-H -12.4%, RAMIPRES -12.3%, METOLAR TL -10.7%, AMLOPRES-TL -9.7%. The exception is the rosuvastatin franchise \u2014 ROSULIP +7.8%, ROSULIP GOLD +8.6%, ROSULIP-CV +12.3%. This is the strongest available statement of the 'scale problem, not portfolio problem' thesis: Cipla's own filter, applied to Cipla, disqualifies its current book.",
+  "source": "Case dataset, computed 27 Aug 2026 (cipla_deep.py)",
+  "retracted": false
+ },
+ {
+  "entry_id": "cipla-archetype-mix",
+  "kind": "team",
+  "title": "Where Cipla's Rs 389 Cr actually sits",
+  "tags": "cipla book split archetype a8 47% concentration reallocation a1 a7 share of book",
+  "body": "By archetype: A8 Step-up Dual Rs 184.6 Cr (47.4% of the book, +2.5%), A3 Cardiometabolic Rs 66.2 Cr (17.0%, +12.3%), A5 Primary Lipid Rs 64.5 Cr (16.6%, +3.2%), A9 First-line Rs 44.8 Cr (11.5%, -4.0%), A1 Secondary Prevention Rs 18.5 Cr (4.7%, +9.1%), A7 Resistant Hypertension Rs 9.9 Cr (2.5%, +16.4%), A4 Rs 1.0 Cr. Nearly half the book is in A8, which the deck converts rather than harvests; the two segments the deck backs are 7.2% of it. Volume by archetype for Cipla: A7 +16.3%, A3 +2.1%, A5 -1.6%, A8 -4.3%, A9 -5.7%, A1 -6.7%. A7 IS THE ONLY ARCHETYPE WHERE CIPLA GAINS PATIENTS. Note A1: Cipla's +9.1% value there is 14.2 points of mix against -6.7% volume, so the three A1 molecules the deck wants detailed are losing patients today \u2014 which is the evidence that nobody is detailing them, and should be volunteered rather than defended. Top-5 brands are 53.5% of Cipla cardiac; AMLOPRES-AT alone is Rs 96.3 Cr, 24.7% of the book.",
+  "source": "Case dataset, computed 27 Aug 2026 (cipla_portfolio.py)",
+  "retracted": false
+ },
+ {
+  "entry_id": "a7-focus-three",
+  "kind": "team",
+  "title": "Which of Cipla's nine A7 molecules get the detailing weight",
+  "tags": "which molecules detail focus three nine a7 cresar amh metolar trio amlopres trio concentration detailing weight",
+  "body": "Three, not nine. Inside the addressable A7 pool (Rs 1,249 Cr) Cipla holds Rs 8.87 Cr across seven molecules; two of the nine are locked by our own >70% rule (METOLAR 3D, leader 70.5%; AMLOPRES 3D, leader 71.7% \u2014 AMLOPRES 3D was the Round 1 pick). FOCUS: (1) LAUNCH Chlortalidone + Cilnidipine + Telmisartan, pool Rs 249 Cr, Cipla 0%; (2) SCALE CRESAR AMH (amlodipine besilate + HCTZ + telmisartan), pool Rs 256 Cr \u2014 the largest addressable pool of the nine and the most fragmented at 67 companies, leader Mankind 29.0% \u2014 Cipla Rs 1.80 Cr growing +26.9% on +20.0% VOLUME; (3) SCALE METOLAR TRIO (cilnidipine + metoprolol succinate + telmisartan), pool Rs 161 Cr, weakest leader in the archetype at Sun 17.5%, only 21 competitors, pool volume +24.1%, Cipla Rs 1.03 Cr growing +79.1% on +69.0% volume. NOTE this third one is not a launch \u2014 Cipla already sells it. Focus pool Rs 666 Cr = 53% of addressable A7. At 5.71% share (inside the 8.0% model ceiling on all three) those three reach Rs 38.0 Cr; the other six addressable molecules held flat at Rs 6.04 Cr; total Rs 44.1 Cr = 3.53% of addressable A7 = the underwritten figure. Gain +Rs 35.2 Cr. THE Rs 35 CR IS UNCHANGED \u2014 this is a named build-up, not a re-forecast. NOT funded: AMLOPRES TRIO / CRESAR PLUS, which is Cipla's LARGEST A7 molecule at Rs 3.36 Cr and its worst \u2014 -12.5% volume, share -0.75pp, pool volume only 6.9%, leader 41.2%. Where Cipla's A7 money already sits is the one molecule that fails every test in the deck. Also not funded: OLMECIP TRIO (pool volume -0.6%, a shrinking market), CRESAR 3D (Rs 27 Cr pool, 57.8% leader), HIPRES D (Rs 0.00, delist). METOLAR TRIO tartrate is kept as the PROOF POINT not the prize: Cipla grew it +103% value on +88% volume and took share +1.24pp, the largest share gain Cipla made anywhere in A7 \u2014 but the pool is only Rs 71 Cr behind a 43.3% leader and Cipla is already at 2.25%.",
+  "source": "Case dataset, computed 27 Aug 2026 (cipla_portfolio.py, focus.py)",
+  "retracted": false
+ },
+ {
+  "entry_id": "concentration-benchmark",
+  "kind": "team",
+  "title": "Every company that beat x1.4 in A7 ran three molecules or fewer",
+  "tags": "ipca benchmark concentration molecules multiple share gain systopic unison corona why three",
+  "body": "Inside addressable A7, MAT24 to MAT26, IPCA went Rs 6.93 Cr to Rs 17.91 Cr \u2014 share 0.76% to 1.43%, a x1.90 multiple, on +48.0% volume, with TWO molecules and TWO brands. Cipla started Rs 0.08 Cr away at Rs 6.85 Cr and reached Rs 8.87 Cr \u2014 share 0.75% to 0.71%, x0.95, with SEVEN molecules and seven brands. Of the 18 companies in the 0.2-2.0% starting band, the ranking is IPCA x1.90 (2 molecules), Systopic x1.69 (2), Fusion x1.51 (5), Unison x1.49 (3), Corona x1.41 (3), HBC x1.26 (4). Cipla is the only one below x1.00. Every company above x1.4 ran three molecules or fewer. This matters because the deck already underwrites Cipla at IPCA's x1.90 compounded to x4.98 over five years while describing a seven-molecule spread that produced x0.95 \u2014 concentration is what earns the right to apply the benchmark, not a smaller plan. IPCA's two molecules by name: CTD-MT (chlorthalidone + metoprolol tartrate + telmisartan), Rs 6.93 to Rs 15.54 Cr at 57.8% share of that molecule, plus REVELOL-TAM launched from zero to Rs 2.37 Cr at 37.7%. One scale-up and one launch \u2014 the same shape as our plan. Reserve fact: Cipla is already in IPCA's winning molecule as CRESAR 3D at Rs 0.25 Cr and 0.95% share against IPCA's 57.8%. Same molecule, same launch window, 60x apart.",
+  "source": "Case dataset, computed 27 Aug 2026 (ipca_check.py)",
+  "retracted": false
+ },
+ {
+  "entry_id": "launch-precedent",
+  "kind": "team",
+  "title": "Launches from zero do not work \u2014 Cipla's own record proves it",
+  "tags": "launch risk standing start new molecule entry precedent can we launch rosulip ez",
+  "body": "Computed from the case dataset. Cipla launched SEVEN products into cardiac between MAT Feb'24 and Feb'26. Together they total Rs 1.94 Cr. The best was ROSULIP EZ at Rs 0.99 Cr. Into the chlorthalidone+cilnidipine+telmisartan launch molecule specifically, 13 companies entered from zero in the window and all thirteen together reached Rs 1.9 Cr \u2014 0.8% of a Rs 249 Cr pool; the best single one was Fidus Healthcare at Rs 0.94 Cr. Across all 279 companies, the best standing start into ANY addressable A7 molecule in two years was Torrent at Rs 3.92 Cr (1.87% of pool), one success in 55 attempts. So an assumption that a new launch delivers Rs 15 Cr is 15x Cipla's own best launch and 4x the best anyone achieved in A7. We therefore size the launch at Rs 5 Cr and make it a Horizon 2 addition, not the Horizon 1 headline \u2014 the Rs 35 Cr comes from converting Cipla's own patients onto triples Cipla already sells. ROSULIP EZ is also the best proof of the whole thesis: Cipla launched into the fastest-growing molecule in the dataset (ezetimibe+rosuvastatin, Rs 183 Cr pool growing +91.5% value on +77.4% volume, 33 companies, USV 21.1% and Emcure 19.6% leading) and holds 0.54% two years later. The portfolio is not the problem. NOTE the deck's A1 slide once said 'launch a Rosuvastatin + Ezetimibe FDC' \u2014 Cipla already launched it. It is a scale-up, not a launch.",
+  "source": "Case dataset, computed 27 Aug 2026 (launch_check.py, final_check.py)",
+  "retracted": false
+ },
+ {
+  "entry_id": "conversion-engine",
+  "kind": "team",
+  "title": "Cipla's own duals are the acquisition engine, and it can already make the triple",
+  "tags": "cannibalisation conversion feeder dual step up targeting prescriber a8 healthy harvest declining losing retention manufacture make triple amlopres cresar metolar",
+  "body": "CAN CIPLA MAKE IT: the launch triple (chlorthalidone + cilnidipine + telmisartan) is the merge of two duals Cipla already manufactures \u2014 CILOGARD T / CRESAR LN (cilnidipine+telmisartan, Rs 1.95 Cr, +14.3% volume) and CRESAR CT / TECHLOR (chlorthalidone+telmisartan, Rs 4.48 Cr) \u2014 on a telmisartan franchise worth Rs 90.7 Cr across 15 molecules. It is a line extension, not new chemistry. THE FEEDER MAP: Cipla's telmisartan duals are the patients who fail on two drugs and need a third. AMLOPRES-TL + CRESAR-AM (amlodipine+telmisartan) Rs 46.9 Cr at -6.0% volume step into AMLOPRES TRIO and CRESAR AMH; METOLAR TL Rs 7.5 Cr at -10.7% steps into METOLAR TRIO; CRESAR-H Rs 8.6 Cr at -12.4% steps into CRESAR AMH; CRESAR CT and CILOGARD T step into the launch triple. Total telmisartan-dual base Rs 69.4 Cr across those four named brands, Rs 71.0 Cr counting every Cipla telmisartan dual. IMPORTANT RETRACTION - DO NOT CLAIM THE FEEDER BASE AS AN ADVANTAGE. An earlier version of this deck said no rival entering these molecules has Cipla's targeting list. That is wrong. Cipla ranks 18th of 175 companies in telmisartan duals; Mankind holds Rs 517.8 Cr, seven times more, and Glenmark Rs 1,140 Cr, sixteen times more. Cipla does know which doctors write its own duals, but so does every rival with a bigger base, so it is not a differentiator. The defensible claim is CONVERSION RATE, not base size - see [[differentiation]] and [[shrinking-base]]. CORRECTION TO THE DECK: it names AMLOPRES-AT (Rs 96.2 Cr) as the main cannibalisation exposure, but AMLOPRES-AT is amlodipine + ATENOLOL, not a telmisartan dual, so it does not step up into a telmisartan triple. A8 REFRAME: Cipla's A8 volume is -4.3% while the A8 market is +2.2%. Cipla is already losing A8 patients; the +2.5% revenue line is price and mix covering it. So the triple is not cannibalising a healthy franchise, it is the retention vehicle for one that is already leaking. Nobody is asked to give up revenue \u2014 that is the internal case.",
+  "source": "Case dataset, computed 27 Aug 2026 (exec_check.py, final_check.py)",
+  "retracted": true
+ },
+ {
+  "entry_id": "self-competition",
+  "kind": "team",
+  "title": "Cipla runs two brands against itself on 57% of its cardiac book",
+  "tags": "duplicate brands competing with itself rationalisation free win detailing weight brand count",
+  "body": "Cipla sells 68 cardiac brands across 57 molecules. On 11 molecules worth Rs 222.7 Cr \u2014 57% of the Rs 389 Cr book \u2014 it runs two or more of its own brands against each other: AMLIP AT / AMLOPRES-AT (Rs 104.0 Cr), AMLOPRES-TL / CRESAR-AM (Rs 46.9 Cr), ATORLIP / LIPVAS / OMNITOR (Rs 34.6 Cr), AMLIP / AMLOPRES (Rs 24.7 Cr), CRESAR CT / TECHLOR (Rs 4.5 Cr), AMLOPRES TRIO / CRESAR PLUS (Rs 3.4 Cr), CILOGARD T / CRESAR LN (Rs 2.0 Cr), COSART / ZAART, COSART H / ZAART-H, BISOFIG T / CRESAR BS, AMLOPRES B / BISOFIG AM. Two of these sit inside the A7 focus set. Consolidating them doubles effective detailing weight on the plan's own molecules at zero incremental cost \u2014 the cheapest action in the deck and a concrete answer to 'what will you do differently'.",
+  "source": "Case dataset, computed 27 Aug 2026",
+  "retracted": false
+ },
+ {
+  "entry_id": "dataset-coverage",
+  "kind": "team",
+  "title": "How the case Excel is used, and what it says that the deck does not",
+  "tags": "dataset excel sheet columns coverage taxonomy segmentation why own archetypes glossary manufacture in-house mnc multinational threat foreign indian acceleration midpoint feb25",
+  "body": "The file has two sheets (Glossary, Cardiac) and 36 columns over 7,452 rows. Our engine reads all 7,452 rows, all 279 companies, 285 molecules and 3,788 brands, and uses 13 columns: MOLECULE_DESC, BRANDS, COMPANY, SUBGROUP, the three MAT value series, MAT CP Feb'24 and Feb'26, QTY MAT Feb'24 and Feb'26, and the three monthly sales columns. Most unused columns are genuinely empty of signal \u2014 SUPERGROUP and ACUTE_CHRONIC have one value each, FINAL NFC is 99.4% SOLIDS, PACK VOLUME is blank on 7,412 of 7,452 rows. FOUR unused columns do carry signal. (1) THE TAXONOMY WE WERE GIVEN: CARDIAC SUB SEGMENTS has 15 values. Crosswalked against our nine archetypes: A7 IS 'AHT Triple / Poly Comb.' 100% \u2014 Rs 1,472 Cr against their Rs 1,473 Cr, effectively identical, so our archetype reproduces their segment exactly. But their single 'Statins Comb.' segment, Rs 4,154 Cr, splits across our A1 (70% of it), A3 (22%) and A4 (8%), and their four drug-class segments CCB, ARBs, ACEi and Alfa Blockers, Rs 4,824 Cr together, all land inside our A9. So our taxonomy reproduces theirs where theirs tracks clinical use and splits it where it does not \u2014 that is the answer to 'why did you build your own segmentation'. (2) MANUFACT. DESC: Cipla manufactures 137 of its 137 cardiac SKUs in-house, 100% of value. Inside the A7 triples only 83% of value is self-manufactured \u2014 56 of 552 SKUs are third-party or loan-licensed (56 of 552 SKUs). Cipla is a manufacturer in a segment where a slice of the competition is not. (3) INDIAN_MNC: MNCs are Rs 1,110 Cr of Rs 23,244 Cr, 4.8%. Indian cardiac is an all-Indian fight; no MNC is a competitive threat here. (4) Plain/Combination: combinations are Rs 13,477 Cr against Rs 9,767 Cr plain \u2014 58% of the market is already FDC, which validates the archetype classifier independently.",
+  "source": "Case dataset, column audit 27 Aug 2026 (sheet_gaps.py)",
+  "retracted": false
+ },
+ {
+  "entry_id": "acceleration",
+  "kind": "team",
+  "title": "Year-on-year, not two-year average \u2014 what is accelerating and what is fading",
+  "tags": "acceleration fading momentum year on year feb25 midpoint recent trend is growth slowing",
+  "body": "Every growth figure in the deck is a two-year CAGR from MAT Feb'24 to Feb'26, which treats 100->180->200 and 100->110->200 identically. Splitting on the Feb'25 midpoint (units, year-on-year): ACCELERATING \u2014 the launch triple pool 13.3% to 17.7%; A7 as a whole 10.7% to 12.9%; the Amlopres Trio pool 4.2% to 9.6%; the Metolar Trio tartrate pool 44.9% to 47.1%; and critically ROSULIP-CV, where Cipla's own units went 7.8% to 17.0%. FADING \u2014 and this must be volunteered, not hidden: Cipla's own momentum in BOTH A7 focus brands is decelerating sharply. CRESAR AMH units 38.5% to 4.0%; METOLAR TRIO units 129.7% to 38.9%. The two-year averages quoted for those brands conceal a slowdown in the most recent year, and the contrast is the point: Cresar AMH's own pool went 7.0% to 9.2% and Metolar Trio's pools 29.4% to 30.8% while the Cipla brands inside them decelerated. The honest reading is that both brands got an initial burst and then flattened \u2014 which is exactly what happens to a product with no sustained detailing behind it, and is therefore an argument FOR the task force rather than against the picks. But a judge can compute it, so say it first. STEADY \u2014 Rosulip-ASP pool, Atorlip-CV pool (5.1% to 4.1%, supporting its 2% weighting), the Rosuvastatin+Ezetimibe pool holding 77.7% then 77.2% unit growth, and Cipla's total cardiac at -4.2% then -3.7% units against a market at 2.2% then 5.1%, i.e. still shrinking.",
+  "source": "Case dataset, MAT Feb'25 midpoint analysis 27 Aug 2026 (sheet_gaps.py)",
+  "retracted": false
+ },
+ {
+  "entry_id": "patient-personas",
+  "kind": "team",
+  "title": "The two patients \u2014 data-backed, and both already on a Cipla prescription",
+  "tags": "patient persona ramesh sunita who is the patient adherence persistence epidemiology india prevalence nfhs indiab pure cascade resistant hypertension secondary prevention why do patients stop",
+  "body": "RAMESH KULKARNI, 54, Nashik shopkeeper, the A7 patient. He is one of roughly 315 million Indian adults with hypertension \u2014 35.5% of everyone over 20 (ICMR-INDIAB-17, Lancet Diabetes & Endocrinology, Jul 2023). NFHS-5 puts the care cascade at 70.5% ever screened, 34.3% aware, 13.7% on treatment, 7.8% controlled: Ramesh is inside the 13.7% and outside the 7.8%. On two drugs he is still 158/96, which places him in the 10-16% of treated Indian hypertensives who resist dual therapy. He takes three separate pills at three times of day; 32.7% of rural south Indian NCD patients are non-adherent and 78.6% say the medicines are hard to pay for. What fixes it is the third drug in the same pill \u2014 single-pill combinations roughly double persistence against the same molecules taken separately (meta-analysis, 27 studies, 346,030 patients). He is already on Amlopres-TL, a Cipla dual inside the Rs 69.4 Cr that is leaking at about 6% a year. His next prescription is Cresar AMH or it is Mankind's. SUNITA MENON, 56, Kochi school administrator, the A1 patient. Stented 14 months ago. The mean age of a first MI in India is about 53, roughly a decade earlier than Western populations, and 52% of India's CVD deaths occur under 50. She was discharged on four drugs and is on one. PURE found only 23.6% of people with established CVD on an antiplatelet and 15.5% on a statin; in India use peaked at 43% and fell back to 21.6%. Rural statin use is 11.6% against 19.9% urban. What fixes it is her discharge regimen collapsed into one tablet \u2014 rosuvastatin + clopidogrel, which is exactly Rosulip-CV, where Cipla holds 0.89% of a Rs 323 Cr pool. THE POINT: neither persona requires Cipla to find a new patient. Both are already on a Cipla prescription; the only question is whether the next one is also Cipla's. The prescribers are Dr. Rao (interventional cardiologist, ~5,000 in India, sees Sunita at discharge) and Dr. Iyer (consulting physician, ~15,000 high-decile, sees Ramesh, moved by the IHCI Step-3 protocol which now covers 141 districts and 303 million people and lifted BP control from 37% to 48%).",
+  "source": "ICMR-INDIAB 2023; NFHS-5 2019-21; PURE (Lancet 2011, JACC 2024); CREATE registry; IHCI/BMC HSR 2024; SPC adherence meta-analysis 2023",
+  "retracted": false
+ },
+ {
+  "entry_id": "differentiation",
+  "kind": "team",
+  "title": "The differentiation \u2014 conversion rate, not base size (and the claim we had to retract)",
+  "tags": "differentiation why cipla not mankind what is your edge moat right to win conversion ratio feeder base defensible advantage air quality pm2.5 pollution",
+  "body": "We first assumed Cipla's edge in A7 was owning the feeder patients. The data says no. Cipla ranks 18th of 175 companies in telmisartan duals with Rs 71.0 Cr. Mankind holds Rs 517.8 Cr, seven times more; Glenmark holds Rs 1,140 Cr, sixteen times more. On base size Cipla loses, so base size is not the argument. What separates companies here is CONVERSION: A7 triples divided by telmisartan-dual base. Micro Labs 0.96, Macleods 0.96, Sun 0.69, IPCA 0.48, Lupin 0.39, Aristo 0.38, Intas 0.37, Eris 0.36, Mankind 0.25, Torrent 0.22, USV 0.19, CIPLA 0.14, Glenmark 0.07. Median across the 20 companies with a Rs 50 Cr+ base is 0.29. Cipla ranks 17th of 20. THE CLAIM: Cipla's advantage is not that it has the most patients, it is that it converts the fewest of the ones it has \u2014 so every rupee of the plan needs no new patient and no competitive win, only that Cipla convert its own dual patients at a rate its peers already reach. The Rs 35 Cr target implies a ratio of 0.62, above the median and below Sun. This is an INDEPENDENT second check on the number: the IPCA share-multiple anchor and the conversion-ratio anchor were computed separately and land in the same place. WHY HASN'T SOMEONE DONE IT: Glenmark has the largest dual base in the market and converts 7% of it. A feeder base converts nothing on its own; it takes a team pointed at it. Also note the step-up is already happening unaided inside Cipla's own franchises \u2014 Cresar duals -11.1% units last year while Cresar triples +17.9%; Metolar duals -7.7% while Metolar triples +41.7%. Same reps, same doctors, same brand name. CAVEAT TO VOLUNTEER: Cipla's dual base is itself shrinking at 10.6% units a year, so the window narrows \u2014 an argument for moving now, not later. WHAT IS NOT A DIFFERENTIATOR: in-house manufacturing. Cipla makes 137 of 137 cardiac SKUs itself, but so do Mankind, Aristo, Macleods and IPCA, all at 100%. It is table stakes. It is only notable that Sun, the largest A7 player at Rs 139 Cr, self-manufactures none of its A7 SKUs, and Torrent only 43%. EXTERNAL TAILWIND SPECIFIC TO A7: PM2.5. Hypertension prevalence in India rises 5.2% per 10 ug/m3 of PM2.5 (Int J Epidemiology 2025); a Delhi cohort links long-term exposure to higher systolic BP and incident hypertension (Hypertension/AHA 2020). Meeting the National Clean Air Programme target would cut prevalence only 2.42%, so the exposure persists across the 3-5 year window. It enlarges the share of patients not controlled on two drugs, which is the definition of A7 \u2014 the only signal in our register that acts on one archetype rather than the whole category.",
+  "source": "Case dataset conversion analysis 27 Aug 2026; Int J Epidemiology 2025; Hypertension (AHA) 2020",
+  "retracted": false
+ },
+ {
+  "entry_id": "price-test",
+  "kind": "team",
+  "title": "Price test \u2014 the alternative explanation for low conversion, and why it fails",
+  "tags": "price pricing priced out too expensive cheaper cost per tablet realisation is price the problem alternative explanation rebuttal glenmark",
+  "body": "The obvious rival explanation for Cipla's low conversion is price: maybe Cipla simply costs more and doctors switch on cost. We tested it by computing realised price per tablet (MAT Feb'26 value divided by MAT quantity; note QTY in this dataset is in THOUSANDS of units, so the market average works out to Rs 8.07 a tablet). Results across the five focus molecules, Cipla versus the molecule's weighted-average price: Rosuvastatin+Clopidogrel +9.0% (Cipla 0.69% share; Lupin at +42.9% holds 20.2%); ASA+Rosuvastatin -4.2% (Cipla 0.88%; Torrent at +21.3% holds 31.9%); Atorvastatin+Clopidogrel -0.8% (Cipla 0.54%; Ajanta at +13.8% holds 16.8%); Cilnidipine+Metoprolol+Telmisartan -8.0% (Cipla 1.13%; Ajanta at +13.5% holds 23.2%); Amlodipine+HCTZ+Telmisartan +84.5% (Cipla 1.11%). CONCLUSION: in four of the five molecules Cipla is at or BELOW market price and still holds under 1.2% share. Cheaper products are losing to dearer ones by as much as 36x, so this market does not clear on price. The fifth molecule is the only one where Cipla really is expensive - and there the decisive comparison is GLENMARK, which prices within 1% of Cipla (Rs 16,853 vs Rs 16,700 per thousand tablets) and holds Rs 57.6 Cr against Cipla's Rs 5.2 Cr, eleven times more at the same price. Price cannot explain an 11x gap between two products priced identically. The detailing thesis survives the test. CAVEAT to volunteer: price per tablet does not adjust for strength mix, so treat the percentages as a range rather than a decimal; the Glenmark comparison is same-molecule and same-price, which is why it is the one to lead with. SECONDARY READ: premium pricing is viable in these molecules - Lupin, Torrent, Ajanta and Glenmark all run above market and hold large shares. So the recommendation is NOT to cut price. It is that Cipla currently charges premium prices with no field effort behind them, which is the worst of both positions.",
+  "source": "Case dataset price analysis, 27 Aug 2026",
+  "retracted": false
+ },
+ {
+  "entry_id": "shrinking-base",
+  "kind": "team",
+  "title": "The shrinking feeder base \u2014 propagated through the model, not just flagged",
+  "tags": "shrinking base feeder declining denominator does the target survive sensitivity share loss category decline mankind taking share window narrowing",
+  "body": "Cipla's telmisartan-dual base is Rs 71.0 Cr and falling 10.6% in units year on year, so the Rs 35 Cr A7 gain cannot rest on today's base indefinitely. Two findings. FIRST, THE REASON: this is share loss, not category decline. The telmisartan-dual market grew units +6.4% then +7.4% and value +13.7% then +14.9% to Rs 4,950 Cr. Mankind's slice grew units +8.8% then +8.2% to Rs 517.8 Cr. Only Cipla's slice fell - units +0.3% then -10.6%, value +9.5% then -3.5%. So delay does not merely shrink the prize, it transfers the feeder patients to Mankind permanently. SECOND, DOES THE TARGET SURVIVE: the Rs 44.1 Cr year-5 A7 figure implies a conversion ratio of 0.62 on today's Rs 71.0 Cr base. Projected five years: if last year's decline repeats (-3.5% value a year) the base is Rs 59 Cr and the implied ratio 0.74, between Sun (0.69) and Macleods (0.96); on the 2-year value CAGR (+2.8%) the base is Rs 82 Cr and the ratio 0.54, between IPCA (0.48) and Sun; if Cipla merely stops losing share the base holds at Rs 71 Cr and the ratio is 0.62. Even the worst case stays inside observed behaviour - it asks Cipla to convert slightly better than Sun, third best of the twenty companies with a Rs 50 Cr+ base. Demanding, not unprecedented. TWO CAVEATS TO VOLUNTEER: (1) converting a patient shrinks the base the ratio is measured against, so the ratio partly inflates itself - the rupee figure is the commitment and the ratio is the diagnostic, not a target to maximise; (2) the shrinkage is self-limiting under the plan, because the patients leaving are precisely the ones the plan retains.",
+  "source": "Case dataset, feeder-base projection 27 Aug 2026",
+  "retracted": false
+ },
+ {
+  "entry_id": "feeder-symmetry",
+  "kind": "team",
+  "title": "A8 and A5 are both feeders \u2014 the symmetry the engine found on its own",
+  "tags": "a5 a8 a3 a6 a9 feeder is a5 a feeder plain statin base primary lipid convert harvest avoid defend a3 worth funding two feeders symmetry sixty four percent of book strategic calls double down build selective avoid classifier",
+  "body": "The deck's four strategic calls are: DOUBLE DOWN on A7 and A1; CONVERT A8 and A5; DEFEND A3 without funding growth; AVOID further investment in A6 and A9. The CONVERT call covers TWO archetypes, not one. A8 Step-up Dual is Rs 184.6 Cr of Cipla's book with units at -4.3% against an A8 market at +2.2%. A5 Primary Lipid is Rs 64.5 Cr with units at -1.6% against an A5 market at +5.3%. Together they are Rs 249.1 Cr, 64% of Cipla's Rs 389 Cr cardiac book, and BOTH are leaking. THE SYMMETRY: A8 is the feeder for A7 (telmisartan duals stepping up to triples, Cipla converts 0.14 against a 0.29 median) and A5 is the feeder for A1 (plain statins stepping up to combinations, Cipla converts 0.29 against a 0.59 median). Two feeders, two destinations, the same defect in both - so this is one problem with one fix, not two separate initiatives. See [[differentiation]]. An earlier version of the deck put A5 under AVOID. That was wrong and inconsistent with our own A1 conversion analysis; A5 is the A1 feeder and is corrected to CONVERT. THE ENGINE DERIVES THIS ITSELF: the classifier rule is that a space Cipla holds above 2% share, where Cipla's own units are negative AND below the market's, is not a harvest but a leak - 'CONVERT - leaking, redirect patients'. Run rank_opportunities live and it returns CONVERT for A8 and A5 without being told to.",
+  "source": "Case dataset; cipla_cardiac_agent.py classifier, 27 Aug 2026",
+  "retracted": false
+ },
+ {
+  "entry_id": "a4-exclusion",
+  "kind": "team",
+  "title": "A4 \u2014 the one call where our model and our judgement differ, and we say so",
+  "tags": "a4 intensive lipid ezetimibe why not a4 horizon 3 excluded score 69 second highest flat pool rosulip ez disagree with the model",
+  "body": "Our agent scores A4 Intensive Lipid 69.1, the SECOND HIGHEST of the nine archetypes, because it grows 55.8% a year and its leader holds only 15.3%. Its computed prize is nonetheless only Rs 19 Cr. Both are true and the gap is a method choice, not an error: our sizing holds every pool flat at MAT Feb'26 size and treats pool growth as uncounted upside, which penalises the fastest-growing space hardest. Sized on a grown pool the picture changes - at the engine's projected 41.7% CAGR A4 is about Rs 114 Cr, at a conservative 30% about Rs 74 Cr, at a very conservative 20% about Rs 49 Cr, larger than A7's underwritten Rs 35 Cr. IMPORTANT: growing A4's pool without growing the others is not a fair comparison. Grow every pool at its own projected rate and the order is A1 Rs 220 Cr, A7 Rs 132 Cr, A4 Rs 114 Cr - so the PRIORITY ORDER SURVIVES either way, which is the real point. A7 and A1 still lead. A4 moves from smallest on the board to roughly A7's size. OUR DECISION: A4 stays outside the underwritten Rs 62 Cr, deliberately, because the flat-pool convention is what makes Rs 62 Cr conservative and defensible, and we will not relax it for one archetype. Cipla is not a standing start there - ROSULIP EZ is already on the shelf at 0.54% of a Rs 183 Cr pool growing 91.5% in value. NEVER SAY A4 IS UNATTRACTIVE. It is the fastest-growing space in the dataset and our own model ranks it second. Say instead that it is an exclusion we chose rather than one the data forced, and that Rs 61 Cr - a figure an earlier draft carried - was wrong; the engine computes Rs 19 Cr on a flat pool.",
+  "source": "Case dataset; rank_opportunities and project_forward, 27 Aug 2026",
+  "retracted": false
+ },
+ {
+  "entry_id": "taskforce",
+  "kind": "team",
+  "title": "Cardio-Metabolic Task Force \u2014 size, cost and return",
+  "tags": "task force cost reps veeva investment roi budget capability build cardiologist",
+  "body": "OUR PLANNING ESTIMATE, not a Cipla figure. India has roughly 5,000 practising cardiologists \u2014 not 50,000, which is closer to the cardiac-PRESCRIBING physician universe. Sizing the force per persona rather than on one flat ratio: about 50 reps for the ~5,000 true cardiologists at 100 each, 60 reps for ~15,000 high-decile consulting physicians at 250 each, and zero for Tier 2-3 GPs, who are served by the existing 5,500-stockist network. That is 110 reps, roughly Rs 15-19 Cr a year at full scale and Rs 4-5 Cr in the pilot year. Against Rs 62 Cr underwritten it is about 2x contribution to cost at run rate, cumulative positive in year 4. Note this is contribution against cost, not revenue against cost \u2014 at ~60% contribution margin, comparing the two directly would overstate the return.",
+  "source": "Team estimate; cardiologist counts from Indian cardiology society registries",
+  "retracted": false
+ },
+ {
+  "entry_id": "cannibalisation",
+  "kind": "team",
+  "title": "What the triple actually cannibalises",
+  "tags": "cannibalisation amlopres amlip cresar overlap trade-off internal",
+  "body": "Not Amlip (\u20b97.8 Cr of Cipla's A8 base). The real exposure is AMLOPRES-AT at \u20b996.2 Cr plus AMLOPRES-TL at \u20b924.7 Cr \u2014 \u20b9120.9 Cr, 65% of Cipla's entire A8 base \u2014 because those are the amlodipine+telmisartan duals a triple upgrades from. Separately, AMLOPRES-3D is down to \u20b90.05 Cr: a name, not a franchise. Our prize model sizes share gain only and does not net out internal migration, so at a 15-20% conversion roughly \u20b918-24 Cr of the A7 prize is Cipla's own revenue moving buckets. Genuinely incremental: about \u20b945-65 Cr. We would rather present the netted number than defend the headline one.",
+  "source": "Computed from the case dataset (brand-level); conversion rate is our assumption",
+  "retracted": false
+ },
+ {
+  "entry_id": "personas",
+  "kind": "team",
+  "title": "The three prescribers, and why one field force cannot cover them",
+  "tags": "persona prescriber cardiologist gp physician doctor who targeting segment",
+  "body": "Dr. Rao, interventional cardiologist in a metro tertiary hospital, decides the post-ACS discharge regimen \u2014 that is A1, and he moves on CSI 2024 outcome data and KOL peers. Dr. Iyer, consulting physician in a metro or Tier-1 clinic, sees the patient uncontrolled on two drugs \u2014 that is A7, and she moves on adherence evidence for single-pill triples. Dr. Sharma, GP in a Tier 2-3 town, handles first-line and refills and moves on availability and price \u2014 that is A7 volume, reached through the 5,500-stockist network rather than through detailing. Three different people, three different arguments, one reason the current field force cannot serve all three.",
+  "source": "Team synthesis from prescribing-pattern literature and Cipla's disclosed structure",
+  "retracted": false
+ },
+ {
+  "entry_id": "why-a7-molecule",
+  "kind": "team",
+  "title": "Why the cilnidipine triple, and why we changed our Round 1 answer",
+  "tags": "molecule launch cilnidipine chlorthalidone which triple recommendation change",
+  "body": "Round 1 recommended Telmisartan + Amlodipine + Chlorthalidone. Testing it against our own method showed two problems: \u20b974 Cr of that \u20b9105 Cr molecule is 72% owned by IPCA, above our own 70% lock threshold, so our method calls it uncontestable; and the addressable remainder is \u20b931 Cr growing 2.3% on volume with Torrent at 60%. Telmisartan + Cilnidipine + Chlorthalidone is \u20b9249 Cr growing 21.9% on 15.5% volume, the leader holds 15% across 54 companies, and Cipla holds nothing. Eight times the addressable pool, seven times the volume growth. We changed the recommendation because the agent applied our own filter to our own answer.",
+  "source": "Computed from the case dataset",
+  "retracted": false
+ },
+ {
+  "entry_id": "method-honesty",
+  "kind": "team",
+  "title": "What our numbers assume, stated plainly",
+  "tags": "assumption haircut take rate conservative limitation weakness confidence trust underwrite headroom benchmark",
+  "body": "Three things a judge should hear from us before they find them. First, an earlier draft of this deck claimed prizes were sized after a 30% take-rate haircut. That was wrong: checking the model, no haircut was applied \u2014 A7's achievable share is exactly its ceiling, and Rs 69 Cr is the raw headroom. We removed the claim rather than defend it. Second, Rs 201 Cr is HEADROOM \u2014 what the pool structure permits, not a forecast. Reaching it needs a roughly 8.7x share move, and nobody starting where Cipla starts came close: across 279 companies over two years, the best multiple from a 0.2-2.0% base was 1.60x in A1 (Unison) and 1.90x in A7 (IPCA, 0.76 to 1.43%). So we UNDERWRITE Cipla matching the single best performer in each archetype, compounded to five years: Rs 38 Cr in A1 and Rs 35 Cr in A7, Rs 62 Cr net of cannibalisation \u2014 31% of headroom, against a 16% break-even. Third, the ranking is re-run across 108 parameter combinations and A7 holds top-3 in all 108, so the call does not depend on the weights we chose.",
+  "source": "Computed from the case dataset; benchmarks from all 279 companies, MAT24 to MAT26",
+  "retracted": false
+ },
+ {
+  "entry_id": "scope",
+  "kind": "team",
+  "title": "What the dataset covers, and what it does not",
+  "tags": "scope dataset coverage excluded market size pharmatrac difference",
+  "body": "7,452 SKU records across 279 companies, MAT Feb'24 to Feb'26, with value, constant-price value and units. SUPERGROUP is CARDIAC throughout, but CARDIAC SEGMENT holds only three values: Anti-Hypertensives, Lipid Regulators, Anti Angina. That is why our market is \u20b923,244 Cr while PharmaTrac's wider cardiovascular figure is \u20b933,115 Cr (MAT Dec'25) \u2014 the difference is SGLT2i, ARNI, anticoagulants, beta-blockers and standalone diuretics, which this dataset excludes. We size on what we can see and say so.",
+  "source": "Data Set_Ascend Season 4_2026.xlsx; PharmaTrac via Economic Times",
+  "retracted": false
+ },
+ {
+  "entry_id": "htn-prevalence",
+  "kind": "public",
+  "title": "How many Indians have hypertension \u2014 315 million",
+  "tags": "hypertension prevalence how many patients epidemiology burden india nfhs icmr indiab population tam 315 million total addressable",
+  "body": "ICMR-INDIAB-17, the largest metabolic survey ever run in India (113,043 people, all 30 states and UTs, fieldwork 2008-2020, published in Lancet Diabetes & Endocrinology 2023), puts hypertension prevalence at 35.5% of adults \u2014 an estimated 315 million people. Two earlier reference points, quoted only with their own age bands: NFHS-5 (2019-21) found 22.8% among adults aged 15-49, and ICMR-NNMS (2017-18) found 28.5% across 18-69. The three do not disagree; they measure different populations, and the spread is age structure. Use 315 million as the patient-universe figure and say which survey it comes from. NFHS-5 also found 52.1% of hypertension cases were NEWLY diagnosed at survey \u2014 over half the hypertensive population was unknown to the health system, which is the structural reason the treated pool keeps filling.",
+  "source": "ICMR-INDIAB-17, Lancet Diab & Endo 2023; NFHS-5 (2019-21) IIPS/MoHFW; ICMR-NNMS 2017-18",
+  "retracted": false
+ },
+ {
+  "entry_id": "htn-cascade",
+  "kind": "public",
+  "title": "The treatment cascade \u2014 and why it points at A7",
+  "tags": "cascade treatment control uncontrolled resistant a7 triple why durable funnel diagnosed treated adherence nfhs",
+  "body": "NFHS-5 measures the cascade among those already diagnosed: 40.7% were on BP-lowering medication, up from 32.6% in NFHS-4 \u2014 roughly 8 percentage points of treatment initiation in one survey cycle. Of those on medication, 73.7% had controlled BP, DOWN from 80.8% in NFHS-4. Read together: more patients are being started on therapy, and a growing share are not reaching target on what they are given. Patients on treatment but uncontrolled are definitionally the resistant-hypertension population \u2014 the A7 archetype. This is demand-side corroboration for A7 that does not come from the SKU file at all. Caveat to volunteer before being asked: NFHS control is a single-visit household measurement, not clinic-confirmed resistant hypertension, so this establishes direction and scale rather than a patient count.",
+  "source": "NFHS-5 (2019-21) vs NFHS-4 (2015-16), IIPS/MoHFW",
+  "retracted": false
+ },
+ {
+  "entry_id": "metabolic-cluster",
+  "kind": "public",
+  "title": "The metabolic cluster \u2014 diabetes, prediabetes and obesity",
+  "tags": "diabetes prediabetes obesity metabolic cardiometabolic a3 comorbidity clustering indiab dysglycaemia",
+  "body": "ICMR-INDIAB-17 national weighted prevalence, adults, 113,043 participants across all 30 states/UTs: diabetes 11.4%, prediabetes 15.3%, generalised obesity 28.6%, abdominal obesity 39.5%, hypertension 35.5%. Prediabetes exceeding diabetes is the forward indicator \u2014 that pool converts. All metabolic NCDs except prediabetes were more common in urban than rural areas, which matters for where a metro-first specialist force is deployed. This clustering is the epidemiological basis for the A3 cardiometabolic archetype: the same patient carries hypertension, dysglycaemia and dyslipidaemia, and is managed by one physician.",
+  "source": "ICMR-INDIAB-17, Lancet Diabetes & Endocrinology 2023",
+  "retracted": false
+ },
+ {
+  "entry_id": "dyslipidaemia",
+  "kind": "public",
+  "title": "Dyslipidaemia prevalence \u2014 demand behind the lipid archetypes",
+  "tags": "dyslipidaemia lipid cholesterol ldl hdl prevalence a1 a4 a5 statin screening indiab",
+  "body": "ICMR-INDIAB-25 finds dyslipidaemia highly prevalent among Indian adults, especially at younger ages and among those with adverse glycaemic status, obesity or hypertension. The burden is driven predominantly by low HDL-C (66.8%). Two strategic consequences. First, a substantial share sits in people who are otherwise metabolically normal \u2014 the argument for broad lipid screening rather than screening only the obviously at-risk, and therefore for a larger statin and statin-combination pool than risk-based screening would suggest. Second, the clustering with hypertension and dysglycaemia underwrites both A3 and combination lipid therapy generally.",
+  "source": "ICMR-INDIAB-25, Journal of Clinical Lipidology",
+  "retracted": false
+ },
+ {
+  "entry_id": "cvd-burden",
+  "kind": "public",
+  "title": "Cardiovascular disease burden in India",
+  "tags": "cvd cardiovascular deaths mortality burden gbd ischemic heart disease stroke why cardiac matters premature",
+  "body": "CVD is the leading cause of death in India, accounting for roughly a quarter of all mortality. Ischaemic heart disease and stroke together cause more than 80% of CVD deaths. India's age-standardised CVD death rate is about 272 per 100,000 against a global average of 235 \u2014 a heavier burden than the world average, and striking at younger ages than in Western populations. This is the backdrop for why guideline bodies keep tightening targets (CSI 2024's crash-LDL thresholds, ESC's combination-first stance) and why cardiac is the therapy area Cipla is underweight in.",
+  "source": "Global Burden of Disease / IHME; DCP-3 'Global Burden of Cardiovascular Disease in India'; WHO India",
+  "retracted": false
+ },
+ {
+  "entry_id": "ipm-cardiac",
+  "kind": "public",
+  "title": "Cardiac is the largest therapy area in the Indian pharma market",
+  "tags": "ipm indian pharmaceutical market size growth cardiac share therapy area largest pharmatrac chronic 2026 sector",
+  "body": "PharmaTrac (Pharmarack) 2026 figures: the Indian Pharmaceutical Market stands at roughly \u20b92.44 lakh crore on a MAT basis, growing about 8.4% in value while unit growth stays near 0.7% \u2014 the market is growing on price and mix, not volume. Against that backdrop cardiac stands out: it is the LARGEST single therapy area at 14-15% of IPM value, and it grew 13.2-14.3% through early 2026, roughly 1.7 times the market. May 2026 cardiac sales were about \u20b93,184 crore in the month. Chronic and sub-chronic segments together hold 57% of IPM. Two things follow: cardiac is not a niche Cipla would be entering, it is the biggest room in the house; and it is one of the few therapy areas growing on real demand rather than price.",
+  "source": "PharmaTrac / Pharmarack, Jan-May 2026 monthly IPM reports",
+  "retracted": false
+ },
+ {
+  "entry_id": "ihci-programme",
+  "kind": "public",
+  "title": "IHCI \u2014 the government programme that shapes A7 demand",
+  "tags": "ihci india hypertension control initiative programme government districts scale public health protocol",
+  "body": "The India Hypertension Control Initiative began in 2018-19 across 26 districts in five states and has scaled to 141 districts across 25 states, covering about 303 million people through 21,579 health facilities. Of roughly 1.24 million hypertensives enrolled across 15 states, about 1.05 million remained under care. BP control among those under care runs around 43-44%, and in the nine longest running districts improved from 37% to 48% between 2018-19 and 2023-24. IHCI is the reason the Step-3 telmisartan-backbone triple is a protocol standard rather than a commercial invention \u2014 which is exactly what insulates it from CDSCO's irrational-FDC bans.",
+  "source": "IHCI outcome papers, BMC Health Services Research 2024; Resolve to Save Lives; ihci.in",
+  "retracted": false
+ },
+ {
+  "entry_id": "ihci-risk",
+  "kind": "public",
+  "title": "THE COUNTERARGUMENT: public supply is displacing private purchase",
+  "tags": "risk threat out of pocket public procurement free medicines government displacement counterargument weakness against thesis jan aushadhi",
+  "body": "THIS CUTS AGAINST OUR THESIS AND WE SHOULD RAISE IT BEFORE A JUDGE DOES. In IHCI districts the proportion of patients PAYING for their hypertension medicines fell from 47% to 9%. Those patients did not stop taking medicine \u2014 they moved from the private retail market, which is what the case dataset measures, to free public supply, which it does not. IHCI now covers 303 million people. Alongside it, 16,912 Jan Aushadhi Kendras were operating as of June 2025, and the scheme claims roughly \u20b938,000 crore of cumulative savings to citizens through generic pricing. Ayushman Bharat PM-JAY covers about 55 crore people in 12.37 crore families at \u20b95 lakh per family per year. The honest read: the private branded-generic pool a Cipla triple competes in is being squeezed from below in exactly the Tier 2-3 geographies where the stockist network is Cipla's advantage. That argues for a metro and Tier-1 specialist-led entry, which is what our persona sizing already concluded \u2014 but for a different reason than we originally gave.",
+  "source": "IHCI outcome papers; PMBJP/Jan Aushadhi as of 30 Jun 2025; NHA PM-JAY programme data",
+  "retracted": false
+ },
+ {
+  "entry_id": "geo-prevalence",
+  "kind": "public",
+  "title": "Where the patients are \u2014 hypertension by state",
+  "tags": "state states geography where launch metro city region prevalence punjab kerala telangana delhi rollout sequence which cities pilot four metros",
+  "body": "NFHS-5 age-standardised hypertension prevalence varies roughly two-fold across India. Highest: Sikkim (34.5% women / 41.6% men, ~32.2% overall), Punjab (31.2% / 37.7%), with Kerala, West Bengal and Telangana also in the upper band. Lowest: Rajasthan (15.4% / 17.9%) and Ladakh (15.7% / 17.4%). Burden concentrates in southern and eastern states. Among the over-60s specifically \u2014 the population most likely to be uncontrolled on two agents, i.e. the A7 patient \u2014 prevalence is highest in Delhi, Goa, Karnataka, Kerala, Punjab, Sikkim and Telangana. Note the north-eastern states show high prevalence in the UNDER-30s, a different and smaller commercial opportunity despite the headline rate.",
+  "source": "NFHS-5 (2019-21), IIPS/MoHFW; district-level analysis, medRxiv 2023",
+  "retracted": false
+ },
+ {
+  "entry_id": "geo-strategy",
+  "kind": "public",
+  "title": "OUR SYNTHESIS: prevalence alone is the wrong launch criterion",
+  "tags": "launch geography where first four metros top 30 cities sequence rollout which states avoid kerala jan aushadhi payer mix tension our synthesis",
+  "body": "THIS IS OUR INFERENCE FROM TWO PUBLIC SOURCES, NOT A PUBLISHED FINDING \u2014 present it as reasoning, not as a citation. Naive logic says launch where prevalence is highest, which points at Kerala, Punjab, Telangana and West Bengal. But the southern states leading on prevalence are the same ones leading on Jan Aushadhi density: Kerala has 1,525 kendras, Karnataka 1,417 and Tamil Nadu 1,357, the three highest in India. High prevalence and high generic-displacement pressure sit in the same postcodes, and a branded triple competes worst exactly there. The defensible criterion is prevalence AND private-payer depth AND specialist density together \u2014 which points at Delhi NCR, Mumbai, Punjab's urban belt (Ludhiana, Chandigarh) and Hyderabad: high elderly hypertension burden, concentrated private cardiology, and comparatively lower public-supply substitution. Kerala is the trap: the best epidemiology and the worst payer mix for what we are selling.",
+  "source": "Synthesis of NFHS-5 state prevalence and PMBJP state-wise kendra counts (Jun 2025)",
+  "retracted": false
+ },
+ {
+  "entry_id": "why-volume-durable",
+  "kind": "public",
+  "title": "Why the volume growth should persist \u2014 the outside view",
+  "tags": "durable growth volume sustainable outlook will it continue forecast confidence outside view corroboration three reasons",
+  "body": "The case dataset shows A7 growing 16.8% with 11.2 points of that from volume. Whether that persists is the question a strategy audience actually asks, and four independent public sources point the same way. One: 52.1% of hypertension cases in NFHS-5 were newly diagnosed, so the diagnosed pool is still filling from a universe of about 315 million (ICMR-INDIAB). Two: treatment initiation among the diagnosed rose from 32.6% to 40.7% in one survey cycle. Three: BP control among the treated FELL from 80.8% to 73.7%, so the uncontrolled-on-therapy pool \u2014 what a triple addresses \u2014 grows from both ends at once. Four: cardiac is the largest IPM therapy area at 14-15% share and grew about 14% in 2026, against 8.4% for the market. None of these come from the case dataset. The one caution: see `ihci-risk` \u2014 part of that expanding treated pool is being served by free public supply rather than private retail.",
+  "source": "NFHS-4/NFHS-5 IIPS-MoHFW; ICMR-INDIAB-17 Lancet 2023; PharmaTrac 2026",
+  "retracted": false
+ }
+]

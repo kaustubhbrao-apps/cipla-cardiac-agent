@@ -1,0 +1,146 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   CIPLA CARDIAC AGENT — shared design tokens
+
+   Single source of truth for both pages: the agent (cipla_chat.html) and the
+   dashboard (cipla_agent_ui.html). Neither file should define a colour, font,
+   shadow or radius of its own — if something is missing here, add it here.
+
+   Physics: one light source top-left, one cast shadow bottom-right; every
+   surface molded from the same chassis; a machined edge on every block.
+
+   Colour is functional, never decorative:
+     green  prioritise · live · verified
+     red    avoid · degraded · error
+     blue   structure, chrome, and the data itself
+   Every text pairing clears WCAG AA in both themes. The vivid brand green is
+   for fills, rules and LEDs — never small text on a light ground.
+
+   Type is system-resident. The venue may be offline, and a webfont that fails
+   to load would wreck the demo. Verified present on the presenting machine:
+   Avenir Next (+ Condensed), Palatino, SF Mono.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root{
+  /* ── surface + text ── */
+  --clay:#EAEFF6;
+  --ink:#0F2340;          /* 13.6:1 */
+  --dim:#4A6285;          /*  5.4:1 */
+  --faint:#556B86;        /*  4.7:1 */
+
+  /* ── semantic ── */
+  --blue:#0B4DA2;         /*  7.0:1 */
+  --blue-soft:#2E6FC4;
+  --green:#3C6E14;        /*  5.3:1 — text weight */
+  --green-vivid:#8DC63F;  /* fills, rules, LEDs only */
+  --red:#C4241C;          /*  5.0:1 */
+  --amber:#8A5800;        /*  5.2:1 */
+
+  /* ── light model ── */
+  --lo:rgba(255,255,255,.95);
+  --hi:rgba(147,167,196,.55);
+  --screw-d:rgba(0,0,0,.09);
+  --screw-l:rgba(255,255,255,.5);
+  --emboss:0 1px 0 rgba(255,255,255,.75);
+  --noise:.09;
+  --edge:#0B1420;
+  --edge-w:1px;
+
+  /* ── geometry ── */
+  /* tight, machined radii — a boardroom instrument, not a consumer app */
+  --r-lg:10px; --r-md:7px; --r-sm:5px;
+
+  /* ── type: four roles ── */
+  --display:"Avenir Next","Segoe UI Variable","Segoe UI",system-ui,sans-serif;
+  --label:"Avenir Next Condensed","Avenir Next Condensed Demi Bold",
+          "Helvetica Neue Condensed Bold","Avenir Next",system-ui,sans-serif;
+  --prose:"Palatino","Palatino Linotype","Iowan Old Style",Charter,Georgia,serif;
+  --data:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+
+  /* ── motion: a spring-loaded switch ── */
+  --ease:cubic-bezier(.32,.72,0,1);      /* settle, no overshoot */
+  --ease-out:cubic-bezier(.4,0,.2,1);
+}
+
+@media (prefers-color-scheme:dark){ :root:not([data-theme=light]){
+  --clay:#182430;
+  --ink:#E8EEF6;          /* 13.5:1 */
+  --dim:#A8BBD2;          /*  8.0:1 */
+  --faint:#8CA2BC;        /*  6.0:1 */
+  --blue:#7FB0E8;         /*  7.0:1 */
+  --blue-soft:#5C93D6;
+  --green:#9FD455;        /*  9.0:1 */
+  --green-vivid:#8DC63F;
+  --red:#FF8A7E;          /*  6.9:1 */
+  --amber:#F0B44C;        /*  8.5:1 */
+  --lo:rgba(255,255,255,.055);
+  --hi:rgba(0,0,0,.62);
+  --screw-d:rgba(0,0,0,.3);
+  --screw-l:rgba(255,255,255,.06);
+  --emboss:0 1px 0 rgba(0,0,0,.5);
+  --noise:.06;
+  --edge:#05090F;
+}}
+:root[data-theme=dark]{
+  --clay:#182430; --ink:#E8EEF6; --dim:#A8BBD2; --faint:#8CA2BC;
+  --blue:#7FB0E8; --blue-soft:#5C93D6; --green:#9FD455; --green-vivid:#8DC63F;
+  --red:#FF8A7E; --amber:#F0B44C;
+  --lo:rgba(255,255,255,.055); --hi:rgba(0,0,0,.62);
+  --screw-d:rgba(0,0,0,.3); --screw-l:rgba(255,255,255,.06);
+  --emboss:0 1px 0 rgba(0,0,0,.5); --noise:.10; --edge:#05090F;
+}
+
+/* shadow vocabulary — derived, so both themes inherit it */
+:root{
+  /* Depth is stated, not performed: enough to separate planes, not enough to
+     look inflated. Halved from the tactile build. */
+  --out:4px 4px 10px var(--hi), -3px -3px 8px var(--lo);
+  --out-sm:2px 2px 6px var(--hi), -2px -2px 5px var(--lo);
+  --out-hi:6px 6px 16px var(--hi), -5px -5px 12px var(--lo);
+  --in:inset 3px 3px 7px var(--hi), inset -2px -2px 5px var(--lo);
+  --in-sm:inset 2px 2px 4px var(--hi), inset -1px -1px 3px var(--lo);
+  --in-deep:inset 5px 5px 11px var(--hi), inset -3px -3px 7px var(--lo);
+}
+
+/* ── shared primitives ─────────────────────────────────────────────────── */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{max-width:100%;overflow-x:hidden}
+body{background:var(--clay);color:var(--ink);font-family:var(--display);position:relative}
+
+/* micro-texture of matte plastic — chassis-wide, never interactive */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
+  opacity:var(--noise);mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* four corner fixings — the signature of a bolted panel */
+.screwed{position:relative}
+.screwed::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:
+    radial-gradient(circle at 10px 10px, var(--screw-d) 1px, var(--screw-l) 1.5px, transparent 2px),
+    radial-gradient(circle at calc(100% - 10px) 10px, var(--screw-d) 1px, var(--screw-l) 1.5px, transparent 2px),
+    radial-gradient(circle at 10px calc(100% - 10px), var(--screw-d) 1px, var(--screw-l) 1.5px, transparent 2px),
+    radial-gradient(circle at calc(100% - 10px) calc(100% - 10px), var(--screw-d) 1px, var(--screw-l) 1.5px, transparent 2px)}
+
+/* recessed ventilation slots */
+.vents{display:flex;gap:4px;align-items:center}
+.vents i{width:2px;height:16px;border-radius:1px;box-shadow:var(--in-sm);display:block;opacity:.7}
+
+/* status LED */
+.led{width:7px;height:7px;border-radius:50%;flex:0 0 auto;animation:led-pulse 3.2s ease-in-out infinite}
+.led.on{background:var(--green-vivid);box-shadow:0 0 6px rgba(141,198,63,.7)}
+.led.off{background:var(--red);box-shadow:0 0 6px rgba(196,36,28,.45)}
+@keyframes led-pulse{0%,100%{opacity:1}50%{opacity:.55}}
+
+/* physical key — the one button shape both pages use */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;
+  width:auto;flex:0 0 auto;   /* never inherit a page's blanket button width */
+  padding:0 17px;border-radius:var(--r-md);color:var(--blue);font-size:11.5px;
+  font-family:var(--label);letter-spacing:.15em;text-transform:uppercase;font-weight:700;
+  text-decoration:none;background:none;border:var(--edge-w) solid var(--edge);cursor:pointer;
+  box-shadow:var(--out-sm);transition:all .2s var(--ease-out)}
+.btn:hover{box-shadow:var(--out)}
+.btn:active{transform:translateY(1px);box-shadow:var(--in-sm);transition-duration:.1s}
+.btn.primary{background:var(--green-vivid);color:#14300A;font-weight:800}
+
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

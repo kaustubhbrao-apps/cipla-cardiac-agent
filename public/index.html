@@ -1,0 +1,431 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Cipla Cardiac Agent</title>
+<link rel="stylesheet" href="theme.css">
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   CIPLA CARDIAC AGENT — industrial soft UI
+
+   The agent is an instrument, so the interface is built like one. Neumorphic
+   physics carry the structure — one light source top-left, one cast shadow
+   bottom-right, every surface molded from the same chassis, with a machined
+   edge on each block. The manufacturing details — corner fixings, vent slots,
+   a status LED, faint scanlines on the plot — are deliberately understated:
+   enough to read as an instrument, not so much as to read as a toy.
+
+   Colour is functional, never decorative:
+     green  prioritise · live · verified
+     red    avoid · degraded · error
+     blue   structure, chrome, and the data
+   Every text pairing clears WCAG AA in both themes. The vivid brand green is
+   reserved for fills, rules and LEDs — never for small text on a light ground.
+
+   Type is system-resident: the venue may be offline, and a webfont that fails
+   to load would wreck the demo.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── LIGHT (default) ────────────────────────────────────────────────────── */
+
+/* Tokens, fonts, shadows, screws, vents, LED and .btn all live in
+   cipla_theme.css — shared with the dashboard. Only this page's own layout
+   and components belong below.
+
+   The agent page is a fixed-height app shell: header and ask-bar pinned, feed
+   scrolling between them. That needs a full-height flex column, which the
+   dashboard (an ordinary scrolling document) must not inherit. */
+html,body{height:100%}
+body{margin:0;font-size:14px;line-height:1.55;display:flex;flex-direction:column;
+  -webkit-font-smoothing:antialiased}
+
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+header{flex:0 0 auto;background:var(--clay);padding:13px 22px;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  box-shadow:0 8px 18px var(--hi);position:relative;z-index:5}
+.brand{display:flex;flex-direction:column;margin-right:auto}
+.brand b{font-family:var(--label);font-size:15.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--blue);text-shadow:var(--emboss)}
+.brand span{font-family:var(--label);font-size:10px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--faint);margin-top:3px}
+.readout{display:flex;gap:9px;flex-wrap:wrap}
+.cell{padding:8px 14px;border-radius:var(--r-sm);box-shadow:var(--in-sm);border:var(--edge-w) solid var(--edge);text-align:right;min-width:82px}
+.cell b{display:block;font-family:var(--data);font-size:13.5px;font-weight:700;color:var(--blue)}
+.cell.up b{color:var(--green)}
+.cell.down b{color:var(--red)}
+.cell span{display:block;font-family:var(--label);font-size:9.5px;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--faint);margin-top:2px}
+.state{display:flex;align-items:center;gap:8px;padding:9px 14px;
+  border-radius:var(--r-sm);box-shadow:var(--in-sm);border:var(--edge-w) solid var(--edge)}
+.state em{font-style:normal;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--dim);font-family:var(--data);font-weight:500}
+
+/* ── Feed ───────────────────────────────────────────────────────────────── */
+main{flex:1 1 auto;overflow-y:auto;padding:32px 22px 14px}
+.wrap{max-width:1000px;margin:0 auto}
+.lede{font-family:var(--prose);font-size:clamp(25px,3.6vw,35px);line-height:1.26;
+  color:var(--ink);max-width:min(30ch,100%);margin:0 0 14px;font-weight:400;letter-spacing:-.015em;
+  text-shadow:var(--emboss);font-feature-settings:"kern" 1,"liga" 1}
+.lede em{font-style:normal;color:var(--red)}
+.sub{font-family:var(--prose);font-size:16px;line-height:1.6;color:var(--dim);
+  max-width:min(64ch,100%);margin:0}
+
+/* ── Hero: a bolted module; the plot is its screen ──────────────────────── */
+.hero{display:grid;grid-template-columns:1fr 268px;gap:20px;align-items:stretch;
+  margin:26px 0 20px;padding:24px;border-radius:var(--r-lg);box-shadow:var(--out);border:var(--edge-w) solid var(--edge)}
+.plot{position:relative;padding:16px 14px 10px;border-radius:var(--r-md);
+  box-shadow:var(--in-deep);overflow:hidden;border:var(--edge-w) solid var(--edge)}
+/* CRT scanlines — the plot is the only screen here, so only it gets them */
+.plot::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
+  background:repeating-linear-gradient(rgba(0,0,0,0) 0 3px, rgba(0,0,0,.018) 3px 4px)}
+.plot svg{width:100%;height:auto;display:block;position:relative;z-index:1}
+.ax{font-family:var(--label);font-size:10px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;fill:var(--faint)}
+.gl{stroke:var(--faint);stroke-opacity:.26;stroke-width:1}
+.gl.mkt{stroke:var(--blue);stroke-opacity:.5;stroke-dasharray:3 4}
+.bub{cursor:pointer}
+.bub circle{transition:all .3s var(--ease)}
+.bub:hover circle.o{opacity:.9}
+.bub:hover circle.ring{stroke-width:2.6}
+.bub text{font-family:var(--data);font-size:11px;fill:var(--dim);pointer-events:none}
+.bub.pri text{fill:var(--ink);font-weight:700}
+.legend{display:flex;gap:15px;flex-wrap:wrap;margin-top:12px;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-family:var(--label);font-weight:600}
+.legend i{font-style:normal;display:inline-flex;align-items:center;gap:6px}
+.legend b{width:9px;height:9px;border-radius:50%;display:inline-block}
+
+.picked{padding:18px;border-radius:var(--r-md);box-shadow:var(--in-sm);border:var(--edge-w) solid var(--edge)}
+.picked h4{font-family:var(--label);font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--faint);margin:0 0 15px;font-weight:700}
+.pick{margin-bottom:16px}
+.pick b{display:block;font-family:var(--prose);font-size:17px;color:var(--blue);margin-bottom:4px}
+.pick span{display:block;font-family:var(--data);font-size:11.5px;color:var(--dim);line-height:1.65}
+.pick em{font-style:normal;color:var(--green);font-weight:700}
+.picked p{font-family:var(--prose);font-size:14px;line-height:1.55;color:var(--dim);
+  margin:15px 0 0;padding-top:14px;box-shadow:inset 0 1px 0 var(--hi)}
+
+/* ── Chips: physical keys ───────────────────────────────────────────────── */
+.chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin-top:6px}
+.chip{background:none;border:var(--edge-w) solid var(--edge);color:var(--dim);border-radius:var(--r-md);
+  padding:15px 17px 15px 38px;min-height:48px;font-size:13px;font-family:var(--display);
+  line-height:1.42;cursor:pointer;text-align:left;position:relative;
+  box-shadow:var(--out-sm);transition:all .2s var(--ease-out)}
+.chip::before{content:"";position:absolute;left:17px;top:calc(50% - 4px);width:8px;height:8px;
+  border-radius:50%;background:var(--green-vivid);box-shadow:0 0 6px rgba(141,198,63,.6)}
+.chip:hover{transform:translateY(-1px);box-shadow:var(--out);color:var(--ink)}
+.chip:active{transform:translateY(1px);box-shadow:var(--in-sm);transition-duration:.1s}
+
+/* ── Turn ───────────────────────────────────────────────────────────────── */
+.turn{margin-bottom:32px}
+.q{font-family:var(--prose);font-size:clamp(16px,2vw,18.5px);line-height:1.44;color:var(--ink);
+  padding:16px 20px;border-radius:var(--r-md);box-shadow:var(--in);margin-bottom:18px;border:var(--edge-w) solid var(--edge)}
+.rail{margin:0 0 18px;padding:4px 0 0 4px}
+.node{position:relative;padding-left:26px;margin-bottom:5px}
+.node::after{content:"";position:absolute;left:0;top:12px;width:9px;height:9px;
+  border-radius:50%;background:var(--green-vivid);box-shadow:0 0 0 3px var(--clay),var(--out-sm)}
+.node-h{display:flex;align-items:baseline;gap:10px;padding:6px 2px;cursor:pointer;
+  font-family:var(--data);font-size:12px;color:var(--green);font-weight:600;background:none;
+  border:0;width:100%;text-align:left;min-height:32px}
+.node-h:hover .nm{text-decoration:underline}
+.node-h .ar{color:var(--faint);font-size:11px;font-weight:400}
+.node-h .scope{margin-left:auto;color:var(--faint);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;white-space:nowrap;font-weight:600;font-family:var(--label)}
+.node pre{margin:8px 0 12px;padding:15px 17px;border-radius:var(--r-sm);box-shadow:var(--in-deep);border:var(--edge-w) solid var(--edge);
+  overflow-x:auto;font-family:var(--data);font-size:11.5px;line-height:1.55;
+  color:var(--dim);white-space:pre;-webkit-overflow-scrolling:touch}
+.rail-foot{padding-left:26px;font-family:var(--label);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--faint);margin-top:6px;font-family:var(--data)}
+
+.ans{font-family:var(--prose);font-size:15.5px;line-height:1.68;color:var(--ink);
+  padding:24px 26px;border-radius:var(--r-lg);box-shadow:var(--out);border:var(--edge-w) solid var(--edge)}
+.ans h3{font-family:var(--label);font-size:12px;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--blue);margin:24px 0 9px}
+.ans h3:first-child{margin-top:0}
+.ans p{margin:0 0 14px}.ans p:last-child{margin-bottom:0}
+.ans ul,.ans ol{margin:0 0 14px;padding-left:22px}
+.ans li{margin-bottom:7px}
+.ans strong{color:var(--blue);font-weight:700}
+.ans code{font-family:var(--data);font-size:13px;color:var(--green);
+  padding:2px 7px;border-radius:6px;box-shadow:var(--in-sm)}
+.ans hr{border:0;height:1px;background:var(--hi);margin:20px 0}
+
+.flag{padding:13px 17px;margin-bottom:16px;border-radius:var(--r-md);box-shadow:var(--in-sm);
+  color:var(--amber);font-size:12.5px;line-height:1.5;display:flex;gap:10px;font-weight:600}
+.err{padding:14px 17px;border-radius:var(--r-md);box-shadow:var(--in-sm);
+  color:var(--red);font-size:13px;font-family:var(--data);font-weight:600}
+.working{display:flex;align-items:center;gap:14px;padding:15px 20px;border-radius:var(--r-md);
+  box-shadow:var(--in-sm);color:var(--faint);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;font-family:var(--label);font-weight:600}
+.sweep{width:70px;height:5px;border-radius:3px;box-shadow:var(--in-sm);position:relative;overflow:hidden}
+.sweep::after{content:"";position:absolute;top:0;bottom:0;width:40%;border-radius:3px;
+  background:var(--green-vivid);box-shadow:0 0 8px rgba(141,198,63,.7);
+  animation:sweep 1.4s var(--ease-out) infinite}
+@keyframes sweep{0%{left:-40%}100%{left:100%}}
+
+/* ── Ask bar: a data slot machined into the chassis ─────────────────────── */
+footer{flex:0 0 auto;background:var(--clay);padding:16px 22px 20px;
+  box-shadow:0 -8px 18px var(--hi);position:relative;z-index:5}
+.bar-wrap{max-width:1000px;margin:0 auto}
+.bar-label{font-family:var(--label);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);
+  margin-bottom:10px;font-weight:700;font-family:var(--data)}
+.bar{display:flex;gap:12px;align-items:stretch}
+.field{flex:1;border-radius:var(--r-md);box-shadow:var(--in-deep);border:var(--edge-w) solid var(--edge);
+  transition:box-shadow .25s var(--ease-out);display:flex}
+.field:focus-within{box-shadow:var(--in-deep),0 0 0 2px var(--green-vivid)}
+#q{flex:1;background:none;border:0;padding:17px 20px;color:var(--ink);
+  font-size:16px;font-family:var(--prose);min-height:48px}
+#q::placeholder{color:var(--faint);opacity:1}
+#q:focus{outline:none}
+#go{background:var(--green-vivid);border:var(--edge-w) solid var(--edge);color:#14300A;padding:0 30px;min-height:48px;
+  border-radius:var(--r-md);font-family:var(--label);font-size:11.5px;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;cursor:pointer;white-space:nowrap;
+  box-shadow:4px 4px 9px var(--hi),-4px -4px 9px var(--lo),inset 1px 1px 0 rgba(255,255,255,.3);
+  transition:all .2s var(--ease-out)}
+#go:hover:not(:disabled){filter:brightness(1.07)}
+#go:active:not(:disabled){transform:translateY(1px);box-shadow:var(--in-sm);transition-duration:.1s}
+#go:disabled{background:none;color:var(--faint);box-shadow:var(--in-sm);cursor:default}
+
+@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.lede,.sub,.hero,.chips{animation:rise .34s var(--ease-out) both}
+.sub{animation-delay:.04s}.hero{animation-delay:.08s}.chips{animation-delay:.12s}
+.turn{animation:rise .35s var(--ease-out) both}
+
+/* ── Responsive: the metaphor holds at every width ──────────────────────── */
+@media (max-width:900px){ .hero{grid-template-columns:1fr;gap:18px} }
+@media (max-width:680px){
+  header{padding:11px 14px;gap:10px}
+  .brand{width:100%;margin-right:0}
+  .vents{display:none}
+  .readout{width:100%;gap:7px;flex-wrap:wrap}
+  .cell{flex:1 1 calc(50% - 4px);min-width:0;max-width:100%;padding:8px 6px;text-align:center}
+  .cell b{font-size:12.5px}.cell span{font-size:7.5px;letter-spacing:.08em}
+  .state{flex:1 1 100%;justify-content:center}
+  .btn{flex:1}
+  main{padding:22px 14px 10px}
+  .hero{padding:16px}
+  .screwed::before{background-size:0}   /* screws read as noise below this width */
+  .plot{padding:12px 6px 6px}
+  .chips{grid-template-columns:1fr;gap:10px}
+  .q{padding:14px 16px}
+  .ans{padding:18px;font-size:16px}
+  .node pre{font-size:10.5px;padding:12px}
+  .node-h{flex-wrap:wrap;gap:6px}
+  .node-h .scope{margin-left:0;width:100%}
+  footer{padding:13px 14px 16px}
+  .bar{flex-direction:column;gap:10px}
+  #go{padding:15px;width:100%}
+}
+</style></head><body>
+
+<header>
+  <div class="vents"><i></i><i></i><i></i></div>
+  <div class="brand"><b>Cipla Cardiac</b><span>Opportunity Agent</span></div>
+  <div class="readout" id="readout"></div>
+  <div class="state" id="state"></div>
+  <button class="btn" id="theme" title="Switch light or dark" aria-label="Switch theme">◐</button>
+  <a class="btn" href="dashboard.html" target="_blank" rel="noopener">Dashboard</a>
+</header>
+
+<main><div class="wrap">
+  <div class="opening" id="opening">
+    <p class="lede">Nine molecules, nine brands, <em>0.71%</em> share.</p>
+    <p class="sub">Cipla has the cardiac portfolio. It does not have the push. Here is where
+       7,452 SKU records say the push should go — click any archetype, or ask your own question.</p>
+    <div class="hero screwed">
+      <div class="plot">
+        <svg id="map" viewBox="0 0 640 340" role="img"
+             aria-label="Nine cardiac archetypes by growth and addressable pool"></svg>
+        <div class="legend">
+          <i><b style="background:var(--green-vivid)"></b>Prioritise</i>
+          <i><b style="background:var(--blue-soft)"></b>Convert or defend</i>
+          <i><b style="background:var(--red)"></b>Hold or avoid</i>
+          <i>Circle size = Cipla's share today</i>
+        </div>
+      </div>
+      <div class="picked" id="picked"></div>
+    </div>
+    <div class="chips" id="chips"></div>
+  </div>
+  <div id="feed"></div>
+</div></main>
+
+<footer><div class="bar-wrap">
+  <div class="bar-label">Type your question</div>
+  <div class="bar">
+    <input id="q" placeholder="Ask anything — a space, a molecule, a brand, a competitor, a guideline…" autocomplete="off">
+    <button id="go">Ask</button>
+  </div>
+</div></footer>
+
+<script>
+const $=s=>document.querySelector(s), feed=$("#feed");
+
+const SUGGEST=[
+ "Which 2-3 opportunity spaces should Cipla prioritise, and why?",
+ "What is Cipla's right to win in A7 versus competitors?",
+ "Your recommendation assumes an 8% achievable share. What if that's wrong?",
+ "Is the Saroglitazar growth in cardiometabolic accessible to Cipla?",
+ "What external signals did you use, and how did they change the ranking?",
+ "What is the regulatory risk from the CDSCO FDC bans?",
+ "What about SGLT2i and heart failure?",
+ "How much would the Cardio-Metabolic Task Force cost?"];
+
+/* what each tool actually reaches into — makes the rail informative, not decorative */
+const SCOPE={rank_opportunities:"9 archetypes",analyze_space:"one archetype",
+ competitor_profile:"company shares",decompose_growth:"volume · mix · price",
+ project_forward:"3 & 5 year",run_sensitivity:"108 parameter runs",
+ search_molecules:"molecule level",size_prize:"prize model",
+ brand_profile:"brand level",get_market_overview:"whole market",
+ lookup_context:"guidelines · regulation · competitors",
+ external_signals:"8 registered signals"};
+
+const esc=s=>(s||"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+
+/* Gemini answers in markdown; rendering it is the difference between a finished
+   interface and one showing literal ** and ### to a judge. */
+function md(src){
+  const lines=esc(src).split("\n"); let out="",list=null;
+  const inline=t=>t.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")
+                    .replace(/(^|[^*])\*(?!\s)([^*]+?)\*/g,"$1<em>$2</em>")
+                    .replace(/`(.+?)`/g,"<code>$1</code>");
+  const shut=()=>{ if(list){out+=`</${list}>`;list=null;} };
+  for(let raw of lines){
+    const t=raw.trim();
+    if(!t){shut();continue}
+    if(/^-{3,}$/.test(t)){shut();out+="<hr>";continue}
+    let m;
+    if(m=t.match(/^#{1,6}\s+(.*)$/)){shut();out+=`<h3>${inline(m[1])}</h3>`;continue}
+    if(m=t.match(/^[-*•]\s+(.*)$/)){ if(list!=="ul"){shut();out+="<ul>";list="ul"}
+      out+=`<li>${inline(m[1])}</li>`;continue}
+    if(m=t.match(/^\d+[.)]\s+(.*)$/)){ if(list!=="ol"){shut();out+="<ol>";list="ol"}
+      out+=`<li>${inline(m[1])}</li>`;continue}
+    shut(); out+=`<p>${inline(t)}</p>`;
+  }
+  shut(); return out;
+}
+
+fetch("data/status.json").then(r=>r.json()).then(d=>{
+  $("#readout").innerHTML=[
+    [d.skus.toLocaleString(),"SKUs",""],
+    ["₹"+d.market.toLocaleString(),"Market ₹Cr",""],
+    [d.cipla_share+"%","Cipla share","down"],
+    [d.n_tools,"Analyses","up"]
+  ].map(c=>`<div class="cell ${c[2]}"><b>${c[0]}</b><span>${c[1]}</span></div>`).join("");
+  $("#state").innerHTML=`<span class="led ${d.live?"on":"off"}"></span><em>${
+    d.live? esc(d.model) : "offline"}</em>`;
+}).catch(()=>{});
+
+/* The hero is the agent's own output, drawn from live data rather than mocked:
+   growth across, addressable pool up, circle sized by how little Cipla holds.
+   Clicking an archetype asks about it — the empty state is the demo. */
+fetch("data/map.json").then(r=>r.json()).then(rows=>{
+  const W=640,H=340,L=48,R=16,T=14,B=40;
+  const xs=rows.map(r=>r.cagr), ys=rows.map(r=>r.pool);
+  const x0=Math.min(...xs)-2, x1=Math.max(...xs)+2, y1=Math.max(...ys)*1.08;
+  const px=v=>L+(v-x0)/(x1-x0)*(W-L-R);
+  const py=v=>H-B-(v/y1)*(H-T-B);
+  const css=getComputedStyle(document.documentElement);
+  const C=n=>css.getPropertyValue(n).trim();
+  const tone=c=>c.startsWith("PRIORITY")?C("--green-vivid")
+              :(c.startsWith("CONVERT")||c.startsWith("DEFEND")||c.startsWith("HARVEST"))?C("--blue-soft"):C("--red");
+  let g="";
+  // horizontal grid + pool labels
+  [0,2000,4000,6000].forEach(v=>{ if(v<=y1){
+    g+=`<line class="gl" x1="${L}" y1="${py(v)}" x2="${W-R}" y2="${py(v)}"/>
+        <text class="ax" x="${L-8}" y="${py(v)+3}" text-anchor="end">${v?v/1000+"k":"0"}</text>`;}});
+  // the market growth line — the bar an archetype has to beat
+  const mkt=12.2;
+  g+=`<line class="gl mkt" x1="${px(mkt)}" y1="${T}" x2="${px(mkt)}" y2="${H-B}"/>
+      <text class="ax" x="${px(mkt)+6}" y="${T+10}">Market ${mkt}%</text>`;
+  g+=`<text class="ax" x="${L}" y="${H-12}">Real growth →</text>
+      <text class="ax" x="${L-8}" y="${T+4}" text-anchor="end" transform="rotate(-90 ${L-8} ${T+4})">Pool ₹Cr</text>`;
+  rows.forEach(r=>{
+    const c=tone(r.call), pri=r.call.startsWith("PRIORITY");
+    const rad=Math.max(5,Math.min(20,4+Math.sqrt(r.cipla)*7));
+    g+=`<g class="bub${pri?" pri":""}" data-k="${r.key}" data-n="${esc(r.name)}">
+      <title>${r.key} ${esc(r.name)} — ₹${r.pool.toLocaleString()} Cr, ${r.cagr}% growth, Cipla ${r.cipla}%</title>
+      <circle class="o" cx="${px(r.cagr)}" cy="${py(r.pool)}" r="${rad}" fill="${c}" opacity="${pri?.34:.16}"/>
+      <circle class="ring" cx="${px(r.cagr)}" cy="${py(r.pool)}" r="${rad}" fill="none" stroke="${c}" stroke-width="${pri?2:1}"/>
+      <text x="${px(r.cagr)}" y="${py(r.pool)-rad-7}" text-anchor="middle">${r.key}</text>
+    </g>`;
+  });
+  $("#map").innerHTML=g;
+  $("#map").addEventListener("click",e=>{
+    const b=e.target.closest(".bub"); if(!b) return;
+    send(`Tell me about ${b.dataset.k} ${b.dataset.n} — is it worth prioritising?`);
+  });
+
+  const pri=rows.filter(r=>r.call.startsWith("PRIORITY"));
+  $("#picked").innerHTML=`<h4>What the agent picked</h4>`+pri.map(r=>`
+    <div class="pick"><b>${r.key} · ${esc(r.name.replace(/\s*\(.*\)/,""))}</b>
+      <span>₹${r.pool.toLocaleString()} Cr · <em>${r.cagr}%</em> growth · ${r.volume}% volume</span>
+      <span>Leader ${r.leader}% · Cipla ${r.cipla}% · prize <em>₹${r.prize} Cr</em></span>
+    </div>`).join("")+
+    `<p>Combined ₹${Math.round(pri.reduce((a,r)=>a+(r.prize_exact!=null?r.prize_exact:r.prize),0))} Cr against a ₹389 Cr cardiac base.</p>`;
+}).catch(()=>{ $(".hero") && ($(".hero").hidden=true); });
+
+$("#chips").innerHTML=SUGGEST.map(s=>`<button class="chip">${esc(s)}</button>`).join("");
+$("#chips").addEventListener("click",e=>{
+  const c=e.target.closest(".chip"); if(c) send(c.textContent);
+});
+
+function node(c,i){
+  const a=Object.entries(c.args||{}).map(([k,v])=>`${k}: ${JSON.stringify(v)}`).join(", ");
+  const scope=SCOPE[c.tool]||"";
+  return `<div class="node">
+    <button class="node-h" ${c.summary?"":'disabled style="cursor:default"'}>
+      <span class="nm">${esc(c.tool)}</span>
+      ${a?`<span class="ar">${esc(a)}</span>`:""}
+      ${scope?`<span class="scope">${esc(scope)}</span>`:""}
+    </button>
+    ${c.summary?`<pre hidden>${esc(c.summary)}</pre>`:""}
+  </div>`;
+}
+
+async function send(text){
+  const q=(text!==undefined?text:$("#q").value).trim(); if(!q) return;
+  $("#q").value=""; $("#go").disabled=true; $("#opening").hidden=true;
+  const turn=document.createElement("div"); turn.className="turn";
+  turn.innerHTML=`<div class="q">${esc(q)}</div>
+    <div class="working"><span class="sweep"></span><span>Querying the dataset</span></div>`;
+  feed.appendChild(turn); turn.scrollIntoView({behavior:"smooth",block:"start"});
+  try{
+    const r=await fetch("/api/ask",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({q})});
+    const d=await r.json();
+    if(d.error) throw new Error(d.error);
+    const calls=d.calls||[];
+    let h=`<div class="q">${esc(q)}</div>`;
+    if(d.note) h+=`<div class="flag"><span>⚠</span><span>${esc(d.note)}</span></div>`;
+    if(calls.length) h+=`<div class="rail">${calls.map(node).join("")}
+        <div class="rail-foot">${calls.length} ${calls.length===1?"analysis":"analyses"} run
+        · figures computed, not generated</div></div>`;
+    if(d.answer) h+=`<div class="ans screwed">${md(d.answer)}</div>`;
+    turn.innerHTML=h;
+  }catch(e){
+    turn.innerHTML=`<div class="q">${esc(q)}</div><div class="err">${esc(e.message)}</div>`;
+  }
+  $("#go").disabled=false; $("#q").focus();
+}
+
+feed.addEventListener("click",e=>{
+  const b=e.target.closest(".node-h"); if(!b) return;
+  const p=b.parentElement.querySelector("pre"); if(p) p.hidden=!p.hidden;
+});
+$("#go").onclick=()=>send();
+$("#q").addEventListener("keydown",e=>{ if(e.key==="Enter") send(); });
+$("#q").focus();
+
+/* Theme: follow the OS until the user chooses, then remember the choice. */
+(function(){
+  const root=document.documentElement, KEY="cipla-theme";
+  const saved=localStorage.getItem(KEY);
+  if(saved) root.dataset.theme=saved;
+  $("#theme").onclick=()=>{
+    const dark=matchMedia("(prefers-color-scheme: dark)").matches;
+    const now=root.dataset.theme || (dark?"dark":"light");
+    const next=now==="dark"?"light":"dark";
+    root.dataset.theme=next; localStorage.setItem(KEY,next);
+  };
+})();
+</script></body></html>
