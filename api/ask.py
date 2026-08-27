@@ -110,6 +110,12 @@ LENGTH: aim for 120-200 words. Lead with the answer in one sentence, then the
 evidence for it. Finish the thought — a complete short answer always beats a
 detailed one that stops mid-sentence. No preamble, no restating the question.
 
+ATTRIBUTION: say where a fact came from in plain English — "from the dataset",
+"our own analysis", or name the published source for external evidence. Never
+print the internal field names of the evidence: no entry_id, no kind="team", no
+JSON keys, no backticked slugs. A judge is reading the answer, not the
+plumbing.
+
 EVIDENCE — computed tool responses (reproducible from the dataset):
 %s
 
