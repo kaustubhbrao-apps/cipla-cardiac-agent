@@ -14,7 +14,14 @@ import json, os, re, urllib.request
 from http.server import BaseHTTPRequestHandler
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DATA = os.path.normpath(os.path.join(HERE, "..", "public", "data"))
+
+# Vercel serves public/ from the CDN but does not bundle it into the function,
+# so public/data is unreadable at runtime (/var/task/public/... does not exist).
+# Files beside the function ARE bundled, so api/_data is the deployed copy;
+# public/data is the fallback for running this handler locally.
+_CANDIDATES = [os.path.join(HERE, "_data"),
+               os.path.normpath(os.path.join(HERE, "..", "public", "data"))]
+DATA = next((p for p in _CANDIDATES if os.path.isdir(p)), _CANDIDATES[0])
 
 _cache = {}
 
