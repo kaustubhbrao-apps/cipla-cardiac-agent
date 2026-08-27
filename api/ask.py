@@ -118,15 +118,40 @@ stated FIRST):
 QUESTION: %s"""
 
 
+# Same fallback chain the local agent uses: model availability on a given key
+# changes over time, so try in order rather than pinning one name.
+GEMINI_MODELS = ["gemini-3.7-flash", "gemini-3.6-flash", "gemini-3.5-flash",
+                 "gemini-flash-latest", "gemini-3.1-flash-lite", "gemini-2.5-flash"]
+
+
 def gemini(prompt, key):
-    url = ("https://generativelanguage.googleapis.com/v1beta/models/"
-           "gemini-2.0-flash:generateContent?key=" + key)
     body = json.dumps({"contents": [{"parts": [{"text": prompt}]}],
-                       "generationConfig": {"temperature": 0.2, "maxOutputTokens": 900}}).encode()
-    req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=45) as r:
-        d = json.loads(r.read())
-    return d["candidates"][0]["content"]["parts"][0]["text"]
+                       "generationConfig": {"temperature": 0.2,
+                                            "maxOutputTokens": 900}}).encode()
+    problems = []
+    for model in GEMINI_MODELS:
+        url = ("https://generativelanguage.googleapis.com/v1beta/models/"
+               "%s:generateContent?key=%s" % (model, key))
+        req = urllib.request.Request(url, data=body,
+                                     headers={"Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=40) as r:
+                d = json.loads(r.read())
+            return d["candidates"][0]["content"]["parts"][0]["text"], model
+        except urllib.error.HTTPError as e:
+            detail = ""
+            try:
+                detail = json.loads(e.read()).get("error", {}).get("message", "")[:200]
+            except Exception:
+                pass
+            problems.append("%s: HTTP %s %s" % (model, e.code, detail))
+            # 400/404 mean this model name is wrong for this key — try the next.
+            # 401/403 mean the key itself is bad, so stop rather than loop.
+            if e.code in (401, 403):
+                break
+        except Exception as e:
+            problems.append("%s: %s" % (model, type(e).__name__))
+    raise RuntimeError(" | ".join(problems))
 
 
 class handler(BaseHTTPRequestHandler):
@@ -174,12 +199,14 @@ class handler(BaseHTTPRequestHandler):
                            json.dumps(tools, separators=(",", ":"))[:60000],
                            json.dumps(kb, separators=(",", ":"))[:40000], q)
         try:
-            answer = gemini(prompt, key)
+            answer, model = gemini(prompt, key)
         except Exception as e:
-            return self._send(502, {"error": "The model did not respond (%s). "
-                                             "Try again, or run the agent locally." % type(e).__name__})
+            # surface what actually failed — a silent 502 is undebuggable, and
+            # the message never contains the key
+            return self._send(502, {"error": "No Gemini model answered.",
+                                    "detail": str(e)[:500]})
 
-        self._send(200, {"answer": answer,
+        self._send(200, {"answer": answer, "model": model,
                          "grounded": sorted(tools.keys()),
                          "entries": [e["entry_id"] for e in kb]})
 
