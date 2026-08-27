@@ -16,6 +16,38 @@ annexures after Thank You · file named `Team JK_Jenny Panchmatia Kaustubh Bhale
 
 ---
 
+# BUILD GUIDE — what goes on the slide, and what you say
+
+**The slide carries the differentiator and the evidence. You carry the reasoning.** Everything below
+each slide heading in this document is *content base*, not slide copy — most of it is what you say,
+what a judge might ask, or working that supports a single number on screen. At 10–12pt a slide holds
+roughly 120–160 words, so build to this split and the font rule takes care of itself.
+
+| # | ON THE SLIDE — the differentiator, visible | YOU SAY — the reasoning behind it |
+|---|---|---|
+| **1** | Photos, names, roll numbers. One line: *"It changed our answer three times."* | The three changes, only if asked. 10 seconds of airtime |
+| **2** | Four blocks + the ₹389 → ₹451 Cr bridge, with the ₹201 Cr ceiling ghosted above the ₹62 Cr bar | **"Cipla converts 0.14 of its own two-drug patients onto a three-drug pill. The median is 0.27."** The gap between ceiling and commitment is the point |
+| **3** | Three-layer diagram · the trade-off table · the before/after bar where A3 and A7 swap rank | *"The model never writes a number — it decides which question to ask the data."* Then **open the laptop** |
+| **4** | The five-row shortlist table. Headroom and Underwritten as adjacent columns | Why prize ranking not score ranking. Why A4 is an exclusion you chose, not one the data forced |
+| **5** | The ₹35 Cr stacked bar (20.2 / 10.0 / 5.0) with the launch-led split ghosted behind · the momentum table | The Round 1 self-kill (IPCA holds 71.7%). Seven launches, ₹1.94 Cr. **Volunteer the momentum caveat before anyone asks** |
+| **6** | **The two dot-plots — A7 and A1, each company a dot, median marked, Cipla red and left of it.** This is the most important chart in the deck | Cipla is 18th of 175 on base size, so base size is not the argument. Glenmark prices within 1% of Cipla and sells 11× more |
+| **7** | Five bars, one per A1 molecule, pool size with Cipla's sliver shaded. Rosulip EZ inset at 0.54% | Half the A1 base cannot grow. Why Atorlip-CV is funded at a third weight. *"Cipla ran this experiment already"* |
+| **8** | Two labelled rows — **CONSUMERS** (Ramesh, Sunita) above **CUSTOMERS** (Rao, Iyer, Sharma with 50/60/0) — task force as the base layer | *"The doctor is the customer, the patient is the consumer."* Then the HR point: **we pay on conversion ratio, not prescriptions** |
+| **9** | The four calls as a 2×2 · the feeder map beneath, arrows converging on two triples | BCG: no Star, no Cash Cow, so this is funded by fixing a behaviour. Ansoff: 93% market penetration. A8 is a Dog, not a cash cow |
+| **10** | The ₹389 → ₹451 Cr waterfall with the ₹201 Cr ceiling and the cost curve on the same time axis | Horizons, the DCGI position, build-vs-buy, and the risk table. Break-even 16%, underwrite 31% |
+| **11** | Thank You. Cipla lockup untouched | — |
+
+**Three things that must be visible somewhere, not spoken:** the ₹201 Cr vs ₹62 Cr gap (Slide 2 or
+10), the conversion dot-plots (Slide 6), and the sources (Annexure F). Everything else can live in
+your mouth.
+
+**A note on register.** The invite says avoid AI-generated language. Keep the contractions, keep the
+short sentences, and cut anything that reads as "leverage", "robust framework" or "holistic
+approach". The strongest lines in this deck are the plain ones — *"Cipla already sells nine triples
+in this market. It details none of them."*
+
+---
+
 # SLIDE 1 · Team Introduction
 
 **Headline:** Team JK · XLRI Jamshedpur
