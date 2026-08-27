@@ -26,6 +26,21 @@ aggregates ship. There are no SKU rows anywhere in this repo.
     api/ask.py            the only server-side code: holds the API key
     build/                run locally, where the workbook lives
 
+## The master context document
+
+`MASTER_CONTEXT.md` is the single source of truth for the analysis — every slide's
+content, the annexures, the speaking notes and the Q&A cards. The PPT is built
+from it; nothing is written directly into slides.
+
+Every load-bearing figure in it is recomputed from the dataset by:
+
+    python3 build/verify_deck.py     # 112 checks, exits non-zero on any mismatch
+
+Run this after changing any number. It has already caught two live errors: a
+stale growth-decomposition figure, and a conversion median misread off a sorted
+list. Tolerances carry no floor — ratios are checked on absolute bands, because
+a relative floor is wider than the errors that actually occur.
+
 ## Rebuilding the data
 
 Requires the case folder alongside this one (`../cipla`), with the workbook in it.
