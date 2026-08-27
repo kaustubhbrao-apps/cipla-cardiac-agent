@@ -16,35 +16,62 @@ annexures after Thank You · file named `Team JK_Jenny Panchmatia Kaustubh Bhale
 
 ---
 
-# BUILD GUIDE — what goes on the slide, and what you say
+# BUILD GUIDE — this is an infographic deck, not a document
 
-**The slide carries the differentiator and the evidence. You carry the reasoning.** Everything below
-each slide heading in this document is *content base*, not slide copy — most of it is what you say,
-what a judge might ask, or working that supports a single number on screen. At 10–12pt a slide holds
-roughly 120–160 words, so build to this split and the font rule takes care of itself.
+**The rule: a slide is a picture with labels, not text with a picture next to it.** A judge should
+be able to look at any slide, say nothing to you, and get the argument. If a slide needs a sentence
+read aloud before it makes sense, the graphic is wrong.
 
-| # | ON THE SLIDE — the differentiator, visible | YOU SAY — the reasoning behind it |
+**Tables count as text.** This document currently carries 3–5 tables on Slides 5, 6, 8 and 9 — that
+is the content base doing its job, not the slide design. On screen each of those becomes ONE graphic;
+the tables move to annexures, where a judge who wants the underlying numbers can find them.
+
+| # | THE GRAPHIC — this is the slide | THE ONE LINE ON IT | YOU SAY |
+|---|---|---|---|
+| **1** | Two photos, the Ascend/Cipla lockup | *"It changed our answer three times"* | The three changes, only if asked |
+| **2** | **₹389 Cr → ₹451 Cr waterfall**, with the ₹201 Cr ceiling as a faint line far above the ₹62 Cr bar. Beside it: a single number line, 0 to 1, one dot at 0.14 (red) and one at 0.27 (grey) | *"Cipla has the portfolio. It does not have the push"* | What the gap between ceiling and commitment means |
+| **3** | **Funnel**: 9 archetypes in at the top → locked-molecule filter strips ₹3,001 Cr → precedent test → 2 out at the bottom. Each narrowing labelled with the trade-off it resolved. Three-layer agent diagram down the side | *"The model never writes a number"* | Each filter as you point at it. **Then open the laptop** |
+| **4** | **Bubble chart** — real growth on X, addressable pool on Y, bubble size = Cipla's share today. A7 and A1 in green, everything else grey. Two-tone bars beneath: headroom ghosted, underwritten solid | *"Nine in. Two worth funding"* | Why prize not score. Why A4 is a chosen exclusion |
+| **5** | **Slope chart** — left axis FY25, right axis FY26. Pool lines all rising; Cipla's two brand lines falling. The crossing is the entire argument. Stacked ₹35 Cr bar inset | *"Every pool is accelerating. Both our brands are slowing"* | Seven launches, ₹1.94 Cr. Why that means detail, not launch |
+| **6** | **Two dot-plots side by side** — A7 and A1. Each company a dot on a 0-to-1 conversion scale, median marked, Cipla red and left of it. **Same shape twice.** Inset scatter: price vs market on X, Cipla's share on Y — Cipla flat on the floor whatever the price | *"We convert the fewest of the patients we already have"* | 18th of 175 on base size. Glenmark prices within 1% and sells 11× more |
+| **7** | **Five horizontal bars**, one per Cipla A1 molecule, full pool width with Cipla's sliver shaded red. The 51.2% bar is tiny; the three ~0.9% bars are huge. Rosulip EZ inset against a pool growing 91.5% | *"Already registered in ₹1,063 Cr. Holding ₹8 Cr"* | Half the base cannot grow. Why Atorlip-CV at a third weight |
+| **8** | **Two labelled rows of cards.** CONSUMERS on top: Ramesh and Sunita, one arrow each into a Cipla pack shot. CUSTOMERS beneath: Rao, Iyer, Sharma with **50 / 60 / 0** set large. A single band under both = the task force | *"The doctor is the customer. The patient is the consumer"* | The HR point: we pay on conversion ratio, not prescriptions |
+| **9** | **Two 2×2s, side by side.** BCG with every archetype plotted — the Star and Cash Cow quadrants visibly empty. Ansoff with 93% of the box weight in Market Penetration. Feeder arrows beneath, A8 and A5 flowing into A7 and A1 | *"No cash cow. So we fund it by fixing a behaviour"* | A8 is a Dog. Nobody is asked to give up revenue |
+| **10** | **Timeline** across the page, three horizons, with the ₹389 → ₹451 Cr waterfall above and the cost curve below on the same time axis — so prize and cost are read against one clock | *"Break-even at 16%. We underwrite 31%"* | DCGI, build-vs-buy, and the risk table |
+| **11** | Thank You. Cipla lockup untouched | — | — |
+
+**What moves off the slides and into annexures:** the 11-column shortlist table (Slide 4), the
+launch-precedent table (already Annexure C), both conversion tables and the price table (Slide 6),
+the persona detail tables (Slide 8), and the BCG/Ansoff numeric tables (Slide 9). A judge who wants
+the numbers will ask, and you hand them the annexure — that exchange is better than putting them
+on screen.
+
+**The charts are built.** `charts/` holds ten 300-dpi PNGs, each drawn from the same engine the
+deck is verified against, so a chart cannot drift from the text. Drop them straight in.
+
+| File | Slide | What it shows |
 |---|---|---|
-| **1** | Photos, names, roll numbers. One line: *"It changed our answer three times."* | The three changes, only if asked. 10 seconds of airtime |
-| **2** | Four blocks + the ₹389 → ₹451 Cr bridge, with the ₹201 Cr ceiling ghosted above the ₹62 Cr bar | **"Cipla converts 0.14 of its own two-drug patients onto a three-drug pill. The median is 0.27."** The gap between ceiling and commitment is the point |
-| **3** | Three-layer diagram · the trade-off table · the before/after bar where A3 and A7 swap rank | *"The model never writes a number — it decides which question to ask the data."* Then **open the laptop** |
-| **4** | The five-row shortlist table. Headroom and Underwritten as adjacent columns | Why prize ranking not score ranking. Why A4 is an exclusion you chose, not one the data forced |
-| **5** | The ₹35 Cr stacked bar (20.2 / 10.0 / 5.0) with the launch-led split ghosted behind · the momentum table | The Round 1 self-kill (IPCA holds 71.7%). Seven launches, ₹1.94 Cr. **Volunteer the momentum caveat before anyone asks** |
-| **6** | **The two dot-plots — A7 and A1, each company a dot, median marked, Cipla red and left of it.** This is the most important chart in the deck | Cipla is 18th of 175 on base size, so base size is not the argument. Glenmark prices within 1% of Cipla and sells 11× more |
-| **7** | Five bars, one per A1 molecule, pool size with Cipla's sliver shaded. Rosulip EZ inset at 0.54% | Half the A1 base cannot grow. Why Atorlip-CV is funded at a third weight. *"Cipla ran this experiment already"* |
-| **8** | Two labelled rows — **CONSUMERS** (Ramesh, Sunita) above **CUSTOMERS** (Rao, Iyer, Sharma with 50/60/0) — task force as the base layer | *"The doctor is the customer, the patient is the consumer."* Then the HR point: **we pay on conversion ratio, not prescriptions** |
-| **9** | The four calls as a 2×2 · the feeder map beneath, arrows converging on two triples | BCG: no Star, no Cash Cow, so this is funded by fixing a behaviour. Ansoff: 93% market penetration. A8 is a Dog, not a cash cow |
-| **10** | The ₹389 → ₹451 Cr waterfall with the ₹201 Cr ceiling and the cost curve on the same time axis | Horizons, the DCGI position, build-vs-buy, and the risk table. Break-even 16%, underwrite 31% |
-| **11** | Thank You. Cipla lockup untouched | — |
+| `s2_bridge.png` | 2 | ₹389 → ₹451 Cr, with the ₹201 Cr ceiling far above the ₹62 Cr commitment |
+| `s4_bubble.png` | 4 | Growth × pool, bubble = Cipla's share. A7 and A1 green, rest grey |
+| `s5_slope.png` | 5 | Pools rising, Cipla's two brands falling. The crossing is the argument |
+| `s5_stack.png` | 5 | The ₹35 Cr split — 86% from brands Cipla already sells |
+| `s6_dotplots.png` | 6 | **The key chart.** Same shape twice, Cipla red and left of the median in both |
+| `s6_price.png` | 6 | Price vs share — Cipla on the floor whatever the price |
+| `s7_a1bars.png` | 7 | A1 pools with Cipla's sliver. The 51% is in a ₹14 Cr pool |
+| `s9_bcg.png` | 9 | Star and Cash Cow quadrants boxed and visibly empty |
+| `s9_ansoff.png` | 9 | 93% of the box weight in Market Penetration |
+| `s10_prize_cost.png` | 10 | Contribution against cost on one clock |
 
-**Three things that must be visible somewhere, not spoken:** the ₹201 Cr vs ₹62 Cr gap (Slide 2 or
-10), the conversion dot-plots (Slide 6), and the sources (Annexure F). Everything else can live in
-your mouth.
+Regenerate any time with `python3 build_charts.py`. If a number changes, re-run it and
+`verify_deck.py` together — the chart reads the engine, so it self-corrects.
 
-**A note on register.** The invite says avoid AI-generated language. Keep the contractions, keep the
-short sentences, and cut anything that reads as "leverage", "robust framework" or "holistic
-approach". The strongest lines in this deck are the plain ones — *"Cipla already sells nine triples
-in this market. It details none of them."*
+**The one chart to build properly:** Slide 6's dot-plots. Same shape twice, Cipla left of the median
+in both archetypes, is the whole differentiation argument in one picture. If you build nine charts
+quickly and one carefully, make it that one.
+
+**Register.** The invite says avoid AI-generated language. Your strongest lines are the plainest —
+*"Cipla already sells nine triples in this market. It details none of them."* Nothing on a slide
+needs "leverage", "robust framework" or "holistic".
 
 ---
 
