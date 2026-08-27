@@ -104,8 +104,11 @@ PROMPT = """%s
 
 You are answering ONE question in a single pass. The EVIDENCE below is the only
 material you may use. Every figure must appear in it verbatim — if a number is
-not there, you do not have it, and you say so. Keep the answer tight: a judge is
-listening, not reading.
+not there, you do not have it, and you say so.
+
+LENGTH: aim for 120-200 words. Lead with the answer in one sentence, then the
+evidence for it. Finish the thought — a complete short answer always beats a
+detailed one that stops mid-sentence. No preamble, no restating the question.
 
 EVIDENCE — computed tool responses (reproducible from the dataset):
 %s
@@ -125,9 +128,12 @@ GEMINI_MODELS = ["gemini-3.7-flash", "gemini-3.6-flash", "gemini-3.5-flash",
 
 
 def gemini(prompt, key):
+    # 900 was far too tight: the 3.x flash models spend tokens on reasoning
+    # before they emit anything, so the visible answer was being cut off
+    # mid-sentence. Budget generously and let the prompt enforce brevity.
     body = json.dumps({"contents": [{"parts": [{"text": prompt}]}],
                        "generationConfig": {"temperature": 0.2,
-                                            "maxOutputTokens": 900}}).encode()
+                                            "maxOutputTokens": 4000}}).encode()
     problems = []
     for model in GEMINI_MODELS:
         url = ("https://generativelanguage.googleapis.com/v1beta/models/"
@@ -135,9 +141,19 @@ def gemini(prompt, key):
         req = urllib.request.Request(url, data=body,
                                      headers={"Content-Type": "application/json"})
         try:
-            with urllib.request.urlopen(req, timeout=40) as r:
+            with urllib.request.urlopen(req, timeout=50) as r:
                 d = json.loads(r.read())
-            return d["candidates"][0]["content"]["parts"][0]["text"], model
+            cand = d["candidates"][0]
+            parts = cand.get("content", {}).get("parts") or []
+            text = "".join(p.get("text", "") for p in parts).strip()
+            if not text:
+                # thinking consumed the whole budget and nothing was emitted
+                problems.append("%s: empty (%s)" % (model, cand.get("finishReason")))
+                continue
+            if cand.get("finishReason") == "MAX_TOKENS":
+                text += ("\n\n_(cut off at the length limit — ask a narrower "
+                         "question, or run the agent locally for the full answer.)_")
+            return text, model
         except urllib.error.HTTPError as e:
             detail = ""
             try:
