@@ -89,6 +89,11 @@ def pick_tools(q):
         out["run_sensitivity"] = t["run_sensitivity"]
     if any(w in ql for w in ("signal", "guideline", "regulat", "external", "cdsco", "nlem")):
         out["external_signals"] = t["external_signals"]
+    # a "what's the answer" question needs the whole picture, not one archetype
+    if any(w in ql for w in ("recommend", "final", "solution", "summar", "overall",
+                             "bottom line", "conclusion", "what should cipla", "the plan")):
+        out["decompose_growth"] = t["decompose_growth"]
+        out["project_forward"] = t["project_forward"]
     if any(w in ql for w in ("brand", "cresar", "rosulip", "amlopres", "metolar", "atorlip")):
         out["brand_profile"] = t["brand_profile"]
     if any(w in ql for w in ("molecule", "telmisartan", "statin", "rosuva", "atorva", "amlodipine")):
