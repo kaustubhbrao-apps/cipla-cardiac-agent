@@ -306,6 +306,15 @@
   "retracted": false
  },
  {
+  "entry_id": "frameworks",
+  "kind": "team",
+  "title": "BCG and Ansoff applied \u2014 one diagnoses the past, the other describes the plan",
+  "tags": "frameworks what frameworks did you use which framework bcg matrix ansoff framework star cash cow dog question mark market penetration product development diversification relative share classical lens strategy framework hr sfe build buy borrow total rewards",
+  "body": "BCG (growth vs RELATIVE share, Cipla divided by the leader) is the diagnosis. Cipla holds NO STAR and NO CASH COW anywhere in cardiac; its best relative share is 0.22 in A3. A4 0.018, A7 0.069, A3 0.220 and A1 0.041 are Question Marks (above-market growth, low relative share); A5 0.066, A8 0.162, A9 0.056 and A6 0.000 are Dogs. TWO CONSEQUENCES. First, A8 is a DOG, not a Cash Cow - which is exactly why 'harvest' was the wrong verb and CONVERT is right, and BCG reaches that on relative share alone, independently of our volume evidence. Second, with no cash cow in the book the plan CANNOT be funded by harvesting something healthy; it has to be funded by fixing a behaviour, which is what the conversion gap is. That is also the honest answer to why Cipla's cardiac book has been under-invested for years - nothing in it ever self-funded. ANSOFF is the description of the plan, and the numbers are exact. MARKET PENETRATION (existing brand, existing patient): Rs 68.1 Cr, 93% of the Rs 73.1 Cr gross - Cresar AMH 20.2, Rosulip-CV 16.2, Rosulip-ASP 15.4, Metolar Trio 10.0, Atorlip-CV 6.3. PRODUCT DEVELOPMENT (new molecule, same prescriber): Rs 5.0 Cr, 7% - the Horizon 2 triple. MARKET DEVELOPMENT (same brand, Tier-2/3 refill): zero incremental spend, served by the existing 5,500-stockist network. DIVERSIFICATION: deliberately empty; A4 would be in-licensed and sits outside the underwritten number. THE POINT: 93% of the plan sits in Ansoff's lowest-risk quadrant, and that was not chosen for comfort - Cipla ran seven cardiac launches in this window and made Rs 1.94 Cr between them, so the risk gradient Ansoff describes in theory is measured in this dataset. THE HR FRAMEWORKS are separate and sit in Annexure G: Build-Buy-Borrow for sourcing the 110 reps, Sales Force Effectiveness for whether 110 is the right number (8-12 calls/day benchmark; our panels compute to 9.1 and 11.4), and Total Rewards for cutting the incentive around conversion ratio rather than gross prescriptions. See [[taskforce]].",
+  "source": "Case dataset applied to BCG and Ansoff, 27 Aug 2026",
+  "retracted": false
+ },
+ {
   "entry_id": "taskforce",
   "kind": "team",
   "title": "Cardio-Metabolic Task Force \u2014 size, cost and return",
