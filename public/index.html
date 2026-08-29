@@ -189,10 +189,62 @@ main{padding:16px 22px 26px;flex:1}
 .note{font-size:10.5px;color:var(--faint);margin:11px 0 0;line-height:1.55}
 .note b{color:var(--dim)}
 
-/* ── Ask ────────────────────────────────────────────────────────────────── */
-.ask{margin-top:14px}
-.askhead{display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap}
-.threadbar{margin-left:auto;display:flex;align-items:center;gap:9px}
+/* ── The hero band: what the agent is, and one way in ───────────────────── */
+.hero{margin-top:14px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+  gap:22px;align-items:center;border-left:3px solid var(--vivid)}
+.hero h2{font-size:16px;letter-spacing:-.01em;margin-bottom:6px}
+.hero p{margin:0 0 13px;font-size:12px;color:var(--dim);max-width:52ch;line-height:1.6}
+.hero-go{background:var(--blue);color:#fff;border:0;border-radius:7px;
+  padding:10px 20px;font:inherit;font-weight:600;font-size:13px;cursor:pointer}
+.hero-go:hover{background:var(--blue-dk)}
+.hero-go:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.kbd-hint{font-size:11px;color:var(--faint);margin-left:11px}
+kbd{font-family:var(--data);font-size:10.5px;border:1px solid var(--line);
+  border-bottom-width:2px;border-radius:4px;padding:1px 5px;background:var(--sunk);color:var(--dim)}
+.try-lbl{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);
+  font-weight:600;display:block;margin-bottom:9px}
+
+/* ── The launcher, fixed to the viewport ────────────────────────────────── */
+.fab{position:fixed;right:22px;bottom:22px;z-index:60;
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--blue);color:#fff;border:0;border-radius:30px;
+  padding:13px 20px 13px 17px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;
+  box-shadow:0 4px 10px rgba(11,77,162,.24),0 12px 30px rgba(15,35,64,.20)}
+.fab:hover{background:var(--blue-dk)}
+.fab:focus-visible{outline:3px solid var(--vivid);outline-offset:2px}
+.fab .fab-ic{font-size:15px;color:var(--vivid)}
+.fab[aria-expanded="true"]{opacity:0;pointer-events:none;transform:translateY(6px)}
+.fab{transition:opacity .16s ease,transform .16s ease,background .16s ease}
+/* One quiet ring on arrival, three times, then it stops asking for attention */
+.fab::after{content:"";position:absolute;inset:0;border-radius:30px;
+  border:2px solid var(--vivid);animation:ring 2.1s ease-out 3;pointer-events:none}
+@keyframes ring{0%{opacity:.75;transform:scale(1)}70%,100%{opacity:0;transform:scale(1.18)}}
+@media (prefers-reduced-motion:reduce){
+  .fab{transition:none}
+  .fab::after{animation:none;opacity:0}
+}
+
+/* ── The dock ───────────────────────────────────────────────────────────── */
+.dock{position:fixed;right:22px;bottom:22px;z-index:70;width:min(432px,calc(100vw - 44px));
+  max-height:min(640px,calc(100vh - 44px));display:flex;flex-direction:column;
+  background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  box-shadow:0 8px 20px rgba(15,35,64,.14),0 24px 60px rgba(15,35,64,.20)}
+.dock[hidden]{display:none}
+.dock-h{flex:0 0 auto;display:flex;align-items:center;gap:10px;
+  padding:12px 13px;background:var(--rail);color:#fff}
+.dock-id{display:flex;align-items:center;gap:9px;min-width:0;flex-wrap:wrap}
+.dock-id b{font-size:13px;white-space:nowrap}
+.dock-h .tcount{color:var(--rail-dim)}
+.dock-h .tcount.live{color:var(--vivid)}
+.dock-acts{margin-left:auto;display:flex;gap:6px;flex:0 0 auto}
+.dock-btn{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);
+  color:#fff;border-radius:6px;padding:5px 10px;font:inherit;font-size:11px;cursor:pointer}
+.dock-btn:hover{background:rgba(255,255,255,.19)}
+.dock-btn:focus-visible{outline:2px solid var(--vivid);outline-offset:1px}
+.dock-body{flex:1 1 auto;overflow-y:auto;padding:13px;background:var(--bg);
+  display:flex;flex-direction:column;gap:12px}
+.dock-empty p{margin:0 0 12px;font-size:12px;color:var(--dim);line-height:1.6}
+.dock-f{flex:0 0 auto;padding:11px 13px;border-top:1px solid var(--line);background:var(--card)}
 .tcount{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);
   font-weight:600}
 .tcount.live{color:var(--green)}
@@ -214,8 +266,9 @@ main{padding:16px 22px 26px;flex:1}
   padding:11px 22px;font:inherit;font-weight:600;font-size:13px;cursor:pointer}
 .bar button:hover{background:var(--blue-dk)}
 .bar button:disabled{opacity:.5;cursor:default}
-#feed{display:grid;gap:13px;margin-top:13px}
-.turn{background:var(--sunk);border:1px solid var(--line);border-radius:9px;padding:14px 16px}
+#feed{display:grid;gap:11px}
+#feed:empty{display:none}
+.turn{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:12px 13px}
 .q{font-weight:600;color:var(--blue);font-size:13.5px;margin-bottom:10px}
 .working{display:flex;align-items:center;gap:9px;color:var(--faint);font-size:12px}
 .sweep{width:13px;height:13px;border:2px solid var(--line);border-top-color:var(--blue);
@@ -302,9 +355,19 @@ main{padding:16px 22px 26px;flex:1}
   .fr{grid-template-columns:66px minmax(0,1fr) 26px}
   .flr{flex-wrap:wrap}
   .flr .r{margin-left:auto}
-  .bar{flex-wrap:wrap}
-  .bar button{width:100%}
   .turn.cont{margin-left:10px}
+
+  /* On a phone the dock is a sheet: full width, off the bottom edge, with the
+     input pinned above the keyboard rather than floating in a small card. */
+  .hero{grid-template-columns:1fr;gap:16px}
+  .hero p{margin-bottom:11px}
+  .hero-go{width:100%}
+  .kbd-hint{display:none}
+  .fab{right:14px;bottom:14px;padding:12px 18px 12px 15px;font-size:13px}
+  .dock{right:0;left:0;bottom:0;width:100%;max-height:86vh;
+    border-radius:14px 14px 0 0;border-left:0;border-right:0;border-bottom:0}
+  .dock-body{padding:11px}
+  .dock-id b{font-size:12px}
 }
 </style></head><body>
 
@@ -380,28 +443,61 @@ main{padding:16px 22px 26px;flex:1}
       <p class="note" id="ladNote"></p>
     </section>
 
-    <section class="card ask" id="ask">
-      <div class="askhead">
-        <div>
-          <h2>Ask the Agent</h2>
-          <p class="sub">It runs typed analyses over the dataset and answers from what they return.
-             Follow-ups keep the thread, so you can keep pulling on one answer.</p>
-        </div>
-        <div class="threadbar">
-          <span class="tcount" id="tcount">New thread</span>
-          <button class="iconbtn" id="newchat" title="Start a fresh thread with its own context">
-            ＋ New chat</button>
-        </div>
+    <section class="card hero" id="ask">
+      <div class="hero-copy">
+        <h2>Ask the agent anything on this board</h2>
+        <p>It runs typed analyses over 7,452 SKU records and answers from what they return.
+           Follow-ups keep the thread, so you can keep pulling on one answer. It stays
+           within reach on every part of this page.</p>
+        <button class="hero-go" data-open-dock>Open the agent</button>
+        <span class="kbd-hint">or press <kbd>/</kbd></span>
       </div>
-      <div class="chips" id="chips"></div>
-      <div class="bar">
-        <input id="q" placeholder="Ask anything: a space, a molecule, a brand, a competitor, a guideline…" autocomplete="off">
-        <button id="go">Ask</button>
+      <div class="hero-try">
+        <span class="try-lbl">Try one of these</span>
+        <div class="chips" id="chips"></div>
       </div>
-      <div id="feed"></div>
     </section>
   </main>
 </div>
+
+<!-- The agent is the hero of this project, so it travels with the reader
+     instead of living at the bottom of the page. The launcher is fixed; the
+     dock opens over the board so a question can be asked while looking at the
+     number that prompted it. -->
+<button class="fab" id="fab" aria-expanded="false" aria-controls="dock">
+  <span class="fab-ic" aria-hidden="true">◈</span>
+  <span class="fab-tx">Ask the agent</span>
+</button>
+
+<section class="dock" id="dock" hidden role="dialog" aria-modal="false"
+         aria-labelledby="dockTitle">
+  <header class="dock-h">
+    <div class="dock-id">
+      <span class="dot" id="dockDot"></span>
+      <b id="dockTitle">Cardiac Opportunity Agent</b>
+      <span class="tcount" id="tcount">New thread</span>
+    </div>
+    <div class="dock-acts">
+      <button class="dock-btn" id="newchat" title="Start a fresh thread with its own context">
+        ＋ New</button>
+      <button class="dock-btn" id="dockClose" title="Close (Esc)" aria-label="Close">✕</button>
+    </div>
+  </header>
+  <div class="dock-body" id="dockBody">
+    <div class="dock-empty" id="dockEmpty">
+      <p>Ask about a space, a molecule, a brand, a competitor or a guideline.
+         Every figure comes back computed, never generated.</p>
+      <div class="chips" id="chips2"></div>
+    </div>
+    <div id="feed"></div>
+  </div>
+  <footer class="dock-f">
+    <div class="bar">
+      <input id="q" placeholder="Ask anything about the cardiac board…" autocomplete="off">
+      <button id="go">Ask</button>
+    </div>
+  </footer>
+</section>
 
 <script>
 const $=s=>document.querySelector(s), feed=$("#feed");
@@ -666,15 +762,17 @@ document.querySelector("nav").addEventListener("click",e=>{
   const a=e.target.closest("a[data-go]"); if(!a) return;
   document.querySelectorAll("nav a").forEach(n=>n.classList.toggle("on",n===a));
   const t=document.getElementById(a.dataset.go);
+  if(a.dataset.go==="ask"){ openDock(); return; }
   if(t) t.scrollIntoView({behavior:"smooth",block:"start"});
-  if(a.dataset.go==="ask") $("#q").focus();
 });
 
 /* ── Live status ────────────────────────────────────────────────────────── */
 fetch("data/status.json").then(r=>r.json()).then(d=>{
   $("#dot").className="dot"+(d.live?"":" off");
+  $("#dockDot").className="dot"+(d.live?"":" off");
   $("#liveTxt").textContent=d.live?("Live · "+d.model):"offline";
-}).catch(()=>{ $("#dot").className="dot off"; $("#liveTxt").textContent="offline"; });
+}).catch(()=>{ $("#dot").className="dot off"; $("#dockDot").className="dot off";
+             $("#liveTxt").textContent="offline"; });
 
 /* ── Ask ────────────────────────────────────────────────────────────────── */
 const SUGGEST=[
@@ -736,13 +834,46 @@ function threadLabel(){
   const el=$("#tcount");
   el.textContent=n?`${n} turn${n===1?"":"s"} in context`:"New thread";
   el.classList.toggle("live",n>0);
+  $("#dockEmpty").hidden=n>0;
 }
 function newChat(){
   HISTORY=[]; feed.innerHTML=""; threadLabel(); $("#q").focus();
 }
 
+/* ── The dock ────────────────────────────────────────────────────────────
+   The launcher is fixed to the viewport, so the agent is reachable from any
+   scroll position rather than parked at the foot of the page. Opening it
+   leaves the board visible underneath: the point of asking is usually the
+   number you are looking at. */
+const dock=$("#dock"), fab=$("#fab");
+function openDock(prefill){
+  dock.hidden=false;
+  fab.setAttribute("aria-expanded","true");
+  if(prefill) $("#q").value=prefill;
+  $("#q").focus();
+}
+function closeDock(){
+  dock.hidden=true;
+  fab.setAttribute("aria-expanded","false");
+  fab.focus();
+}
+const dockOpen=()=>!dock.hidden;
+fab.onclick=()=>openDock();
+$("#dockClose").onclick=closeDock;
+document.querySelectorAll("[data-open-dock]").forEach(b=>b.onclick=()=>openDock());
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape" && dockOpen()){ closeDock(); return; }
+  // "/" is the web's usual reach-for-search key, and the agent is this page's
+  // search. Ignored while the caret is already in a field.
+  const t=e.target.tagName;
+  if(e.key==="/" && !dockOpen() && t!=="INPUT" && t!=="TEXTAREA"){
+    e.preventDefault(); openDock();
+  }
+});
+
 async function send(text){
   const q=(text!==undefined?text:$("#q").value).trim(); if(!q) return;
+  if(!dockOpen()) openDock();          // a chip or a bubble may fire this
   $("#q").value=""; $("#go").disabled=true;
   const depth=HISTORY.length;
   const turn=document.createElement("div");
@@ -750,7 +881,9 @@ async function send(text){
   const head=(depth?`<div class="qn">Follow-up ${depth+1}</div>`:"")+`<div class="q">${esc(q)}</div>`;
   turn.innerHTML=head+
     `<div class="working"><span class="sweep"></span><span>Querying the dataset</span></div>`;
-  feed.appendChild(turn); turn.scrollIntoView({behavior:"smooth",block:"center"});
+  feed.appendChild(turn);
+  // scroll the dock's own pane, never the page behind it
+  $("#dockBody").scrollTop=$("#dockBody").scrollHeight;
   try{
     const r=await fetch("/api/ask",{method:"POST",headers:{"Content-Type":"application/json"},
       body:JSON.stringify({q, history:HISTORY.slice(-HIST_DEPTH)})});
@@ -772,8 +905,14 @@ async function send(text){
   }
   $("#go").disabled=false; $("#q").focus();
 }
-$("#chips").innerHTML=SUGGEST.map(s=>`<button class="chip">${esc(s)}</button>`).join("");
-$("#chips").addEventListener("click",e=>{ const c=e.target.closest(".chip"); if(c) send(c.textContent); });
+/* Suggestions appear on the page (discovery) and inside the empty dock
+   (the obvious first move once it is open). Both drive the same send(). */
+const chipHTML=SUGGEST.map(s=>`<button class="chip">${esc(s)}</button>`).join("");
+["#chips","#chips2"].forEach(sel=>{
+  const el=$(sel); if(!el) return;
+  el.innerHTML=chipHTML;
+  el.addEventListener("click",e=>{ const c=e.target.closest(".chip"); if(c) send(c.textContent); });
+});
 feed.addEventListener("click",e=>{
   const b=e.target.closest(".node button"); if(!b) return;
   const p=b.parentElement.querySelector("pre"); if(p) p.hidden=!p.hidden;
@@ -791,7 +930,6 @@ $("#picker").addEventListener("click",e=>{
 $("#picker").addEventListener("dblclick",e=>{
   const b=e.target.closest(".pk"); if(!b) return;
   const r=ROWS.find(x=>x.key===b.dataset.k); if(!r) return;
-  document.getElementById("ask").scrollIntoView({behavior:"smooth",block:"start"});
   send(`Tell me about ${r.key} ${r.space} — is it worth prioritising?`);
 });
 

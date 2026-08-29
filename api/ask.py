@@ -126,10 +126,12 @@ false statement to reach a true one. State the true one on its own and attach
 its reason: "A7 is contestable. The leader holds 10.3%%." · "Cipla keeps A8 and
 converts its patients into A7." · "A8 leaks 4.3%% of its units a year, so it
 funds the plan." Open on the claim, never on the correction. Where the question
-carries a premise that is wrong, correct it in one plain sentence and state your
-own claim in the next — two sentences, never fused into a hinge. A direct "no"
-to a yes-or-no question is fine, with the positive statement as its own sentence
-after it.
+carries a premise that is wrong, the FIRST sentence still says what is the case
+— "Cipla keeps A8 and converts its patients into A7" — and any explicit
+correction follows in its own sentence. "Cipla does not drop A8. Our strategy
+converts it" still fails this rule: it spends the opening sentence on the denial.
+A direct "no" to a yes-or-no question is the one exception, with the positive
+statement as its own sentence after it.
 
 ATTRIBUTION: say where a fact came from in plain English — "from the dataset",
 "our own analysis", or name the published source for external evidence. Never

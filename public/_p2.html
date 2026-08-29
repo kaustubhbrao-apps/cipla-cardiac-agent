@@ -1,0 +1,22 @@
+<script>
+setTimeout(()=>{
+  const d=document.getElementById('f').contentDocument, w=document.getElementById('f').contentWindow;
+  const out=[];
+  const need=['fab','dock','dockClose','newchat','q','go','chips','chips2','dockEmpty','dockBody','dockDot','tcount'];
+  out.push('missing ids: '+(need.filter(i=>!d.getElementById(i)).join(', ')||'none'));
+  out.push('dock hidden at load: '+d.getElementById('dock').hidden);
+  out.push('chips rendered: page='+d.querySelectorAll('#chips .chip').length+
+           ' dock='+d.querySelectorAll('#chips2 .chip').length);
+  d.getElementById('fab').click();
+  out.push('after FAB click -> dock hidden: '+d.getElementById('dock').hidden+
+           ' | aria-expanded: '+d.getElementById('fab').getAttribute('aria-expanded'));
+  const r=d.getElementById('dock').getBoundingClientRect();
+  out.push('dock box: w='+Math.round(r.width)+' h='+Math.round(r.height)+
+           ' right='+Math.round(r.right)+' bottom='+Math.round(r.bottom));
+  d.getElementById('dockClose').click();
+  out.push('after close -> hidden: '+d.getElementById('dock').hidden);
+  const p=document.createElement('pre'); p.id='P'; p.textContent=out.join('\n');
+  document.body.appendChild(p);
+},1600);
+</script>
+<iframe id="f" src="http://localhost:8899/index.html" style="width:1280px;height:900px;border:0"></iframe>
