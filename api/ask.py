@@ -115,11 +115,26 @@ LENGTH: aim for 120-200 words. Lead with the answer in one sentence, then the
 evidence for it. Finish the thought — a complete short answer always beats a
 detailed one that stops mid-sentence. No preamble, no restating the question.
 
+VOICE: assert what is true rather than denying what is false. Write "Cipla keeps
+A8 and converts it into A7", never "Cipla does not drop A8". Write "A8 funds the
+plan", never "A8 is not a harvest". A reader should be able to take any sentence
+out of the answer and still have a positive claim in their hand. Reach for a
+negative only when the question turns on the denial itself — a judge asking "is
+manufacturing your moat?" is owed a direct "no" — and then give the positive
+statement in the same breath. Where a premise in the question is wrong, correct
+it by stating what is actually the case, not by leading with the contradiction.
+
 ATTRIBUTION: say where a fact came from in plain English — "from the dataset",
 "our own analysis", or name the published source for external evidence. Never
 print the internal field names of the evidence: no entry_id, no kind="team", no
 JSON keys, no backticked slugs. A judge is reading the answer, not the
 plumbing.
+
+CONVERSATION SO FAR (earlier turns in this thread; the question below may lean
+on them for its subject, so read pronouns and words like "it", "that one" and
+"why" against this. The evidence rules apply unchanged: a figure you stated
+earlier still has to appear in the EVIDENCE below to be repeated):
+%s
 
 EVIDENCE — computed tool responses (reproducible from the dataset):
 %s
@@ -130,6 +145,30 @@ stated FIRST):
 %s
 
 QUESTION: %s"""
+
+
+def format_history(raw):
+    """Normalise the client's thread into a compact transcript.
+
+    Untrusted input: it arrives in the POST body, so the shape, the count and
+    the length of every field are all capped here rather than trusted. Six
+    turns is roughly the depth a judge's follow-ups reach before the subject
+    changes, and it keeps the prompt inside the token budget.
+    """
+    first = "(this is the first question in the thread)"
+    if not isinstance(raw, list):
+        return first, []
+    turns = []
+    for item in raw[-6:]:
+        if not isinstance(item, dict):
+            continue
+        q = str(item.get("q") or "").strip()[:500]
+        a = str(item.get("a") or "").strip()[:1200]
+        if q and a:
+            turns.append((q, a))
+    if not turns:
+        return first, []
+    return "\n\n".join("Q: %s\nA: %s" % (q, a) for q, a in turns), turns
 
 
 # Same fallback chain the local agent uses: model availability on a given key
@@ -221,8 +260,18 @@ class handler(BaseHTTPRequestHandler):
             return self._send(503, {"error": "The reasoning layer is not configured on this "
                                              "deployment. Set GEMINI_API_KEY."})
 
-        tools, kb = pick_tools(q), kb_search(q)
-        prompt = PROMPT % (load("tools.json")["system"],
+        transcript, turns = format_history(req.get("history"))
+
+        # Route on the question PLUS the previous question. A follow-up like
+        # "why?" or "and A1?" carries no routing terms of its own, so retrieval
+        # against it alone returns the wrong evidence and the thread loses its
+        # subject at the second turn. The answer text is deliberately left out
+        # of the routing string: it is long, and it would drag in every tool
+        # the previous turn happened to mention.
+        route_q = (turns[-1][0] + " " + q) if turns else q
+
+        tools, kb = pick_tools(route_q), kb_search(route_q)
+        prompt = PROMPT % (load("tools.json")["system"], transcript,
                            json.dumps(tools, separators=(",", ":"))[:60000],
                            json.dumps(kb, separators=(",", ":"))[:40000], q)
         try:
@@ -235,7 +284,8 @@ class handler(BaseHTTPRequestHandler):
 
         self._send(200, {"answer": answer, "model": model,
                          "grounded": sorted(tools.keys()),
-                         "entries": [e["entry_id"] for e in kb]})
+                         "entries": [e["entry_id"] for e in kb],
+                         "turn": len(turns) + 1})
 
     def do_GET(self):
         self._send(405, {"error": "POST a JSON body: {\"q\": \"...\"}"})

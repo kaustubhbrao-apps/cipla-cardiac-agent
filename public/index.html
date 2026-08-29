@@ -29,6 +29,9 @@
   --green:#3C6E14; --vivid:#8DC63F; --green-tint:#EFF6E3;
   --red:#C4241C;   --red-tint:#FBEDEC;
   --amber:#8A5800; --amber-tint:#FAF2E2;
+  /* --amber is the text tone (AA on the tint). Fills need to read as
+     amber rather than brown at bar size, so they take --amber-fill. */
+  --amber-fill:#E3A11F;
   --ink:#0F2340;   --dim:#4A6285;  --faint:#7E90A8;
   --bg:#EFF4F9;    --card:#FFFFFF; --sunk:#F5F8FC;
   --line:#D8E3F0;  --line-soft:#E8EFF7;
@@ -102,7 +105,7 @@ nav a:focus-visible{outline:2px solid var(--vivid);outline-offset:-2px}
 .meter{height:4px;border-radius:2px;background:var(--line);margin-top:6px;overflow:hidden}
 .meter i{display:block;height:100%;border-radius:2px;background:var(--blue)}
 .meter i.g{background:var(--vivid)}
-.meter i.a{background:var(--amber)}
+.meter i.a{background:var(--amber-fill)}
 
 /* ── Board ──────────────────────────────────────────────────────────────── */
 main{padding:16px 22px 26px;flex:1}
@@ -162,7 +165,7 @@ main{padding:16px 22px 26px;flex:1}
 
 /* Prize ladder */
 .ladder{display:grid;gap:7px;margin-top:2px}
-.lr{display:grid;grid-template-columns:180px 1fr 62px 92px;gap:10px;align-items:center;font-size:11.5px}
+.lr{display:grid;grid-template-columns:180px 34px 1fr 62px 92px;gap:10px;align-items:center;font-size:11.5px}
 .lr .ln{color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lr .ln b{color:var(--ink);font-weight:700;font-family:var(--data)}
 .lr .lb{height:16px;background:var(--line-soft);border-radius:3px;overflow:hidden}
@@ -170,17 +173,34 @@ main{padding:16px 22px 26px;flex:1}
 .lr .lv{font-family:var(--data);font-weight:600;text-align:right}
 .lr .lc{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;
   text-align:center;border-radius:3px;padding:3px 0}
-.c-pri{background:var(--green-tint);color:var(--green)}
-.c-con{background:var(--blue-tint);color:var(--blue)}
-.c-def{background:var(--blue-tint);color:var(--blue)}
-.c-sel{background:var(--amber-tint);color:var(--amber)}
-.c-opt{background:var(--sunk);color:var(--dim)}
-.c-avo{background:var(--red-tint);color:var(--red)}
+.c-go{background:var(--green-tint);color:var(--green)}
+.c-hold{background:var(--amber-tint);color:var(--amber)}
+.c-stop{background:var(--red-tint);color:var(--red)}
+/* the priority index, shown against every space rather than only the open one */
+.idx{font-family:var(--data);font-weight:700;font-size:11px;border-radius:3px;
+  padding:2px 6px;min-width:30px;text-align:center;line-height:1.35}
+.i-go{background:var(--green-tint);color:var(--green)}
+.i-hold{background:var(--amber-tint);color:var(--amber)}
+.i-stop{background:var(--red-tint);color:var(--red)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:10px;color:var(--faint);
+  margin:0 0 11px;align-items:center}
+.legend i{display:inline-flex;align-items:center;gap:5px;font-style:normal}
+.legend b{width:9px;height:9px;border-radius:2px;display:inline-block}
 .note{font-size:10.5px;color:var(--faint);margin:11px 0 0;line-height:1.55}
 .note b{color:var(--dim)}
 
 /* ── Ask ────────────────────────────────────────────────────────────────── */
 .ask{margin-top:14px}
+.askhead{display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.threadbar{margin-left:auto;display:flex;align-items:center;gap:9px}
+.tcount{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);
+  font-weight:600}
+.tcount.live{color:var(--green)}
+/* A turn that continues a thread is stepped in and rules back to its parent,
+   so the shape of the conversation is visible without reading it. */
+.turn.cont{margin-left:22px;border-left:3px solid var(--blue-soft)}
+.turn .qn{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);
+  font-weight:700;margin-bottom:4px}
 .chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
 .chip{border:1px solid var(--line);background:var(--sunk);color:var(--dim);
   border-radius:14px;padding:6px 12px;font:inherit;font-size:11.5px;cursor:pointer;text-align:left}
@@ -227,20 +247,64 @@ main{padding:16px 22px 26px;flex:1}
   .grid{grid-template-columns:1fr}
   .hub{grid-template-columns:1fr}
   .gauge{order:-1}
-  .lr{grid-template-columns:150px 1fr 56px 84px}
+  .lr{grid-template-columns:150px 32px 1fr 56px 84px}
 }
+
+/* ── Phone ────────────────────────────────────────────────────────────────
+   A judge scans this on a phone after the QR code, so the order of business
+   is: what is the call, what is it worth, then the working. The rail becomes
+   a scrolling tab strip, the trackers a 2-up grid, and every chart keeps its
+   full width rather than being squeezed beside a label. */
 @media (max-width:760px){
   body{flex-direction:column;background:var(--bg)}
-  .rail{flex:0 0 auto;height:auto;position:static;flex-direction:row;align-items:center;
-    overflow-x:auto;gap:4px}
-  .mark{border-bottom:0;border-right:1px solid var(--rail-line);padding:11px 14px;flex:0 0 auto}
+  .rail{flex:0 0 auto;height:auto;position:sticky;top:0;z-index:20;
+    flex-direction:column;align-items:stretch;gap:0}
+  .mark{border-bottom:1px solid var(--rail-line);padding:10px 14px;
+    display:flex;align-items:baseline;gap:9px}
+  .mark b{font-size:14px}
+  .mark i{margin-top:0;font-size:8.5px;letter-spacing:.16em}
   .mark .wm,.rail-foot{display:none}
-  nav{display:flex;padding:0}
-  nav a{border-left:0;border-bottom:3px solid transparent;white-space:nowrap}
+  nav{display:flex;padding:0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  nav a{border-left:0;border-bottom:3px solid transparent;white-space:nowrap;
+    padding:10px 14px;font-size:12px}
   nav a.on{border-left:0;border-bottom-color:var(--vivid)}
-  main{padding:14px}
-  .lr{grid-template-columns:1fr 62px 84px}
+  nav a .ic{display:none}
+
+  .topbar{padding:12px 14px 0}
+  .title-row h1{font-size:18px}
+  .tb-right{margin-left:0;width:100%;margin-top:8px}
+  .status{gap:12px;padding:11px 0}
+  .active{width:100%;font-size:13px;flex-wrap:wrap;gap:6px}
+  .active .lbl{width:100%}
+  .trackers{margin-left:0;width:100%;display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px}
+  .trk{min-width:0}
+  .trk:last-child{grid-column:1 / -1;display:flex;align-items:baseline;gap:10px}
+  .trk:last-child .k{margin-bottom:0}
+
+  html,body{max-width:100%;overflow-x:hidden}
+  main{padding:12px 14px 22px}
+  .picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+  .pk{padding:8px 9px;font-size:11px;gap:5px;min-width:0}
+  .pk span:not(.tag):not(.idx){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .pk .idx{margin-left:auto}
+  .card{padding:13px 13px}
+  .pillars{grid-template-columns:1fr}
+  .gauge svg{width:124px;height:124px}
+
+  /* two rows per space: the call and the money first, the name under it */
+  .lr{grid-template-columns:minmax(0,1fr) auto auto;gap:8px;
+    padding-bottom:7px;border-bottom:1px solid var(--line-soft)}
   .lr .lb{display:none}
+  .lr .ln{white-space:normal}
+  .legend{font-size:9.5px;gap:10px}
+  .legend i:last-child{display:none}
+  .fr{grid-template-columns:66px minmax(0,1fr) 26px}
+  .flr{flex-wrap:wrap}
+  .flr .r{margin-left:auto}
+  .bar{flex-wrap:wrap}
+  .bar button{width:100%}
+  .turn.cont{margin-left:10px}
 }
 </style></head><body>
 
@@ -317,9 +381,18 @@ main{padding:16px 22px 26px;flex:1}
     </section>
 
     <section class="card ask" id="ask">
-      <h2>Ask the Agent</h2>
-      <p class="sub">It runs typed analyses over the dataset and answers from what they return.
-         Double-click a space above to load it here, or type your own question.</p>
+      <div class="askhead">
+        <div>
+          <h2>Ask the Agent</h2>
+          <p class="sub">It runs typed analyses over the dataset and answers from what they return.
+             Follow-ups keep the thread, so you can keep pulling on one answer.</p>
+        </div>
+        <div class="threadbar">
+          <span class="tcount" id="tcount">New thread</span>
+          <button class="iconbtn" id="newchat" title="Start a fresh thread with its own context">
+            ＋ New chat</button>
+        </div>
+      </div>
       <div class="chips" id="chips"></div>
       <div class="bar">
         <input id="q" placeholder="Ask anything: a space, a molecule, a brand, a competitor, a guideline…" autocomplete="off">
@@ -364,10 +437,14 @@ function compute(spaces, bar){
     return o;
   });
 }
-const CALLCLS={PRIORITY:"c-pri",CONVERT:"c-con",DEFEND:"c-def",SELECTIVE:"c-sel",
-               OPTION:"c-opt",AVOID:"c-avo",HARVEST:"c-con"};
-const CALLCOL={PRIORITY:"--vivid",CONVERT:"--blue",DEFEND:"--blue-soft",SELECTIVE:"--amber",
-               OPTION:"--faint",AVOID:"--red",HARVEST:"--blue-soft"};
+/* Traffic light, read as money rather than as taxonomy: green is where the
+   next rupee goes, amber is a position to work without new spend, red is
+   where the spend stops. Five calls collapse into three signals, which is
+   what a board reads off a page in four seconds. */
+const CALLCLS={PRIORITY:"c-go",CONVERT:"c-hold",DEFEND:"c-hold",SELECTIVE:"c-hold",
+               OPTION:"c-hold",AVOID:"c-stop",HARVEST:"c-hold"};
+const CALLCOL={PRIORITY:"--vivid",CONVERT:"--amber-fill",DEFEND:"--amber-fill",SELECTIVE:"--amber-fill",
+               OPTION:"--amber-fill",AVOID:"--red",HARVEST:"--amber-fill"};
 const shortName=n=>n.replace(/\s*\(.*?\)\s*/g,"").replace(/^A\d\s*/,"").trim();
 
 /* ── Boot ───────────────────────────────────────────────────────────────── */
@@ -392,25 +469,36 @@ async function boot(){
 /* ── Top trackers. The shape leadership reads on any programme board:
       committed against permitted, and the cover on the cost line. The three
       constants are the plan's own numbers, stated in the deck. ─────────── */
-const UNDER=62, HEADROOM=201, BREAKEVEN=16, COMMIT=31;
+const UNDER=62, BREAKEVEN=16;      // ₹Cr net of cannibalisation; % of headroom
 function trackers(){
+  // Headroom is the two funded spaces, computed here rather than typed, so it
+  // moves with the model. The whole board permits far more (~₹748 Cr) and
+  // saying "₹201 Cr" without naming the two would overstate what we claim.
+  const HEADROOM=ROWS.filter(r=>r.call==="PRIORITY").reduce((s,r)=>s+r.prize,0);
+  const commit=UNDER/HEADROOM*100;
   $("#trackers").innerHTML=`
-    <div class="trk"><span class="k">Headroom committed</span>
-      <span class="v">₹${UNDER} Cr <em>/ ₹${HEADROOM} Cr</em></span>
-      <div class="meter"><i class="g" style="width:${(UNDER/HEADROOM*100).toFixed(0)}%"></i></div></div>
+    <div class="trk"><span class="k">Committed of headroom</span>
+      <span class="v">₹${UNDER} Cr <em>/ ₹${fmt(HEADROOM)} Cr</em></span>
+      <div class="meter"><i class="g" style="width:${commit.toFixed(0)}%"></i></div></div>
     <div class="trk"><span class="k">Break-even cover</span>
-      <span class="v">${COMMIT}% <em>vs ${BREAKEVEN}% needed</em></span>
-      <div class="meter"><i class="a" style="width:${(BREAKEVEN/COMMIT*100).toFixed(0)}%"></i></div></div>
+      <span class="v">${commit.toFixed(0)}% <em>where ${BREAKEVEN}% pays</em></span>
+      <div class="meter"><i class="a" style="width:${(BREAKEVEN/commit*100).toFixed(0)}%"></i></div></div>
     <div class="trk"><span class="k">Underwritten prize</span>
       <span class="v big">₹${UNDER} Cr</span></div>`;
 }
 
 /* ── Space picker ───────────────────────────────────────────────────────── */
+/* Every space carries its own index on the picker, so the whole board is
+   readable before anything is clicked. Clicking opens the working behind a
+   number the reader has already seen. */
+const idxCls=call=>({PRIORITY:"i-go",AVOID:"i-stop"})[call]||"i-hold";
 function picker(){
   $("#picker").innerHTML=ROWS.map(r=>`
-    <button class="pk" data-k="${r.key}" title="Double-click to ask the agent about ${r.key}">
+    <button class="pk" data-k="${r.key}"
+            title="Priority index ${fmt(r.score,1)} · ${r.call} · double-click to ask the agent">
       <span class="tag" style="background:var(${CALLCOL[r.call]})"></span>
       <b>${r.key}</b> ${esc(shortName(r.space))}
+      <span class="idx ${idxCls(r.call)}">${fmt(r.score,0)}</span>
     </button>`).join("");
 }
 
@@ -487,7 +575,7 @@ function select(key){
   const g=1+(r.value||0)/100, m26=r.m26, m25=m26/g, m24=m25/g;
   $("#pillL").innerHTML=
     pillCard("Future potential","35%",r.P_future,
-      bars([r.volume,r.mix,r.price],["--vivid","--blue","--amber"],["vol","mix","price"]),
+      bars([r.volume,r.mix,r.price],["--vivid","--blue","--amber-fill"],["vol","mix","price"]),
       `<b>${fmt(r.volume,1)}</b> volume · <b>${fmt(r.mix,1)}</b> mix ·
        <b>${fmt(r.price,1)}</b> price`)+
     pillCard("Market attractiveness","25%",r.P_attract,
@@ -498,7 +586,7 @@ function select(key){
       meter(r.cip_sh, r.ceiling*100, 10),
       `Cipla <b>${fmt(r.cip_sh,2)}%</b> against a <b>${fmt(r.ceiling*100,1)}%</b> ceiling`)+
     pillCard("Competitive intensity","15%",r.P_compete,
-      stack([[r.leader,"--red"],[Math.max(0,r.top3-r.leader),"--amber"],
+      stack([[r.leader,"--red"],[Math.max(0,r.top3-r.leader),"--amber-fill"],
              [Math.max(0,100-r.top3),"--vivid"]]),
       `leader <b>${fmt(r.leader,1)}%</b> · top 3 <b>${fmt(r.top3,1)}%</b> ·
        <b>${fmt(100-r.top3,0)}%</b> loose`);
@@ -551,9 +639,17 @@ function funnel(){
 /* ── Prize ladder ───────────────────────────────────────────────────────── */
 function ladder(){
   const mx=Math.max(...ROWS.map(r=>r.prize),1);
-  $("#lad").innerHTML=ROWS.map(r=>`
+  $("#lad").innerHTML=
+    `<div class="legend">
+       <i><b style="background:var(--vivid)"></b>Fund it</i>
+       <i><b style="background:var(--amber-fill)"></b>Work it, no new spend</i>
+       <i><b style="background:var(--red)"></b>Spend stops</i>
+       <i style="margin-left:auto">Index is the weighted score out of 100</i>
+     </div>`+
+    ROWS.map(r=>`
     <div class="lr">
       <span class="ln"><b>${r.key}</b> ${esc(shortName(r.space))}</span>
+      <span class="idx ${idxCls(r.call)}">${fmt(r.score,0)}</span>
       <div class="lb"><i style="width:${(r.prize/mx*100).toFixed(1)}%;background:var(${CALLCOL[r.call]})"></i></div>
       <span class="lv">₹${fmt(r.prize)}</span>
       <span class="lc ${CALLCLS[r.call]}">${r.call}</span>
@@ -626,28 +722,53 @@ function node(c){
     ${SCOPE[c.tool]?`<span class="scope">${esc(SCOPE[c.tool])}</span>`:""}
   </button>${c.summary?`<pre hidden>${esc(c.summary)}</pre>`:""}</div>`;
 }
+/* ── The thread ──────────────────────────────────────────────────────────
+   HISTORY is the context the server reasons against. It holds only completed
+   turns: a question that errored, or one the scope guard turned away, leaves
+   nothing behind, so a failed turn cannot poison the follow-ups after it.
+   "New chat" empties it, which is what makes a second thread genuinely
+   separate rather than a visual break in the same one. */
+let HISTORY=[];
+const HIST_DEPTH=6;                     // matches format_history() in api/ask.py
+
+function threadLabel(){
+  const n=HISTORY.length;
+  const el=$("#tcount");
+  el.textContent=n?`${n} turn${n===1?"":"s"} in context`:"New thread";
+  el.classList.toggle("live",n>0);
+}
+function newChat(){
+  HISTORY=[]; feed.innerHTML=""; threadLabel(); $("#q").focus();
+}
+
 async function send(text){
   const q=(text!==undefined?text:$("#q").value).trim(); if(!q) return;
   $("#q").value=""; $("#go").disabled=true;
-  const turn=document.createElement("div"); turn.className="turn";
-  turn.innerHTML=`<div class="q">${esc(q)}</div>
-    <div class="working"><span class="sweep"></span><span>Querying the dataset</span></div>`;
-  feed.prepend(turn); turn.scrollIntoView({behavior:"smooth",block:"center"});
+  const depth=HISTORY.length;
+  const turn=document.createElement("div");
+  turn.className="turn"+(depth?" cont":"");
+  const head=(depth?`<div class="qn">Follow-up ${depth+1}</div>`:"")+`<div class="q">${esc(q)}</div>`;
+  turn.innerHTML=head+
+    `<div class="working"><span class="sweep"></span><span>Querying the dataset</span></div>`;
+  feed.appendChild(turn); turn.scrollIntoView({behavior:"smooth",block:"center"});
   try{
     const r=await fetch("/api/ask",{method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({q})});
+      body:JSON.stringify({q, history:HISTORY.slice(-HIST_DEPTH)})});
     const d=await r.json();
     if(d.error) throw new Error(d.error);
     const calls=d.calls||[];
-    let h=`<div class="q">${esc(q)}</div>`;
+    let h=head;
     if(d.note) h+=`<div class="flag"><span>⚠</span><span>${esc(d.note)}</span></div>`;
     if(calls.length) h+=`<div class="rail-calls">${calls.map(node).join("")}</div>
       <div class="calls-foot">${calls.length} ${calls.length===1?"analysis":"analyses"} run ·
       figures computed, not generated</div>`;
     if(d.answer) h+=`<div class="ans">${md(d.answer)}</div>`;
     turn.innerHTML=h;
+    // A turned-away question stays out of the thread: carrying it forward would
+    // make every later answer argue with a subject the dataset cannot reach.
+    if(d.answer && !d.scope){ HISTORY.push({q, a:d.answer}); threadLabel(); }
   }catch(e){
-    turn.innerHTML=`<div class="q">${esc(q)}</div><div class="err">${esc(e.message)}</div>`;
+    turn.innerHTML=head+`<div class="err">${esc(e.message)}</div>`;
   }
   $("#go").disabled=false; $("#q").focus();
 }
@@ -658,7 +779,9 @@ feed.addEventListener("click",e=>{
   const p=b.parentElement.querySelector("pre"); if(p) p.hidden=!p.hidden;
 });
 $("#go").onclick=()=>send();
+$("#newchat").onclick=newChat;
 $("#q").addEventListener("keydown",e=>{ if(e.key==="Enter") send(); });
+threadLabel();
 
 /* The board and the conversation are one instrument, not two tabs: a single
    click loads the space, a double-click asks the agent about it. */
