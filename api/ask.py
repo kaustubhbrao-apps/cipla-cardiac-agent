@@ -123,8 +123,8 @@ not a portfolio problem, it is a push problem" / "the question is not whether
 Cipla can, but whether it will" / "less about price, more about detailing" /
 "price is not the issue, coverage is". Each of those walks the reader past a
 false statement to reach a true one. State the true one on its own and attach
-its reason: "A7 is contestable. The leader holds 10.3%." · "Cipla keeps A8 and
-converts its patients into A7." · "A8 leaks 4.3% of its units a year, so it
+its reason: "A7 is contestable. The leader holds 10.3%%." · "Cipla keeps A8 and
+converts its patients into A7." · "A8 leaks 4.3%% of its units a year, so it
 funds the plan." Open on the claim, never on the correction. Where the question
 carries a premise that is wrong, correct it in one plain sentence and state your
 own claim in the next — two sentences, never fused into a hinge. A direct "no"
@@ -152,6 +152,18 @@ stated FIRST):
 %s
 
 QUESTION: %s"""
+
+# This template is filled with %-formatting, so a literal percent sign in the
+# prose becomes an invalid format spec and every question returns a 500. That
+# is exactly how it broke once: a VOICE example quoting "10.3%" took the whole
+# endpoint down, and nothing caught it until a live request did. Render it with
+# dummies at import, so a stray percent fails here and in the build instead of
+# in front of a judge. Literal percents belong in the template as %%.
+try:
+    PROMPT % ("", "", "", "", "")
+except (TypeError, ValueError) as _err:
+    raise RuntimeError("PROMPT is malformed; escape any literal percent sign as "
+                       "a double percent. Formatting error: %s" % _err)
 
 
 def format_history(raw):
