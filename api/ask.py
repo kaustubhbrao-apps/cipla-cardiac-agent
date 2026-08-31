@@ -92,7 +92,10 @@ def pick_tools(q):
                              "underwrit", "commit", "conservat", "floor", "ceiling",
                              "nothing", "baseline", "worst case", "downside",
                              "book", "target", "ladder", "cannibal", "201",
-                             "tier", "reserve", "realistic", "deliver", "promise")):
+                             "tier", "reserve", "realistic", "deliver", "promise",
+                             # the four-verb strategy question quotes a build
+                             # figure, so it must quote the committed one
+                             "double down", "build capabilit", "selective", "avoid")):
         out["underwrite"] = t["underwrite"]
     if any(w in ql for w in ("wrong", "sensitiv", "robust", "assumption")):
         out["run_sensitivity"] = t["run_sensitivity"]
