@@ -90,8 +90,9 @@ def pick_tools(q):
     if any(w in ql for w in ("prize", "headroom", "5-year", "5 year", "five year",
                              "yr 5", "year 5", "how much", "how big", "upside",
                              "underwrit", "commit", "conservat", "floor", "ceiling",
-                             "do nothing", "do-nothing", "baseline", "worst case",
-                             "book", "target", "ladder", "cannibal")):
+                             "nothing", "baseline", "worst case", "downside",
+                             "book", "target", "ladder", "cannibal", "201",
+                             "tier", "reserve", "realistic", "deliver", "promise")):
         out["underwrite"] = t["underwrite"]
     if any(w in ql for w in ("wrong", "sensitiv", "robust", "assumption")):
         out["run_sensitivity"] = t["run_sensitivity"]
