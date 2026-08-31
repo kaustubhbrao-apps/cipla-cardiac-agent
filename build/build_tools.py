@@ -32,6 +32,7 @@ def main():
         "rank_opportunities": j(A.t_rank_opportunities()),
         "decompose_growth":  j(A.t_decompose_growth()),
         "project_forward":   j(A.t_project_forward()),
+        "underwrite":        j(A.t_underwrite()),
         "run_sensitivity":   j(A.t_run_sensitivity()),
         "external_signals":  j(A.t_external_signals()),
         "brand_profile":     j(A.t_brand_profile("")),

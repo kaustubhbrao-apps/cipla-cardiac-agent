@@ -85,6 +85,14 @@ def pick_tools(q):
         out["decompose_growth"] = t["decompose_growth"]
     if any(w in ql for w in ("future", "project", "3-5", "five year", "outperform")):
         out["project_forward"] = t["project_forward"]
+    # The prize question must never come back as the ceiling alone, so the
+    # ladder rides along with anything asking how big, how long or how sure.
+    if any(w in ql for w in ("prize", "headroom", "5-year", "5 year", "five year",
+                             "yr 5", "year 5", "how much", "how big", "upside",
+                             "underwrit", "commit", "conservat", "floor", "ceiling",
+                             "do nothing", "do-nothing", "baseline", "worst case",
+                             "book", "target", "ladder", "cannibal")):
+        out["underwrite"] = t["underwrite"]
     if any(w in ql for w in ("wrong", "sensitiv", "robust", "assumption")):
         out["run_sensitivity"] = t["run_sensitivity"]
     if any(w in ql for w in ("signal", "guideline", "regulat", "external", "cdsco", "nlem")):
@@ -94,6 +102,7 @@ def pick_tools(q):
                              "bottom line", "conclusion", "what should cipla", "the plan")):
         out["decompose_growth"] = t["decompose_growth"]
         out["project_forward"] = t["project_forward"]
+        out["underwrite"] = t["underwrite"]
     if any(w in ql for w in ("brand", "cresar", "rosulip", "amlopres", "metolar", "atorlip")):
         out["brand_profile"] = t["brand_profile"]
     if any(w in ql for w in ("molecule", "telmisartan", "statin", "rosuva", "atorva", "amlodipine")):
@@ -132,6 +141,14 @@ correction follows in its own sentence. "Cipla does not drop A8. Our strategy
 converts it" still fails this rule: it spends the opening sentence on the denial.
 A direct "no" to a yes-or-no question is the one exception, with the positive
 statement as its own sentence after it.
+
+THE PRIZE: when the underwrite tool is in the evidence, the headroom figure in
+rank_opportunities is the STRUCTURAL CEILING and is never the answer on its own.
+Give the whole ladder in one line, in this order and using that tool's own
+numbers: do-nothing, floor, plan, reserve, ceiling. Name the PLAN tier as what
+the team commits to, with its incremental figure. Then close on the tool's
+headline_line verbatim. Never quote a ladder number that the underwrite tool
+does not state.
 
 ATTRIBUTION: say where a fact came from in plain English — "from the dataset",
 "our own analysis", or name the published source for external evidence. Never
