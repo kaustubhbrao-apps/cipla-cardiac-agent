@@ -66,7 +66,7 @@ nav a:focus-visible{outline:2px solid var(--vivid);outline-offset:-2px}
 .rail-foot b{color:var(--rail-ink);font-weight:600}
 
 /* ── Shell + topbar ─────────────────────────────────────────────────────── */
-.shell{flex:1;min-width:0;display:flex;flex-direction:column}
+.shell{flex:1;min-width:0;max-width:100%;display:flex;flex-direction:column}
 .topbar{background:var(--card);border-bottom:1px solid var(--line);padding:14px 22px 0;
   position:sticky;top:0;z-index:20}
 .title-row{display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap}
@@ -92,9 +92,10 @@ nav a:focus-visible{outline:2px solid var(--vivid);outline-offset:-2px}
 .trk .v{font-family:var(--data);font-size:12.5px;font-weight:600;color:var(--ink)}
 
 /* ── Layout ─────────────────────────────────────────────────────────────── */
-.wrap{display:flex;gap:14px;padding:16px 22px 40px;align-items:flex-start;flex:1}
+.wrap{display:flex;gap:14px;padding:16px 22px 40px;align-items:flex-start;flex:1;
+  width:100%;min-width:0}
 aside.controls{flex:0 0 238px;position:sticky;top:150px}
-main{flex:1;min-width:0}
+main{flex:1;min-width:0;max-width:100%}
 
 /* ── Cards ──────────────────────────────────────────────────────────────── */
 .card{background:var(--card);border:1px solid var(--line);border-radius:9px;
@@ -130,23 +131,23 @@ button.ghost:hover{background:var(--card);border-color:var(--blue-soft);color:va
 
 /* ── Tables ─────────────────────────────────────────────────────────────── */
 table{width:100%;border-collapse:collapse;font-size:12px}
-th{text-align:right;padding:7px 6px;color:var(--faint);font-size:9.5px;
+th{text-align:right;padding:7px 5px;color:var(--faint);font-size:9.5px;
   text-transform:uppercase;letter-spacing:.13em;font-weight:600;
   border-bottom:1px solid var(--line);cursor:pointer;white-space:nowrap}
 th:hover{color:var(--blue)}
 th:first-child,td:first-child{text-align:left}
-td{padding:8px 6px;border-bottom:1px solid var(--line-soft);text-align:right;
+td{padding:8px 5px;border-bottom:1px solid var(--line-soft);text-align:right;
   white-space:nowrap;font-family:var(--data);font-size:11.5px}
 /* The space name is the one column allowed to wrap. Letting it run on one line
    pushed the Call column — the actual verdict — off the right edge. */
 td:first-child{font-family:var(--ui);font-weight:600;color:var(--ink);
-  white-space:normal;min-width:172px;line-height:1.35}
+  white-space:normal;min-width:148px;line-height:1.35}
 tr.row{cursor:pointer}
 tr.row:hover td{background:var(--sunk)}
 tr.sel td{background:var(--blue-tint)}
 
 /* ── Call badges — identical tints to the agent page ────────────────────── */
-.badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:9.5px;
+.badge{display:inline-block;padding:2px 6px;border-radius:3px;font-size:9px;
   font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;
   font-family:var(--ui)}
 .b-pri{background:var(--green-tint);color:var(--green)}
@@ -172,8 +173,19 @@ tr.sel td{background:var(--blue-tint)}
 .flat{color:var(--faint)}
 svg text{font-size:10px;fill:var(--faint);font-family:var(--ui)}
 
-.scrollx{overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}
-.scrollx table{min-width:790px}
+.scrollx{overflow-x:auto;width:100%;min-width:0;-webkit-overflow-scrolling:touch}
+.scrollx table{min-width:0}
+
+/* The verdict column is the point of this table, so it must never be the one
+   that falls off. On narrower screens the two tie-breaker columns — Adj prize,
+   then Score — drop out instead, and Call survives to the smallest laptop. */
+@media (max-width:1500px){
+  .ranktbl th:nth-child(9), .ranktbl td:nth-child(9){display:none}
+}
+@media (max-width:1330px){
+  .ranktbl th:nth-child(10), .ranktbl td:nth-child(10){display:none}
+  aside.controls{flex:0 0 208px}
+}
 .readnote{margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft);max-width:74ch}
 .readnote h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--faint);margin:0 0 8px}
@@ -188,20 +200,51 @@ svg text{font-size:10px;fill:var(--faint);font-family:var(--ui)}
 :focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-@media(max-width:1100px){
-  body{background:var(--bg);display:block}
-  .rail{position:static;height:auto;width:100%;flex:auto;
-    background:var(--rail);flex-direction:row;align-items:center;gap:8px;overflow-x:auto}
-  .mark{border-bottom:0;padding:12px 14px}
-  .mark .wm{display:none}
-  nav{display:flex;padding:0;flex:0 0 auto}
-  nav a{border-left:0;border-bottom:3px solid transparent;white-space:nowrap}
-  nav a.on{border-left-color:transparent;border-bottom-color:var(--vivid)}
-  .rail-foot{display:none}
+/* ── Tablet ─────────────────────────────────────────────────────────────── */
+@media (max-width:1200px){
   .wrap{flex-direction:column}
   aside.controls{position:static;flex:auto;width:100%}
+  main{width:100%}
   .grid2{grid-template-columns:1fr}
-  .trackers{gap:16px}
+}
+
+/* ── Phone ────────────────────────────────────────────────────────────────
+   Same treatment as the agent page: the rail becomes a scrolling tab strip,
+   the trackers a 2-up grid, and the wide tables keep their own horizontal
+   scroll rather than stretching the page behind them. */
+@media (max-width:760px){
+  html,body{max-width:100%;overflow-x:hidden}
+  body{flex-direction:column;background:var(--bg)}
+  .rail{flex:0 0 auto;height:auto;position:sticky;top:0;z-index:20;
+    flex-direction:column;align-items:stretch;gap:0;overflow:visible}
+  .mark{border-bottom:1px solid var(--rail-line);padding:10px 14px;
+    display:flex;align-items:baseline;gap:9px}
+  .mark b{font-size:14px}
+  .mark i{margin-top:0;font-size:8.5px;letter-spacing:.16em}
+  .mark .wm,.rail-foot{display:none}
+  nav{display:flex;padding:0;flex:0 0 auto;
+    overflow-x:auto;-webkit-overflow-scrolling:touch}
+  nav a{border-left:0;border-bottom:3px solid transparent;white-space:nowrap;
+    padding:10px 14px;font-size:12px}
+  nav a.on{border-left:0;border-bottom-color:var(--vivid)}
+  nav a .ic{display:none}
+
+  .topbar{padding:12px 14px 0;position:static}
+  .title-row h1{font-size:18px}
+  .title-row p{font-size:11.5px}
+  .tb-right{margin-left:0;width:100%;margin-top:8px}
+  .status{gap:12px;padding:11px 0}
+  .active{width:100%;font-size:13px;flex-wrap:wrap;gap:6px}
+  .active .lbl{width:100%}
+  .trackers{margin-left:0;width:100%;display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px}
+  .trk{min-width:0}
+
+  .wrap{padding:12px 14px 24px;gap:12px}
+  .card{padding:13px}
+  .tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+  .tab{padding:8px 9px;font-size:11px;justify-content:center}
+  .readnote{max-width:none}
 }
 </style></head><body>
 
@@ -354,7 +397,7 @@ function rankTable(rows){
     ["leader","Leader%"],["cip_sh","Cipla%"],["ach","Achv%"],["prize","Prize ₹Cr"],
     ["adj","Adj prize"],["score","Score"],["call","Call"]];
   const mx=Math.max(...rows.map(r=>r.adj||0),1);
-  return `<div class="scrollx"><table><thead><tr>${cols.map(c=>`<th data-s="${c[0]}">${c[1]}</th>`).join("")}</tr></thead><tbody>
+  return `<div class="scrollx"><table class="ranktbl"><thead><tr>${cols.map(c=>`<th data-s="${c[0]}">${c[1]}</th>`).join("")}</tr></thead><tbody>
   ${rows.map(r=>`<tr class="row ${S.sel===r.key?'sel':''}" data-k="${r.key}">
     <td><b>${r.key}</b> ${DATA.labels[r.key]||r.space}</td>
     <td>${fmt(r.m26)}</td>
@@ -362,7 +405,7 @@ function rankTable(rows){
     <td class="${sgn((r.volume||0)-DATA.meta.vol)}">${fmt(r.volume,1)}%</td>
     <td>${fmt(r.leader,1)}</td><td>${fmt(r.cip_sh,2)}</td><td>${fmt(r.ach*100,1)}</td>
     <td><b>${fmt(r.prize)}</b></td>
-    <td><span class="bar" style="width:42px"><i style="width:${Math.max(2,r.adj/mx*100)}%"></i></span> ${fmt(r.adj)}</td>
+    <td><span class="bar" style="width:34px"><i style="width:${Math.max(2,r.adj/mx*100)}%"></i></span> ${fmt(r.adj)}</td>
     <td>${fmt(r.score,1)}</td>
     <td><span class="badge ${BADGE[r.call]}">${r.call}</span></td></tr>`).join("")}
   </tbody></table></div>
