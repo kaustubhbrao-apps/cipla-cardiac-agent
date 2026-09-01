@@ -234,6 +234,15 @@
   "retracted": false
  },
  {
+  "entry_id": "a2-absent",
+  "kind": "team",
+  "title": "Why there is no A2 \u2014 the one archetype that holds nothing",
+  "tags": "a2 antiplatelet antiplatelets aspirin clopidogrel ticagrelor prasugrel monotherapy missing empty absent gap why no a2 skipped numbering b01 antithrombotic scope taxonomy",
+  "body": "A2 Antiplatelet-led Prevention is defined in our taxonomy and holds ZERO SKUs. The reason is the dataset's scope, not anything about the Indian market. The case file carries 14 drug groups and every one is C01, C02 or C10 \u2014 cardiac therapy, antihypertensives, lipid modifiers. There is no B01 antithrombotic group, and none of the 15 CARDIAC SUB SEGMENTS is an antiplatelet category. Searched across molecule name AND subgroup text for every spelling (aspirin, asprin, ASA, acetylsalicylic, clopidogrel, clopidgrl, clopid, ticagrelor, prasugrel), 837 SKUs worth Rs 2,894 Cr mention an antiplatelet and NOT ONE of them is a single molecule \u2014 all 22 distinct antiplatelet molecules in the file are combinations. Plain aspirin, plain clopidogrel, ticagrelor and prasugrel return zero rows. So every antiplatelet in this data is an INGREDIENT inside a statin combination, filed under C10A STATINS / 'Statins Comb.', which our classifier routes to A1 Secondary Prevention. A2 could never populate, because the products that would fill it are outside the file. DO NOT SAY the empty A2 shows that antiplatelet monotherapy has been absorbed into fixed-dose combinations, or that it validates the FDC shift. That is a claim about the market, and this dataset cannot support it either way \u2014 the category is missing from the data, which tells you nothing about prescribing. The correct answer is a scope statement: we cannot size antiplatelet monotherapy from this file, and every antiplatelet we can see is already inside a combination. Implementation note if anyone reads the code: the ANTIPLATELET pattern keys on 'ASPIRIN' rather than 'ACETYLSALICYLIC', and works because IQVIA's SUBGROUP codes spell it out (C10A0A ATORVA + ASPIRIN). 832 of the 837 land in A1. The other 5 are Rs 4.15 Cr of aspirin polypills and aspirin+nitrate; Rs 4.15 Cr of that sits in a locked molecule and Rs 0.00 Cr is addressable, so no published pool moves by a rupee.",
+  "source": "Case dataset column and molecule audit, verified 2 Sep 2026",
+  "retracted": false
+ },
+ {
   "entry_id": "acceleration",
   "kind": "team",
   "title": "Year-on-year, not two-year average \u2014 what is accelerating and what is fading",
