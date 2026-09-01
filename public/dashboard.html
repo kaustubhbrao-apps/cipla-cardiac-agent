@@ -1,162 +1,251 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cipla Cardiac Opportunity Agent</title>
-<link rel="stylesheet" href="theme.css">
 <style>
-*{box-sizing:border-box}
-:root{--bg:var(--clay);--pan:var(--clay);--pan2:var(--clay);--brd:var(--edge);
- --mut:var(--dim);--ac:var(--green);--ac2:var(--green-vivid);
- --warn:var(--amber);--bad:var(--red);--good:var(--green)}
+/* ═══════════════════════════════════════════════════════════════════════════
+   CIPLA CARDIAC AGENT · Model Workbench
 
-body{margin:0;font-size:14px;line-height:1.5}
-header{background:linear-gradient(90deg,#0D2648,#08192F);border-bottom:1px solid var(--brd);
- padding:14px 22px;display:flex;gap:20px;align-items:center;flex-wrap:wrap;position:sticky;top:0;z-index:20}
-h1{font-size:17px;margin:0;letter-spacing:.4px}
-h1 span{color:var(--ac2);font-weight:400}
-.kpis{display:flex;gap:18px;margin-left:auto;flex-wrap:wrap}
-.kpi{text-align:right}.kpi b{display:block;font-size:15px;color:var(--ac2)}
-.kpi span{font-size:10.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.6px}
-.wrap{display:flex;gap:18px;padding:18px 22px 60px;align-items:flex-start;max-width:1700px;margin:0 auto}
-aside{flex:0 0 280px;position:sticky;top:74px}
-.card{background:var(--pan);border:1px solid var(--brd);border-radius:10px;padding:14px 16px;margin-bottom:14px}
-.card h3{margin:0 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--ac2)}
-label{display:block;font-size:11.5px;color:var(--mut);margin:11px 0 3px;display:flex;justify-content:space-between}
-label b{color:var(--ink);font-weight:600}
-input[type=range]{width:100%;accent-color:var(--ac);margin:0}
-select{width:100%;background:var(--pan2);color:var(--ink);border:1px solid var(--brd);
- border-radius:6px;padding:6px 8px;font-size:12.5px}
-button{background:var(--ac);color:#04211f;border:0;border-radius:6px;padding:7px 12px;
- font-weight:700;cursor:pointer;font-size:12px;width:100%;margin-top:10px}
-button.ghost{background:transparent;color:var(--mut);border:1px solid var(--brd)}
-main{flex:1;min-width:0}
-.note{background:var(--pan2);border-left:3px solid var(--ac);border-radius:0 8px 8px 0;
- padding:10px 14px;font-size:12.5px;color:var(--mut);margin-bottom:14px}
-table{width:100%;border-collapse:collapse;font-size:12.5px}
-th{text-align:right;padding:8px 9px;color:var(--mut);font-size:10.5px;text-transform:uppercase;
- letter-spacing:.7px;border-bottom:1px solid var(--brd);cursor:pointer;white-space:nowrap}
-th:first-child,td:first-child{text-align:left}
-td{padding:9px;border-bottom:1px solid #1e2531;text-align:right;white-space:nowrap}
-tr.row{cursor:pointer}tr.row:hover td{background:var(--pan2)}
-tr.sel td{background:#0f2e2e}
-.badge{display:inline-block;padding:2px 8px;border-radius:11px;font-size:10.5px;font-weight:700;white-space:nowrap}
-.b-pri{background:#0b3b3b;color:#7bd8d8;border:1px solid #1f6b6b}
-.b-def{background:#33290b;color:#e8c37d;border:1px solid #6b551f}
-.b-opt{background:#12304a;color:#8ec5f0;border:1px solid #1f4d6b}
-.b-har{background:#2a2a2a;color:#b9b9b9;border:1px solid #444}
-.b-avo{background:#3a1613;color:#f0a29c;border:1px solid #6b2420}
-.b-sel{background:#2b1440;color:#c9a2f0;border:1px solid #5a2d80}
-.bar{height:5px;background:#233;border-radius:3px;overflow:hidden;min-width:52px;display:inline-block;vertical-align:middle}
-.bar i{display:block;height:100%;background:var(--ac)}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.mini{font-size:11.5px;color:var(--mut)}
-.pill{display:inline-block;background:var(--pan2);border:1px solid var(--brd);border-radius:20px;
- padding:3px 10px;font-size:11px;margin:2px 3px 2px 0}
-.up{color:var(--good)}.dn{color:var(--bad)}.flat{color:var(--mut)}
-svg text{font-size:10px;fill:var(--mut)}
-.tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
-.tab{padding:6px 13px;border-radius:7px;background:var(--pan);border:1px solid var(--brd);
- cursor:pointer;font-size:12.5px;color:var(--mut)}
-.tab.on{background:var(--ac);color:#04211f;font-weight:700;border-color:var(--ac)}
-@media(max-width:1100px){.wrap{flex-direction:column}aside{position:static;flex:auto;width:100%}
- .grid2{grid-template-columns:1fr}}
+   Same design system as index.html, deliberately: this is the same instrument
+   with its cover off, so it uses that page's tokens, chrome and components
+   rather than a language of its own. Left rail, white topbar over a cool
+   ground, flat bordered cards with one soft shadow, tinted status colours.
 
-/* ── Industrial soft UI — matches the agent page ─────────────────────────── */
-body{background:var(--bg);position:relative}
-header{background:var(--bg)!important;border-bottom:0!important;
- box-shadow:0 8px 18px var(--hi)}
-h1{color:var(--blue)!important;text-shadow:0 1px 0 rgba(255,255,255,.75)}
-.card,.tab,table,.kpi{border-radius:16px}
-.card{background:var(--pan);box-shadow:var(--out);border:1.5px solid var(--edge);padding:16px 18px}
-.card h3{color:var(--blue)}
-.kpi b{color:var(--blue)}
-.tab{background:none;box-shadow:var(--out-sm);border:1.5px solid var(--edge);color:var(--mut);
- padding:9px 15px;min-height:44px;display:inline-flex;align-items:center;
- transition:all .2s cubic-bezier(.4,0,.2,1)}
-.tab:hover{box-shadow:var(--out)}
-.tab:active{transform:translateY(2px);box-shadow:var(--in-sm)}
-.tab.on{background:var(--ac2);color:#14300A;font-weight:800;border-color:var(--edge)}
-th{color:var(--mut);border-bottom:1.5px solid var(--edge)}
-td{border-bottom:1px solid rgba(11,20,32,.12)}
-tr.row:hover td{background:rgba(11,77,162,.06)}
-tr.sel td{background:rgba(141,198,63,.16)}
-input[type=range]{accent-color:var(--ac2)}
-select,button{border-radius:12px;min-height:44px}
-select{background:var(--pan);color:var(--ink);border:1.5px solid var(--edge);box-shadow:var(--in-sm)}
-button{background:var(--ac2);color:#14300A;border:1.5px solid var(--edge);font-weight:800;
- box-shadow:var(--out-sm);transition:all .2s cubic-bezier(.4,0,.2,1)}
-button:active{transform:translateY(2px);box-shadow:var(--in-sm)}
-button.ghost{background:none;color:var(--mut);box-shadow:var(--out-sm)}
-.badge{border-radius:11px;font-weight:800;border:1.5px solid var(--edge)}
-/* Badges take their ink from the theme tokens, so they stay legible in both.
-   Hardcoding a dark green here made PRIORITY invisible on the dark ground. */
-.b-pri{background:rgba(141,198,63,.20);color:var(--green)}
-.b-def{background:rgba(138,88,0,.16);color:var(--amber)}
-.b-opt{background:rgba(11,77,162,.14);color:var(--blue)}
-.b-har{background:rgba(109,130,163,.16);color:var(--dim)}
-.b-avo{background:rgba(196,36,28,.15);color:var(--red)}
-.b-con{background:rgba(11,77,162,.16);color:var(--blue)}
-.b-sel{background:rgba(11,77,162,.12);color:var(--blue)}
-.up{color:var(--good);font-weight:700}.dn{color:var(--bad);font-weight:700}
-.bar{background:rgba(11,20,32,.14);border-radius:4px}
-.bar i{background:var(--ac2)}
-.note{background:none;border-left:3px solid var(--ac2);box-shadow:var(--in-sm);
- border-radius:0 12px 12px 0;color:var(--mut)}
-.pill{border-radius:20px;box-shadow:var(--out-sm);border:1.5px solid var(--edge);background:none}
-svg text{fill:var(--mut)}
-.loadfail{padding:40px 22px;max-width:60ch}
-.loadfail h2{font-family:var(--display);color:var(--red);font-size:19px;margin:0 0 8px}
-.loadfail p{font-family:var(--prose);color:var(--dim);line-height:1.6}
-.loadfail code{font-family:var(--data);font-size:12px;color:var(--ink)}
+   Colour is functional, never decorative:
+     Cipla blue    structure, chrome, the model itself
+     leaf green    priority, gain, live
+     red           avoid, loss, degraded
+     amber         selective, caution
+   Type is system-resident on purpose: the venue may be offline, and a webfont
+   that fails to load would wreck the demo.
+   ═══════════════════════════════════════════════════════════════════════════ */
 
-/* explanatory note under the ranking — the table cannot answer "why prize and
-   not score" on its own, and that is the first thing anyone senior asks */
-.readnote{margin-top:22px;padding:16px 18px;border-radius:var(--r-lg);
-  box-shadow:var(--in-sm);border:1.5px solid var(--edge);max-width:78ch}
-.readnote h4{margin:0 0 8px;font-family:var(--label);font-size:11px;letter-spacing:1.2px;
-  text-transform:uppercase;color:var(--blue)}
-.readnote p{margin:0 0 9px;font-family:var(--prose);font-size:13.5px;line-height:1.62;color:var(--dim)}
-.readnote p b{color:var(--ink)}
-.readnote .src{font-family:var(--data);font-size:10.5px;letter-spacing:.2px;color:var(--faint);margin:0}
-
-@media (max-width:760px){
- header{padding:11px 14px;gap:10px}
- .wrap{flex-direction:column;padding:14px}
- aside{position:static;width:100%;flex:auto}
- .kpis{gap:10px}
- table{font-size:11.5px}
- th,td{padding:7px 5px}
+/* ── Tokens: copied from index.html verbatim. One committed light palette —
+      an instrument shown on a projector and a judge's laptop wants a single
+      predictable ground, not a theme that follows the venue machine. ── */
+:root{
+  --blue:#0B4DA2; --blue-dk:#083A7A; --blue-soft:#5B8AC7; --blue-tint:#EAF1FA;
+  --green:#3C6E14; --vivid:#8DC63F; --green-tint:#EFF6E3;
+  --red:#C4241C;   --red-tint:#FBEDEC;
+  --amber:#8A5800; --amber-tint:#FAF2E2; --amber-fill:#E3A11F;
+  --ink:#0F2340;   --dim:#4A6285;  --faint:#7E90A8;
+  --bg:#EFF4F9;    --card:#FFFFFF; --sunk:#F5F8FC;
+  --line:#D8E3F0;  --line-soft:#E8EFF7;
+  --rail:#0B2E5E;  --rail-ink:#DCE8F7; --rail-dim:#8FAAD0; --rail-line:#1B4380;
+  --shadow:0 1px 2px rgba(15,35,64,.05),0 6px 18px rgba(15,35,64,.06);
+  --data:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 
-/* range controls: a recessed groove with a raised thumb */
-input[type=range]{-webkit-appearance:none;appearance:none;background:transparent;height:22px}
-input[type=range]::-webkit-slider-runnable-track{height:7px;border-radius:4px;
- background:var(--pan);box-shadow:var(--in-sm);border:1px solid var(--edge)}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
- width:18px;height:18px;border-radius:50%;background:var(--ac2);border:1.5px solid var(--edge);
- box-shadow:var(--out-sm);margin-top:-7px;cursor:pointer}
-input[type=range]:active::-webkit-slider-thumb{box-shadow:var(--in-sm)}
-input[type=range]::-moz-range-track{height:7px;border-radius:4px;background:var(--pan);
- box-shadow:var(--in-sm);border:1px solid var(--edge)}
-input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;
- background:var(--ac2);border:1.5px solid var(--edge);box-shadow:var(--out-sm);cursor:pointer}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;color:var(--ink);font-family:var(--ui);
+  background:linear-gradient(to right,var(--rail) 0 208px,var(--bg) 208px);
+  font-size:13.5px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  font-variant-numeric:tabular-nums;display:flex}
+h1,h2,h3,h4{margin:0;font-weight:700;text-wrap:balance}
 
-/* type: condensed for stamped labels, mono for figures — matches the agent page */
-h1{font-family:var(--label);letter-spacing:.06em}
-th,.kpi span,.card h3,.tab,.badge,button,.mini{font-family:var(--label);letter-spacing:.1em}
-th{font-size:10.5px;letter-spacing:.13em}
-.kpi span{font-size:10px;letter-spacing:.15em}
-.card h3{font-size:12.5px;letter-spacing:.16em}
-.badge{font-size:11px;letter-spacing:.09em}
-td,.kpi b{font-family:var(--data)}
-td:first-child{font-family:"Avenir Next",system-ui,sans-serif}
+/* ── Left rail ──────────────────────────────────────────────────────────── */
+.rail{flex:0 0 208px;background:var(--rail);color:var(--rail-ink);
+  display:flex;flex-direction:column;height:100vh;position:sticky;top:0;overflow-y:auto}
+.mark{padding:18px 18px 15px;border-bottom:1px solid var(--rail-line)}
+.mark b{display:block;font-size:16px;letter-spacing:-.01em;color:#fff}
+.mark i{display:block;font-style:normal;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--rail-dim);margin-top:5px}
+.mark .wm{display:inline-block;margin-top:11px;font-size:9px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--vivid);border:1px solid var(--rail-line);
+  border-radius:3px;padding:3px 7px}
+nav{padding:10px 0;flex:1}
+nav a{display:flex;align-items:center;gap:10px;padding:9px 18px;color:var(--rail-dim);
+  text-decoration:none;font-size:12.5px;border-left:3px solid transparent;cursor:pointer}
+nav a .ic{width:14px;text-align:center;opacity:.8;font-size:12px}
+nav a:hover{color:var(--rail-ink);background:rgba(255,255,255,.04)}
+nav a.on{color:#fff;background:rgba(255,255,255,.07);border-left-color:var(--vivid);font-weight:600}
+nav a:focus-visible{outline:2px solid var(--vivid);outline-offset:-2px}
+.rail-foot{padding:14px 18px;border-top:1px solid var(--rail-line);font-size:10px;
+  color:var(--rail-dim);line-height:1.55}
+.rail-foot b{color:var(--rail-ink);font-weight:600}
+
+/* ── Shell + topbar ─────────────────────────────────────────────────────── */
+.shell{flex:1;min-width:0;display:flex;flex-direction:column}
+.topbar{background:var(--card);border-bottom:1px solid var(--line);padding:14px 22px 0;
+  position:sticky;top:0;z-index:20}
+.title-row{display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.title-row h1{font-size:22px;letter-spacing:-.02em;color:var(--ink)}
+.title-row p{margin:3px 0 0;color:var(--blue);font-size:12.5px;font-weight:500}
+.tb-right{margin-left:auto;display:flex;gap:8px;align-items:center}
+.iconbtn{background:var(--sunk);border:1px solid var(--line);color:var(--dim);
+  border-radius:6px;padding:6px 11px;font:inherit;font-size:11.5px;cursor:pointer;
+  text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.iconbtn:hover{border-color:var(--blue-soft);color:var(--blue)}
+.iconbtn:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+
+/* status strip — same grammar as the agent page */
+.status{display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+  padding:12px 0 13px;border-top:1px solid var(--line-soft);margin-top:13px}
+.active{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600}
+.active .lbl{font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--faint);font-weight:600}
+.trackers{margin-left:auto;display:flex;gap:26px;flex-wrap:wrap}
+.trk{min-width:104px}
+.trk .k{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);
+  font-weight:600;display:block;margin-bottom:4px}
+.trk .v{font-family:var(--data);font-size:12.5px;font-weight:600;color:var(--ink)}
+
+/* ── Layout ─────────────────────────────────────────────────────────────── */
+.wrap{display:flex;gap:14px;padding:16px 22px 40px;align-items:flex-start;flex:1}
+aside.controls{flex:0 0 238px;position:sticky;top:150px}
+main{flex:1;min-width:0}
+
+/* ── Cards ──────────────────────────────────────────────────────────────── */
+.card{background:var(--card);border:1px solid var(--line);border-radius:9px;
+  padding:15px 16px;box-shadow:var(--shadow);margin-bottom:14px}
+.card h3{font-size:13.5px;letter-spacing:-.005em;color:var(--ink);margin:0 0 12px;
+  text-transform:none}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* ── Controls ───────────────────────────────────────────────────────────── */
+label{display:flex;justify-content:space-between;gap:8px;font-size:11px;
+  color:var(--faint);margin:12px 0 5px;letter-spacing:.04em;font-weight:600}
+label b{color:var(--ink);font-weight:700;font-family:var(--data);letter-spacing:0}
+select{width:100%;background:var(--sunk);color:var(--ink);border:1px solid var(--line);
+  border-radius:6px;padding:7px 9px;font:inherit;font-size:12px}
+select:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+input[type=range]{width:100%;margin:2px 0 0;accent-color:var(--blue);height:18px}
+button{background:var(--blue);color:#fff;border:1px solid var(--blue);border-radius:6px;
+  padding:8px 12px;font:inherit;font-size:11.5px;font-weight:600;cursor:pointer;
+  width:100%;margin-top:12px}
+button:hover{background:var(--blue-dk);border-color:var(--blue-dk)}
+button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+button.ghost{background:var(--sunk);color:var(--dim);border-color:var(--line)}
+button.ghost:hover{background:var(--card);border-color:var(--blue-soft);color:var(--blue)}
+
+/* ── Tabs — the agent page's picker chips ───────────────────────────────── */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tab{border:1px solid var(--line);background:var(--card);color:var(--dim);
+  border-radius:6px;padding:6px 11px;font:inherit;font-size:11.5px;cursor:pointer;
+  display:flex;align-items:center;gap:7px}
+.tab:hover{border-color:var(--blue-soft)}
+.tab:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.tab.on{border-color:var(--blue);background:var(--blue-tint);color:var(--blue);font-weight:600}
+
+/* ── Tables ─────────────────────────────────────────────────────────────── */
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:right;padding:7px 6px;color:var(--faint);font-size:9.5px;
+  text-transform:uppercase;letter-spacing:.13em;font-weight:600;
+  border-bottom:1px solid var(--line);cursor:pointer;white-space:nowrap}
+th:hover{color:var(--blue)}
+th:first-child,td:first-child{text-align:left}
+td{padding:8px 6px;border-bottom:1px solid var(--line-soft);text-align:right;
+  white-space:nowrap;font-family:var(--data);font-size:11.5px}
+/* The space name is the one column allowed to wrap. Letting it run on one line
+   pushed the Call column — the actual verdict — off the right edge. */
+td:first-child{font-family:var(--ui);font-weight:600;color:var(--ink);
+  white-space:normal;min-width:172px;line-height:1.35}
+tr.row{cursor:pointer}
+tr.row:hover td{background:var(--sunk)}
+tr.sel td{background:var(--blue-tint)}
+
+/* ── Call badges — identical tints to the agent page ────────────────────── */
+.badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:9.5px;
+  font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;
+  font-family:var(--ui)}
+.b-pri{background:var(--green-tint);color:var(--green)}
+.b-con{background:var(--amber-tint);color:var(--amber)}
+.b-def{background:var(--amber-tint);color:var(--amber)}
+.b-sel{background:var(--amber-tint);color:var(--amber)}
+.b-opt{background:var(--blue-tint);color:var(--blue)}
+.b-har{background:var(--sunk);color:var(--dim)}
+.b-avo{background:var(--red-tint);color:var(--red)}
+
+/* ── Bars, pills, notes ─────────────────────────────────────────────────── */
+.bar{height:4px;background:var(--line);border-radius:2px;overflow:hidden;
+  min-width:52px;display:inline-block;vertical-align:middle}
+.bar i{display:block;height:100%;border-radius:2px;background:var(--blue)}
+.mini{font-size:11.5px;color:var(--dim);line-height:1.55}
+.pill{display:inline-block;background:var(--sunk);border:1px solid var(--line-soft);
+  border-radius:4px;padding:3px 9px;font-size:11px;margin:2px 3px 2px 0;color:var(--dim)}
+.note{background:var(--blue-tint);border-left:3px solid var(--blue);
+  border-radius:0 6px 6px 0;padding:10px 14px;font-size:12px;color:var(--dim);
+  margin-bottom:14px}
+.up{color:var(--green);font-weight:700}
+.dn{color:var(--red);font-weight:700}
+.flat{color:var(--faint)}
+svg text{font-size:10px;fill:var(--faint);font-family:var(--ui)}
+
+.scrollx{overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}
+.scrollx table{min-width:790px}
+.readnote{margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft);max-width:74ch}
+.readnote h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--faint);margin:0 0 8px}
+.readnote p{margin:0 0 9px;font-size:12.5px;color:var(--dim);line-height:1.6}
+.readnote b{color:var(--ink);font-weight:600}
+
+.loadfail{padding:40px 22px;max-width:60ch}
+.loadfail h2{color:var(--red);font-size:19px;margin:0 0 8px}
+.loadfail p{color:var(--dim);line-height:1.6}
+.loadfail code{font-family:var(--data);font-size:12px;color:var(--ink)}
+
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+@media(max-width:1100px){
+  body{background:var(--bg);display:block}
+  .rail{position:static;height:auto;width:100%;flex:auto;
+    background:var(--rail);flex-direction:row;align-items:center;gap:8px;overflow-x:auto}
+  .mark{border-bottom:0;padding:12px 14px}
+  .mark .wm{display:none}
+  nav{display:flex;padding:0;flex:0 0 auto}
+  nav a{border-left:0;border-bottom:3px solid transparent;white-space:nowrap}
+  nav a.on{border-left-color:transparent;border-bottom-color:var(--vivid)}
+  .rail-foot{display:none}
+  .wrap{flex-direction:column}
+  aside.controls{position:static;flex:auto;width:100%}
+  .grid2{grid-template-columns:1fr}
+  .trackers{gap:16px}
+}
 </style></head><body>
-<header>
-  <button class="btn" id="theme" title="Switch light or dark" aria-label="Switch theme" style="margin-right:10px">◐</button>
-<a class="btn" href="/" style="margin-right:16px">&larr; Ask the agent</a><h1>CIPLA CARDIAC OPPORTUNITY AGENT <span>· Ascend Season 4</span></h1>
-  <div class="kpis" id="kpis"></div>
-</header>
+
+<aside class="rail">
+  <div class="mark">
+    <b>Cipla Cardiac</b>
+    <i>Opportunity Agent</i>
+    <span class="wm">Team JK &middot; XLRI</span>
+  </div>
+  <nav>
+    <a href="/"><span class="ic">&#9635;</span>Decision Hub</a>
+    <a href="/#funnel"><span class="ic">&#9663;</span>Screening Funnel</a>
+    <a href="/#ladder"><span class="ic">&#9636;</span>Prize Ladder</a>
+    <a href="/#ask"><span class="ic">&#9672;</span>Ask the Agent</a>
+    <a class="on" aria-current="page"><span class="ic">&#9881;</span>Model Workbench</a>
+  </nav>
+  <div class="rail-foot">
+    <b id="rf-skus">7,452</b> SKU records &middot; <b id="rf-co">279</b> companies<br>
+    MAT Feb'24 to Feb'26<br>
+    <span style="color:var(--vivid)">Figures computed, never generated.</span>
+  </div>
+</aside>
+
+<div class="shell">
+  <div class="topbar">
+    <div class="title-row">
+      <div>
+        <h1>Model Workbench</h1>
+        <p>Re-run the agent's own parameters and watch the ranking move</p>
+      </div>
+      <div class="tb-right">
+        <a class="iconbtn" href="/">&larr; Ask the agent</a>
+      </div>
+    </div>
+    <div class="status">
+      <div class="active">
+        <span class="lbl">Base case</span>
+        <span>lock 70% &middot; ceiling 8% &middot; bar 12.2%</span>
+      </div>
+      <div class="trackers" id="kpis"></div>
+    </div>
+  </div>
 <div class="wrap">
-<aside>
+<aside class="controls">
   <div class="card">
     <h3>Agent parameters</h3>
     <label>Addressability lock <b id="vLock">70%</b></label>
@@ -193,6 +282,7 @@ td:first-child{font-family:"Avenir Next",system-ui,sans-serif}
   <div id="panel"></div>
   <div id="detail"></div>
 </main>
+</div>
 </div>
 <script>let DATA = null;
 
@@ -256,7 +346,7 @@ function kpis(){
     [m.vol.toFixed(1)+"% / "+m.mix.toFixed(1)+"%","volume / mix"],
     [fmt(m.cipla)+" Cr","Cipla ("+m.ciplaShare.toFixed(2)+"%, #"+m.rank+")"],
     [fmt(L.lockedPct,1)+"%","locked out"]
-  ].map(k=>`<div class="kpi"><b>${k[0]}</b><span>${k[1]}</span></div>`).join("");
+  ].map(k=>`<div class="trk"><span class="k">${k[1]}</span><span class="v">${k[0]}</span></div>`).join("");
 }
 
 function rankTable(rows){
@@ -264,7 +354,7 @@ function rankTable(rows){
     ["leader","Leader%"],["cip_sh","Cipla%"],["ach","Achv%"],["prize","Prize ₹Cr"],
     ["adj","Adj prize"],["score","Score"],["call","Call"]];
   const mx=Math.max(...rows.map(r=>r.adj||0),1);
-  return `<table><thead><tr>${cols.map(c=>`<th data-s="${c[0]}">${c[1]}</th>`).join("")}</tr></thead><tbody>
+  return `<div class="scrollx"><table><thead><tr>${cols.map(c=>`<th data-s="${c[0]}">${c[1]}</th>`).join("")}</tr></thead><tbody>
   ${rows.map(r=>`<tr class="row ${S.sel===r.key?'sel':''}" data-k="${r.key}">
     <td><b>${r.key}</b> ${DATA.labels[r.key]||r.space}</td>
     <td>${fmt(r.m26)}</td>
@@ -272,10 +362,10 @@ function rankTable(rows){
     <td class="${sgn((r.volume||0)-DATA.meta.vol)}">${fmt(r.volume,1)}%</td>
     <td>${fmt(r.leader,1)}</td><td>${fmt(r.cip_sh,2)}</td><td>${fmt(r.ach*100,1)}</td>
     <td><b>${fmt(r.prize)}</b></td>
-    <td><span class="bar" style="width:60px"><i style="width:${Math.max(2,r.adj/mx*100)}%"></i></span> ${fmt(r.adj)}</td>
+    <td><span class="bar" style="width:42px"><i style="width:${Math.max(2,r.adj/mx*100)}%"></i></span> ${fmt(r.adj)}</td>
     <td>${fmt(r.score,1)}</td>
     <td><span class="badge ${BADGE[r.call]}">${r.call}</span></td></tr>`).join("")}
-  </tbody></table>
+  </tbody></table></div>
   <div class="readnote">
     <h4>Reading this table</h4>
     <p><b>Prize and Score answer different questions, and where they disagree we follow Prize.</b>
@@ -299,7 +389,7 @@ function decompPanel(rows){
   costlier combinations) + <b>price</b>. Only volume is durable over 3–5 years. Market-wide,
   just ${DATA.meta.vol.toFixed(1)} of ${DATA.meta.cagr.toFixed(1)} points is volume —
   <b>${Math.round(DATA.meta.mix/DATA.meta.cagr*100)}% of cardiac growth is patients upgrading, not new patients.</b></div>
-  <table><thead><tr><th>Opportunity space</th><th>Pool ₹Cr</th><th>Value</th><th>Volume</th>
+  <div class="scrollx"><table><thead><tr><th>Opportunity space</th><th>Pool ₹Cr</th><th>Value</th><th>Volume</th>
   <th>Mix</th><th>Price</th><th style="text-align:left;padding-left:16px">Composition</th><th>Read</th></tr></thead><tbody>
   ${rows.map(r=>{const w=x=>Math.max(0,(x||0))/mx*100;
     const read=(r.volume>8)?"volume-led — durable":(r.volume>4)?"volume-supported":
@@ -309,37 +399,37 @@ function decompPanel(rows){
     <td class="${sgn(r.volume)}">${fmt(r.volume,1)}%</td><td>${fmt(r.mix,1)}%</td>
     <td class="${sgn(r.price)}">${fmt(r.price,1)}%</td>
     <td style="text-align:left;padding-left:16px"><span class="bar" style="width:150px">
-      <i style="width:${w(r.volume)}%;background:#3fb950;float:left"></i>
-      <i style="width:${w(r.mix)}%;background:#e8a33d;float:left"></i>
-      <i style="width:${w(r.price)}%;background:#8ec5f0;float:left"></i></span></td>
-    <td style="text-align:left">${read}</td></tr>`}).join("")}</tbody></table>
+      <i style="width:${w(r.volume)}%;background:var(--vivid);float:left"></i>
+      <i style="width:${w(r.mix)}%;background:var(--amber-fill);float:left"></i>
+      <i style="width:${w(r.price)}%;background:var(--blue-soft);float:left"></i></span></td>
+    <td style="text-align:left">${read}</td></tr>`}).join("")}</tbody></table></div>
     <div class="mini" style="margin-top:8px">
-      <span class="pill"><span style="color:#3fb950">■</span> volume</span>
-      <span class="pill"><span style="color:#e8a33d">■</span> mix</span>
-      <span class="pill"><span style="color:#8ec5f0">■</span> price</span></div>`;
+      <span class="pill"><span style="color:var(--vivid)">■</span> volume</span>
+      <span class="pill"><span style="color:var(--amber-fill)">■</span> mix</span>
+      <span class="pill"><span style="color:var(--blue-soft)">■</span> price</span></div>`;
 }
 
 function matrixPanel(rows){
   const W=760,H=430,pad=52;
   const xs=rows.map(r=>r.score), ys=rows.map(r=>r.P_fit);
   const x0=Math.min(...xs)-4,x1=Math.max(...xs)+4,y0=Math.min(...ys)-6,y1=Math.max(...ys)+6;
-  const X=v=>pad+(v-x0)/(x1-x0)*(W-pad*1.4), Y=v=>H-pad-(v-y0)/(y1-y0)*(H-pad*1.6);
+  const X=v=>pad+(v-x0)/(x1-x0)*(W-pad*2.1), Y=v=>H-pad-(v-y0)/(y1-y0)*(H-pad*1.6);
   const mx=Math.max(...rows.map(r=>r.prize||0),1);
   const mxs=(x0+x1)/2, mys=(y0+y1)/2;
   return `<div class="note">Composite <b>score</b> (attractiveness + future + competition, weighted) against
   <b>right to win</b> (strategic fit pillar). Bubble area = prize Cipla can realistically win.
   Top-right is where to invest; bottom-right is a strong position in a weak pool.</div>
-  <svg viewBox="0 0 ${W} ${H}" style="width:100%;background:var(--pan);border:1px solid var(--brd);border-radius:10px">
-  <line x1="${X(mxs)}" y1="${pad-14}" x2="${X(mxs)}" y2="${H-pad}" stroke="#2a3242" stroke-dasharray="4 4"/>
-  <line x1="${pad-10}" y1="${Y(mys)}" x2="${W-16}" y2="${Y(mys)}" stroke="#2a3242" stroke-dasharray="4 4"/>
+  <svg viewBox="0 0 ${W} ${H}" style="width:100%;background:var(--card);border:1px solid var(--line);border-radius:10px">
+  <line x1="${X(mxs)}" y1="${pad-14}" x2="${X(mxs)}" y2="${H-pad}" stroke="var(--line)" stroke-dasharray="4 4"/>
+  <line x1="${pad-10}" y1="${Y(mys)}" x2="${W-16}" y2="${Y(mys)}" stroke="var(--line)" stroke-dasharray="4 4"/>
   <text x="${W-20}" y="${Y(mys)-8}" text-anchor="end">higher opportunity →</text>
   <text x="${pad-14}" y="${pad-20}" >↑ stronger right to win</text>
   ${rows.map(r=>{const rad=6+Math.sqrt((r.prize||0)/mx)*24;
     return `<g class="row" data-k="${r.key}" style="cursor:pointer">
       <circle cx="${X(r.score)}" cy="${Y(r.P_fit)}" r="${rad}"
-        fill="${r.call==='PRIORITY'?'var(--green-vivid)':r.call==='CONVERT'?'var(--blue)':r.call==='DEFEND'?'var(--amber)':r.call==='AVOID'?'var(--red)':'var(--faint)'}"
-        fill-opacity=".45" stroke="${S.sel===r.key?'#7bd8d8':'#0d1117'}" stroke-width="${S.sel===r.key?3:1.5}"/>
-      <text x="${X(r.score)}" y="${Y(r.P_fit)+4}" text-anchor="middle" fill="#e6edf3" font-weight="700">${r.key}</text>
+        fill="${r.call==='PRIORITY'?'var(--vivid)':r.call==='CONVERT'?'var(--blue)':r.call==='DEFEND'?'var(--amber)':r.call==='AVOID'?'var(--red)':'var(--faint)'}"
+        fill-opacity=".38" stroke="${S.sel===r.key?'var(--blue)':'#fff'}" stroke-width="${S.sel===r.key?3:1.5}"/>
+      <text x="${X(r.score)}" y="${Y(r.P_fit)+4}" text-anchor="middle" fill="var(--ink)" font-weight="700">${r.key}</text>
     </g>`}).join("")}
   <text x="${W/2}" y="${H-12}" text-anchor="middle">composite opportunity score →</text></svg>`;
 }
@@ -350,7 +440,7 @@ function signalsPanel(){
   ${DATA.signals.map(s=>`<div class="card" style="margin-bottom:10px">
     <div><span class="badge ${s.delta>0?'b-pri':'b-avo'}">${s.delta>0?'+':''}${s.delta}</span>
     <b style="margin-left:8px">${s.name}</b></div>
-    <div class="mini" style="margin-top:6px">applies to <code>/${s.pat}/</code></div>
+    <div class="mini" style="margin-top:7px">applies to ${(s.pat||"").split("|").map(t=>`<span class="pill">${t}</span>`).join("")}</div>
     <div class="mini">source: ${s.src}</div></div>`).join("")}`;
 }
 
@@ -375,7 +465,7 @@ function detailPanel(rows){
         <span class="pill">compete ${fmt(r.P_compete)}</span><span class="pill">fit ${fmt(r.P_fit)}</span></div>
       <div class="mini" style="margin-top:8px">achievable ${fmt(r.ach*100,1)}%
         = ceiling ${fmt(r.ceiling*100,1)}% × portfolio ${r.port.toFixed(2)} × momentum ${r.mom.toFixed(2)}</div>
-      <div style="margin-top:8px;font-size:15px"><b style="color:var(--ac2)">PRIZE ₹${fmt(r.prize)} Cr</b>
+      <div style="margin-top:8px;font-size:15px"><b style="color:var(--green)">PRIZE ₹${fmt(r.prize)} Cr</b>
         <span class="mini">= ${fmt(r.prizePct)}% of Cipla cardiac</span>
         <span class="badge ${BADGE[r.call]}" style="margin-left:8px">${r.call}</span></div>
       ${sig.length?`<div class="mini" style="margin-top:8px">signals: ${sig.map(s=>
@@ -384,7 +474,7 @@ function detailPanel(rows){
     <div>
       <div class="mini" style="margin-bottom:5px"><b>Competitors</b></div>
       <table style="font-size:11.5px"><tbody>
-      ${co.map(c=>`<tr><td style="text-align:left${c.isCipla?';color:var(--ac2);font-weight:700':''}">${c.name}</td>
+      ${co.map(c=>`<tr><td style="text-align:left${c.isCipla?';color:var(--green);font-weight:700':''}">${c.name}</td>
         <td>${fmt(c.sh,1)}%</td><td class="${sgn(c.mom)}">${c.mom>0?'+':''}${fmt(c.mom,1)}</td>
         <td class="mini">${c.mo}mol</td>
         <td class="mini" style="text-align:left">${c.mom>3&&c.vol>5?'gaining on demand':c.mom>3?'gaining on mix':c.mom>-3?'holding':'losing share'}${c.dep>70?'; 1-brand':''}</td></tr>`).join("")}
@@ -403,11 +493,11 @@ function recPanel(rows){
   if(!pri.length) return `<span class="mini">No space clears the bar at these settings.</span>`;
   const tot=pri.reduce((s,r)=>s+r.prize,0);
   return pri.map(r=>`<div style="margin-bottom:9px">
-    <b style="color:var(--ac2);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${r.key} · ${DATA.labels[r.key]}</b>
+    <b style="color:var(--green);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${r.key} · ${DATA.labels[r.key]}</b>
     <span class="mini">₹${fmt(r.m26)} Cr @ ${fmt(r.value,1)}% · leader ${fmt(r.leader,1)}% ·
     prize <b style="color:var(--ink)">₹${fmt(r.prize)} Cr</b></span></div>`).join("")
-    + `<div style="border-top:1px solid var(--brd);padding-top:8px;margin-top:6px">
-       Combined <b style="color:var(--ac2)">₹${fmt(tot)} Cr</b>
+    + `<div style="border-top:1px solid var(--line);padding-top:8px;margin-top:6px">
+       Combined <b style="color:var(--green)">₹${fmt(tot)} Cr</b>
        <span class="mini">on a ₹${fmt(DATA.meta.cipla)} Cr base (+${Math.round(tot/DATA.meta.cipla*100)}%)</span></div>`;
 }
 
@@ -470,8 +560,8 @@ render();
     if(bad.length){
       const el = document.createElement("div");
       el.style.cssText = "position:fixed;bottom:14px;right:14px;z-index:99;max-width:340px;"
-        + "background:var(--clay);border:1.5px solid var(--red);border-radius:var(--r-md);"
-        + "box-shadow:var(--out);padding:10px 13px;font-size:12px;color:var(--red)";
+        + "background:var(--card);border:1.5px solid var(--red);border-radius:6px;"
+        + "box-shadow:var(--shadow);padding:10px 13px;font-size:12px;color:var(--red)";
       el.textContent = "Engine disagrees with this view on: "
         + bad.map(r => r.key + " (engine " + r.call.split(" ")[0] + ", shown " + mine[r.key] + ")").join(", ");
       document.body.appendChild(el);
