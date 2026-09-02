@@ -95,7 +95,12 @@ def pick_tools(q):
                              "tier", "reserve", "realistic", "deliver", "promise",
                              # the four-verb strategy question quotes a build
                              # figure, so it must quote the committed one
-                             "double down", "build capabilit", "selective", "avoid")):
+                             "double down", "build capabilit", "selective", "avoid",
+                             # the displacement test lives in this payload, so any
+                             # question about rivals reacting has to reach it
+                             "competitor", "competitors", "rival", "retaliat",
+                             "who loses", "defend", "react", "fight back",
+                             "take share", "zero sum")):
         out["underwrite"] = t["underwrite"]
     if any(w in ql for w in ("wrong", "sensitiv", "robust", "assumption")):
         out["run_sensitivity"] = t["run_sensitivity"]
