@@ -100,7 +100,11 @@ def pick_tools(q):
                              # question about rivals reacting has to reach it
                              "competitor", "competitors", "rival", "retaliat",
                              "who loses", "defend", "react", "fight back",
-                             "take share", "zero sum")):
+                             "take share", "zero sum",
+                             # the execution scenarios answer "what if you are only
+                             # average", which the tiers deliberately do not cover
+                             "median", "average", "typical", "base case", "best case",
+                             "underperform", "fall short", "optimistic", "aggressive")):
         out["underwrite"] = t["underwrite"]
     if any(w in ql for w in ("wrong", "sensitiv", "robust", "assumption")):
         out["run_sensitivity"] = t["run_sensitivity"]
